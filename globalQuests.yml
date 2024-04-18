@@ -607,7 +607,7 @@ quests:
       - "&7Get &fone &7End Crystal."
     quest_type: GET
     required_item: END_CRYSTAL
-    required_amount: 8
+    required_amount: 1
     reward:
       reward_type: COMMAND
       commands:
