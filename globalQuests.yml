@@ -83,10 +83,10 @@ quests:
 
   # example quest that is using the BREED quest type
   5:
-    name: "&aMore sheeps !"
+    name: "&aMore sheep !"
     menu_item: WHITE_WOOL
     description:
-      - "&7Breed &ftwo &7sheeps."
+      - "&7Breed &ftwo &7sheep."
     quest_type: BREED
     required_entity: SHEEP
     required_amount: 2
@@ -544,6 +544,7 @@ quests:
     required_item:
      - DIAMOND_ORE
      - DEEPSLATE_DIAMOND_ORE
+    required_amount: 25
     required_worlds:
      - world
     reward:
