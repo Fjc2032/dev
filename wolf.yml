@@ -6,7 +6,7 @@ item:
   name: "{TIER-COLOR}&lWolf Pet &7[LVL {LEVEL}]"
   lore:
     - ''
-    - '&e&lPASSIVE'
+    - '&e&lACTIVATION'
     - '&7Use your soft fur to absorb lots of'
     - '&7damage and heal you!'
     - ''
