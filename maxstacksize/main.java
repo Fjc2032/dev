@@ -52,3 +52,16 @@ public class main extends JavaPlugin implements Listener {
 		this.getCommand("maxstacksize").setExecutor(new commands(this));
 		this.getCommand("maxstacksize").setTabCompleter(new tabcomplete(this));
 	}
+
+	//Stop script
+	@java.lang.Override
+	public void onDisable() {
+		this.resetAllStackSizes();
+		this.log.info("Maxstacksize successfully disabled.");
+	}
+	
+	//Perm denied console
+	public void permissionDenied(CommandSender sender) {
+		this.log.info(ChatColor.RED + "" + sender.getName() + " was denied access.");
+		
+	}
