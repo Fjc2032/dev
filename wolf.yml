@@ -1,0 +1,23 @@
+tier: "SPECIAL"
+cooldown: 5
+
+item:
+  skin: "69d1d3113ec43ac2961dd59f28175fb4718873c6c448dfca8722317d67"
+  name: "{TIER-COLOR}&lWolf Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Use your killer instincts to slay'
+    - '&7passive mobs in a single hit'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'DAMAGE'
+
+effects:
+  DAMAGE:
+    - 'KILL'
