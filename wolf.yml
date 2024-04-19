@@ -8,7 +8,7 @@ item:
     - ''
     - '&e&lACTIVATION'
     - '&7Use your soft fur to absorb lots of'
-    - '&7damage and heal you!'
+    - '&7damage and heal yourself!'
     - ''
     - '&e&lLevel: &e{LEVEL}'
     - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
