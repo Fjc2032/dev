@@ -1,5 +1,5 @@
-tier: "SPECIAL"
-cooldown: 5
+tier: "LEGENDARY"
+cooldown: 180
 
 item:
   skin: "69d1d3113ec43ac2961dd59f28175fb4718873c6c448dfca8722317d67"
@@ -7,8 +7,8 @@ item:
   lore:
     - ''
     - '&e&lPASSIVE'
-    - '&7Use your killer instincts to slay'
-    - '&7passive mobs in a single hit'
+    - '&7Use your soft fur to absorb lots of'
+    - '&7damage and heal you!'
     - ''
     - '&e&lLevel: &e{LEVEL}'
     - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
@@ -16,8 +16,9 @@ item:
 
 settings:
   levelup-methods:
-    - 'DAMAGE'
+    - 'INTERACT'
 
 effects:
-  DAMAGE:
-    - 'KILL'
+  INTERACT:
+    - 'POTION:REGENERATION:premade-equation:PLAYER:level*0.5'
+    - 'POTION:RESISTANCE:premade-equation:PLAYER:level*0.5'
