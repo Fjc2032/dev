@@ -20,5 +20,5 @@ settings:
 
 effects:
   INTERACT:
-    - 'POTION:ABSORPTION:premade-equation:PLAYER:level*5'
+    - 'POTION:ABSORPTION:premade-equation:PLAYER:level*0.5'
     - 'SOUND:BLOCK_ANVIL_PLACE:5:5:PLAYER'
