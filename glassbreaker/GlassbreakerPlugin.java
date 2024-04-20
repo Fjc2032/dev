@@ -1,7 +1,7 @@
-package com.Fjc.GlassbreakerPlugin.GlassbreakerPlugin
+package com.Fjc.InstantGlassBreak.InstantGlassBreak
 
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.spigot.plugin.java.JavaPlugin;
 
 public class GlassbreakerPlugin extends JavaPlugin implements Listener {
 	//Startup
