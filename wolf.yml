@@ -1,14 +1,13 @@
 tier: "LEGENDARY"
-cooldown: 90
+cooldown: 0
 
 item:
   skin: "69d1d3113ec43ac2961dd59f28175fb4718873c6c448dfca8722317d67"
   name: "{TIER-COLOR}&lWolf Pet &7[LVL {LEVEL}]"
   lore:
     - ''
-    - '&e&lACTIVATION'
-    - '&7Use your soft fur to absorb lots of'
-    - '&7damage!'
+    - '&e&lPASSIVE'
+    - '&7Swing your hands as fast as a wolf!'
     - ''
     - '&e&lLevel: &e{LEVEL}'
     - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
@@ -16,8 +15,9 @@ item:
 
 settings:
   levelup-methods:
-    - 'INTERACT'
+    - PASSIVE:false:5
 
 effects:
-  INTERACT:
-    - 'POTION:RESISTANCE:premade-equation:PLAYER:level*0.15'
+  PASSIVE:
+
+  'POTION:HASTE:premade-equation:PLAYER'
