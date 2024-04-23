@@ -33,7 +33,7 @@ public class main extends JavaPlugin implements Listener {
 	
 	
 	//Initilisation
-	java.lang.Override
+	@java.lang.Override
 	public void onEnable() {
 		this.log = this.getLogger();
 		this.log.info("Maxstacksize plugin is being initialised");
