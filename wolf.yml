@@ -7,7 +7,7 @@ item:
   lore:
     - ''
     - '&e&lPASSIVE'
-    - '&7Swing your hands as fast as a wolf!'
+    - '&7Gain the agility of a wolf!'
     - ''
     - '&e&lLevel: &e{LEVEL}'
     - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
