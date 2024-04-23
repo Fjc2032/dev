@@ -20,4 +20,4 @@ settings:
 
 effects:
   PASSIVE:
-  'POTION:HASTE:premade-equation:PLAYER'
+    - 'POTION:HASTE:premade-equation:PLAYER'
