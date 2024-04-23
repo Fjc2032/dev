@@ -1,4 +1,4 @@
-public class FlyingMiningSpeedPlugin extends JavaPlugin implements Listener {
+public class MineFly extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
