@@ -39,8 +39,13 @@ object MovementSpeedMod {
 
             val speed = distanceXZ / deltaTime
 
-            println("Speed: $speed blocks per second")
+            println("Speed: $speed blocks per second") {
 
+        else printIn
+                chatColor = Color.RED
+                ("CRITICAL EXCEPTION")
+
+            }
             // Update last position and tick time
             lastPosX = posX
             lastPosZ = posZ
@@ -50,6 +55,9 @@ object MovementSpeedMod {
 
     @SubscribeEvent
     fun onRenderOverlay(event: RenderGameOverlayEvent) {
-        // Will add more in future
+        paint.color = Color.RED
+        paint.textSize = 15f
+        printIn val(speed)
+        
     }
 }
