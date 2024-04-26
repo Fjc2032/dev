@@ -13,3 +13,6 @@ echo "Written by Fjc"
 echo "Removing End region files..."
 rm $THEEND/r.0.0.mca $THEEND/r.0.1.mca $THEEND/r.1.0.mca $THEEND/r.0.-1.mca $THEEND/r.-1.0.mca $THEEND/r.-1.-1.mca $THEEND/r.1.-1.mca $THEEND/r.1.1.mca
 echo "End reset complete! Please restart the server."
+
+# This line invokes a restart after the script is complete.
+echo 'true' > /home/minecraft/multicraft/servers/server649567/.reboot
