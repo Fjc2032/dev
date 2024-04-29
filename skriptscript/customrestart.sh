@@ -1,8 +1,9 @@
+#!/bin/sh
 #Original start script
-java -jar paper-1.20.4.jar nogui
-sleep 1
 echo 'true' > /home/minecraft/multicraft/servers/server649567/.reboot
+java -jar paper-1.20.4.jar nogui
 
+command say Script starting in 45 seconds
 sleep 45
 #End reset script
 SERVERDIR=/home/minecraft/multicraft/servers
@@ -20,3 +21,5 @@ sleep 10
 #Stops the server. Set spigot.yml back to original start script.
 command say Stopping server
 command stop
+
+#For Imperium Developers: This script can be used for other actions along with the removal of end island files. The directories are declared at the top of the second comment.
