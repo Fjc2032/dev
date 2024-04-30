@@ -269,13 +269,13 @@ quests:
       - "&7Kill a bunch of endermen in the end. Their eyes are scary."
     quest_type: KILL
     required_entity: ENDERMAN
-    required_amount: 30
+    required_amount: 25
     required_worlds:
       - world_the_end
     reward:
       reward_type: COMMAND
       commands:
-        - "excellentcrates key give %player% golden_chest_key 2"
+        - "excellentcrates key give %player% obsidian_chest_key 1"
 
   # example quest that is using the FARMING quest type
   19:
@@ -394,10 +394,10 @@ quests:
     name: "&eRevenge"
     menu_item: "customhead:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYzYmYzMTM3YjM3ZmYxNWRjYTkyNGY2ODFkZDc4YTQ5NWQ4YTMwYTg2MTQwZmVjNjZkNGZhZGRlNTc3ZTQzYiJ9fX0="
     description:
-     - "&7Kill &f45 &7creepers."
+     - "&7Kill &f25 &7creepers."
     quest_type: KILL
     required_entity: CREEPER
-    required_amount: 45
+    required_amount: 25
     reward:
       reward_type: MONEY
       amount: 5000
@@ -493,7 +493,7 @@ quests:
     reward:
       reward_type: COMMAND
       commands:
-       - "excellentcrates key give %player% golden_chest_key 1"
+       - "excellentcrates key give %player% obsidian_chest_key 1"
 
   # Spelunker 1
   33:
@@ -557,13 +557,13 @@ quests:
     name: "&cSpelunker Abyss"
     menu_item: NETHER_GOLD_ORE
     description:
-     - "&7Mine &f30 &7gold ore in the &fnether."
+     - "&7Mine &f24 &7gold ore in the &fnether."
     quest_type: BREAK
     required_item:
      - GOLD_ORE
      - DEEPSLATE_GOLD_ORE
      - NETHER_GOLD_ORE
-    required_amount: 30
+    required_amount: 24
     required_worlds:
      - world_nether
     reward:
@@ -592,7 +592,7 @@ quests:
     name: "&eExcavator"
     menu_item: IRON_SHOVEL
     description:
-     - "&7Break 64 dirt blocks."
+     - "&7Break &f64 &7dirt blocks."
     quest_type: BREAK
     required_item: DIRT
     required_amount: 64
@@ -605,7 +605,7 @@ quests:
     name: "&4Shiny and Deadly"
     menu_item: END_CRYSTAL
     description:
-      - "&7Get &fone &7End Crystal."
+      - "&7Get &f1 &7End Crystal."
     quest_type: GET
     required_item: END_CRYSTAL
     required_amount: 1
@@ -613,3 +613,41 @@ quests:
       reward_type: COMMAND
       commands:
         - "excellentcrates key give %player% obsidian_chest_key 1"
+
+  40:
+   name: "&4Tribute"
+   menu_item: NETHERITE_BLOCK
+   description: "&7Sacrifice a total of &f4 &7Netherite Blocks"
+   quest_type: GET
+   required_item: NETHERITE_BLOCK
+   required_amount: 4
+   reward:
+      reward_type: COMMAND
+      commands:
+        - "excellentcrates key give %player% obsidian_chest_key 1"
+
+  41:
+   name: "&aYou monster..."
+   menu_item: SNIFFER_EGG
+   description: "&7Kill &f1 &7Sniffer"
+   quest_type: KILL
+   required_entity: SNIFFER
+   required_amount: 1
+   reward:
+      reward_type: COMMAND
+      commands:
+        - "msg %player% How dare you!"
+        - "bal add %player% 1000"
+
+  42:
+   name: "&aCookieeeeees"
+    menu_item: RABBIT_STEW
+    description:
+      - "&7First time? Craft &f1 &7Rabbit Stew."
+    quest_type: CRAFT
+    required_item: RABBIT_STEW
+    required_amount: 1
+    reward:
+      reward_type: COMMAND
+      commands:
+       - "excellentcrates key give %player% golden_chest_key 1"
