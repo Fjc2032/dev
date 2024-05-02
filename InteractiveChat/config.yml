@@ -67,11 +67,11 @@ Settings:
   # LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
   EventPriorities:
     # Defaults to HIGH
-    Commands: HIGH
+    Commands: LOW
     # Defaults to HIGH
-    Chat: HIGH
+    Chat: NORMAL
     # Defaults to HIGH
-    Preview: HIGH
+    Preview: HIGHEST
   # Do NOT set this to true unless you know what you are doing
   # Does not do anything on or below 1.16.5
   # Using PaperMC does NOT mean you need to set this to true
@@ -548,8 +548,9 @@ CustomPlaceholders:
     ParseKeyword: false
     Cooldown: 0
     Hover:
-      Enable: false
-      Text: []
+      Enable: true
+      Text:
+        - '&cPing over 250 ms may be unpleasant.'
     Click:
       Enable: false
       Action: ''
