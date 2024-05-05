@@ -21,7 +21,7 @@
 
 Chat_Bot:
 
-  Enable: false
+  Enable: true
   
   Bot_Prefix: "&cChatBot &9>> &r"
   
@@ -59,10 +59,10 @@ Messages:
     Players_Messages:
     - "Where are the crates at?"
     - "Where are the crates?"
-    Bot_Response: "&fThey are at &e/warp crates &f{player}!"
+    Bot_Response: "&fThey are at &e/spawn &f{player}!"
     Required_Permission: "ChatBot.Crates"
-    No_Permission_Message: "&cSorry {player}, but you cant use the crates."
-    Executed_Command: "warp crates {player}"
+    No_Permission_Message:
+    Executed_Command:
   Three:
     Players_Messages:
     - "help me"
@@ -74,7 +74,7 @@ Messages:
   Four:
     Players_Messages:
     - "What world am I in?"
-    Bot_Response: "&fYou are in the world &e '{world}' {display_name}&f!"
+    Bot_Response: "&fYou are in the world &b '{world}' {display_name}&f!"
     Required_Permission: "none"
     No_Permission_Message: "none"
     Executed_Command: "none"
