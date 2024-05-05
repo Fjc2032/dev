@@ -3,47 +3,42 @@ Auto_Broadcast:
     Enable: true
     Header_And_Footer: true
     Interval: 30
-    Prefix: "&7[&6AutoBroadcast&7]"
+    Prefix: "&5[&6AutoBroadcast&5]"
     Header: "&7*&7&m--------------------------------&7*"
     Footer: "&7*&7&m--------------------------------&7*"
     Sound: ''
     Messages:
-      - "{Prefix} &7Auto-Broadcast chat message."
-      - "{Prefix} &7Plugin created by H1DD3NxN1NJA."
-      - "{Prefix} &7Hello &c{player} &7there are &c{online} &7players online."
+      - "{Prefix} &5Auto-Broadcast chat message."
+      - "{Prefix} &aHello &b{player} &athere are &b{online} &aplayers online."
   Per_World_Messages:
     Enable: true
     Header_And_Footer: true
     Interval: 60
     Prefix: "&7[&6AutoBroadcast&7]"
-    Header: "&7*&7&m--------------------------------&7*"
-    Footer: "&7*&7&m--------------------------------&7*"
+    Header: "&3*&3&m--------------------------------&3*"
+    Footer: "&3*&3&m--------------------------------&3*"
     Sound: ''
     Messages:
       world:
         - "{Prefix} &aWelcome to the server!"
-        - "{Prefix} &aHope you enjoy our server!"
-        - "{Prefix} &aJoin our discord <Link>"
-        - "{Prefix} &aThis server is running the plugin ChatManager by H1DD3NxN1NJA"
-        - "{Prefix} &bYou can edit these in the ChatManager > AutoBroadcast.yml"
+        - "{Prefix} &eHope you enjoy our server!"
+        - "{Prefix} &eJoin our discord <Link>"
       world_nether:
         - "{Prefix} &7The nether is a scary place"
         - "{Prefix} &aWelcome to the server!"
         - "{Prefix} &aHope you enjoy our server!"
         - "{Prefix} &aJoin our discord <Link>"
-        - "{Prefix} &aThis server is running the plugin ChatManager by H1DD3NxN1NJA"
-        - "{Prefix} &bYou can edit these in the ChatManager > AutoBroadcast.yml"
       world_the_end:
-        - "{Prefix} &aThe end is a scary place"
-        - "{Prefix} &aWatch out for the ender dragon!"
+        - "{Prefix} &4The end is a scary place"
+        - "{Prefix} &4Watch out for the ender dragon!"
         - "{Prefix} &cDon't make eye contact with the enderman!"
   Actionbar_Messages:
     Enable: false
     Interval: 60
-    Prefix: "&7[&6AutoBroadcast&7]"
+    Prefix: "&a[&6AutoBroadcast&a]"
     Sound: ''
     Messages:
-      - "{Prefix} &7Auto-Broadcast action bar message."
+      - "{Prefix} &aAuto-Broadcast action bar message."
       - "{Prefix} &7Plugin created by H1DD3NxN1NJA."
       - "{Prefix} &7Hello &c{player} &7there are &c{online} &7players online."
   Title_Messages:
@@ -54,7 +49,7 @@ Auto_Broadcast:
     Messages:
       - "&7Auto-Broadcast title message."
       - "&7Plugin created by H1DD3NxN1NJA."
-      - "&7Hello &c{player} &7there are &c{online} &7players online."
+      - "&aHello &b{player} &athere are &b{online} &aplayers online."
   Bossbar_Messages: #1.9+
     Enable: false
     Interval: 60
