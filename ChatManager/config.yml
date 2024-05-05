@@ -108,10 +108,10 @@ Anti_Advertising:
 Anti_Bot:
 
   #Block players from typing in chat until they move.
-  Block_Chat_Until_Moved: true
+  Block_Chat_Until_Moved: false
 
   #Block players from executing commands until they move.
-  Block_Commands_Until_Moved: true
+  Block_Commands_Until_Moved: false
 
 #=================================================================================================#
 # Prevent messages written in CAPS.
@@ -139,7 +139,7 @@ Anti_Spam:
 
     #How many seconds does the player have to wait till they send their next message?
     #Set to 0 to disable.
-    Chat_Delay: 5
+    Chat_Delay: 0
 
     #Prevent players from repeating the same messages.
     Block_Repetitive_Messages: true
@@ -340,7 +340,7 @@ Broadcast_Commands:
 #=================================================================================================#
 Chat_Format:
 
-  Enable: true
+  Enable: false
 
   #This will only be used if the players permission group isn't on the bottom of this section.
   Default_Format: "{vault_prefix} &7{player} &9> &7{message}"
@@ -612,7 +612,7 @@ Messages:
         
   Quit_Messages:
   
-    Enable: true
+    Enable: false
     
     Sound: ''
     
