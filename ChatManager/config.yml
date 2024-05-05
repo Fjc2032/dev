@@ -43,11 +43,11 @@ Anti_Advertising:
     Notify_Staff: true
   
     #Should a command be executed to the player that advertises?
-    Execute_Command: false
+    Execute_Command: true
 
     #The command that is executed when a player advertises.
     #Set this section to Executed_Command: '' to disable
-    Executed_Command: kick {player} Please do not advertise in chat
+    Executed_Command: warn {player} Please do not advertise in chat
 
     #Every time a player advertises in chat, their message will be logged in the Advertisements.txt file.
     Log_Advertisers: true
@@ -68,7 +68,7 @@ Anti_Advertising:
 
     #The command that is executed when a player advertises.
     #Set this section to Executed_Command: '' to disable
-    Executed_Command: kick {player} Please do not advertise in chat
+    Executed_Command: warn {player} Please do not advertise in chat
 
     #Every time a player advertises in commands, their message will be logged in the Advertisements.txt file.
     Log_Advertisers: true
@@ -93,7 +93,7 @@ Anti_Advertising:
 
     #The command that is executed when a player advertises.
     #Set this section to Executed_Command: '' to disable
-    Executed_Command: kick {player} Please do not advertise in chat
+    Executed_Command: warn {player} Please do not advertise
 
     #Every time a player advertises on signs, their message will be logged in the Advertisements.txt file.
     Log_Advertisers: true
@@ -118,7 +118,7 @@ Anti_Bot:
 #=================================================================================================#
 Anti_Caps:
 
-  Enable: true
+  Enable: false
 
   #Should players capitalize words in commands?
   Enable_In_Commands: true
@@ -149,10 +149,10 @@ Anti_Spam:
 
     #How many seconds does the player have to wait till they send their next command?
     #Set to 0 to disable.
-    Command_Delay: 5
+    Command_Delay: 0
 
     #Prevent players from repeating the same commands.
-    Block_Repetitive_Commands: true
+    Block_Repetitive_Commands: false
     
     #Whitelisted commands that won't be effected by the anti spam.
     Whitelist:
@@ -182,7 +182,7 @@ Anti_Swear:
 
     #The command that is executed when a player swears in chat.
     #Set this section to Executed_Command: '' to disable.
-    Executed_Command: kick {player} Please do not swear in chat
+    Executed_Command: warn {player} Please do not swear in chat
     
     #Every time a player swears in chat their message will be logged in the Swears.txt file.
     Log_Swearing: true
@@ -212,7 +212,7 @@ Anti_Swear:
 
     #The command that is executed when a player swears in commands.
     #Set this section to Executed_Command: '' to disable.
-    Executed_Command: kick {player} Please do not swear in commands
+    Executed_Command: warn {player} Please do not swear in commands
     
     #Every time a player swears in commands their message will be logged in the Swears.txt file.
     Log_Swearing: true
@@ -236,7 +236,7 @@ Anti_Swear:
 
     #The command that is executed when a player swears on signs.
     #Set this section to Executed_Command: '' to disable
-    Executed_Command: kick {player} Please do not swear on signs
+    Executed_Command: warn {player} Please do not swear on signs
     
     #Every time a player swears on signs their message will be logged in the Swears.txt file.
     Log_Swearing: true
@@ -257,7 +257,7 @@ Anti_Unicode:
 
   #The command that is executed when a player uses special characters in chat.
   #Set this section to Executed_Command: '' to disable
-  Executed_Command: kick {player} Please do not use special characters in chat.
+  Executed_Command: warn {player} Please do not use special characters in chat.
   
   #Anything thats in this list won’t be blocked by the anti unicode checker.
   Whitelist:
@@ -283,7 +283,7 @@ Banned_Commands:
 
   #The command that is executed when a player executed a banned command.
   #Set this section to Executed_Command: '' to disable
-  Executed_Command: kick {player} You are not allowed to use that command!
+  Executed_Command: warn {player} You are not allowed to use that command!
 
 #=================================================================================================#
 # Broadcasting Commands
@@ -479,13 +479,13 @@ Lists:
 Logs:
 
   #Should every message in chat be logged in the Chat.txt file?
-  Log_Chat: true
+  Log_Chat: false
 
   #Should every command that is executed be logged in the Commands.txt file?
   Log_Commands: true
   
   #Should every message placed on a sign be logged in the Signs.txt file?
-  Log_Signs: true
+  Log_Signs: false
   
   #Commands that wont be logged in the Command.txt file.
   #Commands in the Blacklist_Commands list must be lowercase.
