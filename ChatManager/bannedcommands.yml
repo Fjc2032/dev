@@ -1,6 +1,2 @@
-Banned-Commands:
-  - pl
-  - plugins
-  - gmc
-  - gamemode
-  - op
+Banned-Commands: []
+#Feature already handled by PL-Hider
