@@ -89,7 +89,7 @@ Anti_Advertising:
     Notify_Staff: true
   
     #Should a command be executed to the player that advertises?
-    Execute_Command: false
+    Execute_Command: true
 
     #The command that is executed when a player advertises.
     #Set this section to Executed_Command: '' to disable
