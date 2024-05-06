@@ -2,13 +2,9 @@ public class MineFly extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         // This line will register events, probably
         getServer().getPluginManager().registerEvents(this, this);
-    }
-
-    config=getConfiguration.configuration((config.yml)); {
-        var player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue();
-        str "flySpeed"=(var());
     }
 
     @EventHandler
@@ -17,6 +13,7 @@ public class MineFly extends JavaPlugin implements Listener {
         if (event.isFlying()) {
             // When a player starts flying, these events are called
             player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(20.0); // Is 20 too much?
+            if(getConfig().getString("set-atk-speed") ==null
         } else {
             // When a player stops flying, these events are called
             player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(4.0); // Default speed of 4
