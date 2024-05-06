@@ -6,6 +6,11 @@ public class MineFly extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
     }
 
+    config=getConfiguration.configuration((config.yml)); {
+        var player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue();
+        str "flySpeed"=(var());
+    }
+
     @EventHandler
     public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
         Player player = event.getPlayer();
