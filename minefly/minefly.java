@@ -18,11 +18,11 @@ public class MineFly extends JavaPlugin implements Listener {
         Player player = event.getPlayer();
         if (event.isFlying()) {
             // When a player starts flying, these events are called
-            double flyingSpeed = getConfig().getDouble("set-atk-speed.flying", 20.0);
+            double flyingSpeed = getConfig().getDouble("set-atk-speed.flying", 20.0); //Flying speed can now be modified in config.yml
             player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(flyingSpeed); // Is 20 too much?
         } else {
             // When a player stops flying, these events are called
-            double notFlyingSpeed = getConfig().getDouble("set-atk-speed.not-flying", 4.0);
+            double notFlyingSpeed = getConfig().getDouble("set-atk-speed.not-flying", 4.0); //Base speed can now be modified in config.yml
             player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(notFlyingSpeed); // Default speed of 4
         }
 
