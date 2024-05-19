@@ -1,16 +1,39 @@
-public class MineFly extends JavaPlugin implements Listener {
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
 
-@Override
-  public void onEnable() {
-    if (alias.equalsIgnoreCase("MineFly")){
-      if (args.length == 0){ //If there are no args, do this:
-      sender.sendMessage(ChatColor.RED + "Missing arguments");
-      } else {
-        if (args [0].equalsIgnoreCase("reload")){ //If argument "reload" is present, do this:
-          reloadConfig();
-          sender.sendMessage(ChatColor.GREEN + "MineFly was successfully reloaded");
-        }
-      }
+public class MineFly extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        // This line should register the commands, hopefully
+        this.getCommand("minefly").setExecutor(new MineFlyCommandExecutor(this));
     }
-  }
-} //Did I use too many brackets
+}
+
+class MineFlyCommandExecutor implements CommandExecutor {
+
+    private final MineFly plugin;
+
+    public MineFlyCommandExecutor(MineFly plugin) {
+        this.plugin = plugin;
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (label.equalsIgnoreCase("minefly")) {
+            if (args.length == 0) {
+                sender.sendMessage(ChatColor.RED + "Missing arguments");
+            } else {
+                if (args[0].equalsIgnoreCase("reload")) {
+                    plugin.reloadConfig();
+                    sender.sendMessage(ChatColor.GREEN + "MineFly was successfully reloaded");
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+} //I think I fixed the brackets. Hip hip horray
