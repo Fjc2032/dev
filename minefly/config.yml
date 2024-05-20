@@ -1,0 +1,5 @@
+#Configuration file for MineFly, built by Fjc
+
+set-atk-speed:
+    DEFAULT_FLYING_SPEED: 20.0
+    DEFAULT_NOT_FLYING_SPEED: 4.0
