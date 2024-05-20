@@ -1,4 +1,8 @@
+package me.Fjc.MineFly;
+
 import org.bukkit.attribute.Attribute;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
@@ -17,6 +21,12 @@ public class MineFly extends JavaPlugin implements Listener {
         initializeConfig();
     }
 
+    public void onDisable() {
+        saveConfig();
+        this.getLogger();
+        this.getLogger().info("Plugin was successfully disabled.");
+    }
+
     @EventHandler
     public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
         Player player = event.getPlayer();
@@ -30,20 +40,19 @@ public class MineFly extends JavaPlugin implements Listener {
                 player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(flyingSpeed);
             } else {
                 player.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(notFlyingSpeed);
+            }
         }
     }
-}
 
-private void initializeConfig() {
-    ConfigurationSection configSecction = getConfig().getConfiguration("set-atk-speed");
+    private void initializeConfig() {
+        ConfigurationSection configSection = getConfig().getConfigurationSection("set-atk-speed");
 
-    if (configSection == null) {
-        getConfig().createSection("set-atk-speed");
-        configSection = getConfig().getConfigurationSection("set-atk-speed);
-        configSection.set("flying", DEFAULT_FLYING_SPEED);
-        configSection.set("not-flying", DEFAULT_NOT_FLYING_SPEED);
+        if (configSection == null) {
+            getConfig().createSection("set-atk-speed");
+            configSection = getConfig().getConfigurationSection("set-atk-speed");
+                    configSection.set("flying", DEFAULT_FLYING_SPEED);
+            configSection.set("not-flying", DEFAULT_NOT_FLYING_SPEED);
             saveConfig();
         }
     }
 }
-
