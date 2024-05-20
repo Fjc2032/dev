@@ -37,3 +37,5 @@ class MineFlyCommandExecutor implements CommandExecutor {
         return false;
     }
 } //I think I fixed the brackets. Hip hip horray
+
+//Notice: currently deprecated until I figure out how to actually import the classes
