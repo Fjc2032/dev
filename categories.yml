@@ -47,6 +47,19 @@ categories:
     - '&bLord &7gains access to the following:'
     - '&2Increased vault access &b[4 vaults]'
     - '&2Ability to create more player shops &7(175 cap)'
+    '9':
+    - '&bKing &7gains access to the following:'
+    - '&2Access to &b/smite'
+    - '&2Access to &b/fly &7(only in own claims)'
+    - '&2Ability to sell up to &b(insert-nr) &2items on the auction house.'
+    - '&2Increased vault access &b[5 vaults]'
+    '10':
+    - '&5&lEmperor &7gains access to the following:'
+    - '&2Access to &5/fly &2everywhere' 
+    - '&2Access to &5/nick'
+    - '&2Access to &5/god'
+    - '&2Access to &5/phead'
+    - 'Maxed player vault, auction house and player shop numbers'
 
 
 
