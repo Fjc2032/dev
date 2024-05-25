@@ -1,0 +1,55 @@
+categories:
+  ranks:
+    default: true
+    '1':
+    - '&eScout &7gains access to the following:'
+    - '&2Access to &e/craft'
+    - '&2Access to &e/near'
+    - '&2Access to &e/nv'
+    - '&2Access to &e&l5 &2custom enchant slots.'
+    '2':
+    - '&eSquire &7gains access to the following:'
+    - '&2Access to &e/seen'
+    - '&2Access to &e1 &2PV (&e/pv 1&2)'
+    - '&2Ability to apply &e3 &2custom enchants.'
+    '3':
+    - '&eKnight &7gains access to the following:'
+    - '&2Access to &e/echest'
+    - '&2Ability to set &e2 &2homes.'
+    - '&2Ability to create a PW.'
+    - '&2Access to up to &e3 &2homes.'
+    '4':
+    - '&aPaladin &7gains access to the following:'
+    - '&2Access to &a/autotool &2[&8alias: &a/auto&2]'
+    - '&2Access to &a/feed'
+    - '&2Access to &a/hat'
+    - '&2Access to second playervault (&a/pv 2&2)'
+    - '&2Ability to set &a5 &2homes.'
+    - '&2Ability to apply &a8 &2custom enchants.'
+    '5':
+    - '&aEarl &7gains access to the following:'
+    - '&2Ability to create a &asecond &2playerwarp.'
+    - '&2Access to &a/tpahere.'
+    - '&2Access to &a&l9 &2custom enchants.'
+    - '&a+25% &2McMMO Skill XP Multiplier'
+    - '&a-25% &2McMMO Ability Cooldown'
+    '6':
+    - '&aBaron &7gains access to the following:'
+    - '&2Access to up to &a&l7 &2homes.'
+    - '&2Access to &a/fix &2and &a/fix all'
+    - '&2Ability to create &a&l3 &2playerwarps.'
+    '7':
+    - '&bPrince &7gains access to the following:'
+    - '&2Access to &b/heal'
+    - '&2Ability to sell up to &b7 &2items on the auction house.'
+    - '&b-33% &2McMMO Ability Cooldown'
+    '8':
+    - '&bLord &7gains access to the following:'
+    - '&2Increased vault access &b[4 vaults]'
+    - '&2Ability to create more player shops &7(175 cap)'
+
+
+
+    #This file controls text lists of categories that can be invoked using commands or an alias with set arguments.
+    #For example, "/help ranks 1" will take section '1' of 'ranks'. Currently, this is mapped to an alias [/rankinfo $$1-]
+    #You can set 'default' to false to disable the category.
