@@ -83,7 +83,7 @@ quests:
 
   # example quest that is using the BREED quest type
   5:
-    name: "&aMore sheep !"
+    name: "&aMore sheep!"
     menu_item: WHITE_WOOL
     description:
       - "&7Breed &ftwo &7sheep."
@@ -524,10 +524,10 @@ quests:
     required_item:
      - REDSTONE_ORE
      - LAPIS_ORE
-     - GOLD_ORE
+     - IRON_ORE
      - DEEPSLATE_REDSTONE_ORE
      - DEEPSLATE_LAPIS_ORE
-     - DEEPSLATE_GOLD_ORE
+     - DEEPSLATE_IRON_ORE
     required_amount: 100
     reward:
       reward_type: COMMAND
@@ -600,7 +600,8 @@ quests:
       reward_type: COMMAND
       commands:
        - "excellentcrates key give %player% golden_chest_key 1"
-
+  
+  # end crystal quest (fed)
   39:
     name: "&4Shiny and Deadly"
     menu_item: END_CRYSTAL
@@ -613,3 +614,16 @@ quests:
       reward_type: COMMAND
       commands:
         - "excellentcrates key give %player% obsidian_chest_key 1"
+  40:
+    name: "&aBunny Chef"
+    menu_item: RABBIT_STEW
+    description:
+      - "&7First time? Craft &f1 &7Rabbit Stew."
+    quest_type: CRAFT
+    required_item: RABBIT_STEW
+    required_amount: 1
+    reward:
+      reward_type: COMMAND
+      commands:
+       - "excellentcrates key give %player% golden_chest_key 1"
+    
