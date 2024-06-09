@@ -626,4 +626,50 @@ quests:
       reward_type: COMMAND
       commands:
        - "excellentcrates key give %player% golden_chest_key 1"
+
+  41:
+    name: "&4Beans! IT'S ALL BEANS!"
+    menu_item: RAW_COPPER_BLOCK
+    description:
+     - "&7Craft a total of &f30 &7raw copper blocks"
+    quest_type: CRAFT
+    required_item:
+     - RAW_COPPER_BLOCK
+    required_amount: 30
+    reward:
+      reward_type: COMMAND
+      commands:
+       - "adjustclaimblocks %player% 1000"
+
+  42:
+    name: "&4How do you craft this again?"
+    menu_item: COMPARATOR
+    description:
+     - "&7Craft &f69 &7Redstone Comparators"
+    quest_type: CRAFT
+    required_item:
+     - COMPARATOR
+    required_amount: 69
+    reward:
+      reward_type: COMMAND
+      commands:
+       - "adjustclaimblocks %player% 1000"
+
+  43:
+    name: "&4Go outside!"
+    menu_item: GRASS_BLOCK
+    description:
+     - "&7Go touch some grass at &f22500 63 22500&7!"
+    quest_type: LOCATION
+    location:
+      world: overworld
+      x: 22500
+      y: 63
+      z: 22500
+      radius: 25
+    reward:
+      reward_type: COMMAND
+      commands:
+       - "adjustclaimblocks %player% 10000"
+
     
