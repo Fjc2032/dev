@@ -662,7 +662,7 @@ quests:
      - "&7Go touch some grass at &f22500 63 22500&7!"
     quest_type: LOCATION
     location:
-      world: overworld
+      world: world
       x: 22500
       y: 63
       z: 22500
@@ -670,6 +670,6 @@ quests:
     reward:
       reward_type: COMMAND
       commands:
-       - "adjustclaimblocks %player% 10000"
+       - "adjustclaimblocks %player% 3500"
 
     
