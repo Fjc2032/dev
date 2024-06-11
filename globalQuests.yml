@@ -639,7 +639,7 @@ quests:
     reward:
       reward_type: COMMAND
       commands:
-       - "adjustclaimblocks %player% 1000"
+       - "adjustbonusclaimblocks %player% 1000"
 
   42:
     name: "&4How do you craft this again?"
@@ -653,7 +653,7 @@ quests:
     reward:
       reward_type: COMMAND
       commands:
-       - "adjustclaimblocks %player% 1000"
+       - "adjustbonusclaimblocks %player% 1000"
 
   43:
     name: "&4Go outside!"
@@ -670,6 +670,6 @@ quests:
     reward:
       reward_type: COMMAND
       commands:
-       - "adjustclaimblocks %player% 3500"
+       - "adjustbonusclaimblocks %player% 3500"
 
     
