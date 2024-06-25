@@ -452,13 +452,13 @@ quests:
 
   # Ghast quest
   30:
-    name: "&cNew Betsy"
+    name: "&eNew Betsy"
     menu_item: GHAST_TEAR
     description:
-     - "&7Kill &f4 &7ghasts."
+     - "&7Kill &f3 &7ghasts."
     quest_type: KILL
     required_entity: GHAST
-    required_amount: 4
+    required_amount: 3
     required_worlds:
      - world_nether
     reward:
@@ -628,32 +628,35 @@ quests:
        - "excellentcrates key give %player% golden_chest_key 1"
 
   41:
-    name: "&4Beans! IT'S ALL BEANS!"
+    name: "&eCopped"
     menu_item: RAW_COPPER_BLOCK
     description:
-     - "&7Craft a total of &f30 &7raw copper blocks"
+     - "&7Craft a total of &f15 &7raw copper blocks"
     quest_type: CRAFT
     required_item:
      - RAW_COPPER_BLOCK
-    required_amount: 30
+    required_amount: 15
     reward:
       reward_type: COMMAND
       commands:
        - "adjustbonusclaimblocks %player% 1000"
+       - "msg %player% &2You have received &a1000 &2claim blocks."
 
   42:
-    name: "&4How do you craft this again?"
+    name: "&eHow do you craft this again?"
     menu_item: COMPARATOR
     description:
-     - "&7Craft &f69 &7Redstone Comparators"
+     - "&7Craft &f15 &7Redstone Comparators"
     quest_type: CRAFT
     required_item:
      - COMPARATOR
-    required_amount: 69
+    required_amount: 15
     reward:
       reward_type: COMMAND
       commands:
        - "adjustbonusclaimblocks %player% 1000"
+       - "msg %player% &2You have received &a1000 &2claim blocks."
+#This quest may need to be revisited in the future.
 
   43:
     name: "&4Go outside!"
@@ -670,6 +673,7 @@ quests:
     reward:
       reward_type: COMMAND
       commands:
-       - "adjustbonusclaimblocks %player% 3500"
+       - "adjustbonusclaimblocks %player% 3000"
+       - "msg %player% &2You have received &a3000 &2claim blocks."
 
     
