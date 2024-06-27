@@ -17,3 +17,13 @@ Emperor prices were changed:
 
 Currently known bugs:
 - Resetting quests doesn't respect balance. If someone has below the required balance, the command will still execute. Disabled for now.
+
+
+Planned Changelog:
+- Allow greater stacking of ender pearls, signs, etc. [done]
+- Prevent pets from stacking [fixed]
+- Fix bug where quests don't give a reward after completion [fixed]
+- Fix bug where resetting quests doesn't respect balance
+- Allow faster break speed while flying [waiting on upgrade]
+- Add artificial server stock to prevent easy price gouging. This will alow allow for more lenient prices.
+- Allow for only end island resets, instead of the whole end [waiting on upgrade]
