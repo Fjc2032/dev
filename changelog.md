@@ -11,9 +11,9 @@ Changelog 6/13
 - Restored /xpbottle (Syntax: /xpbottle [amount])
 
 Emperor prices were changed:
-10 days - 400k --> 325k
-30 days - unchanged
-90 days - 2M --> 1.5M
+- 10 days - 400k --> 325k
+- 30 days - unchanged
+- 90 days - 2M --> 1.5M
 
 Currently known bugs:
 - Resetting quests doesn't respect balance. If someone has below the required balance, the command will still execute. Disabled for now.
