@@ -142,3 +142,5 @@ public class commands implements CommandExecutor {
 		}
 	}
 }
+
+//DEPRECATED
