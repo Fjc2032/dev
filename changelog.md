@@ -28,3 +28,6 @@ Planned Changelog:
 - Add artificial server stock to prevent easy price gouging. This will alow allow for more lenient prices.
 - Allow for only end island resets, instead of the whole end [waiting on upgrade]
 - Bring back HeadsPlus kill challenges [ongoing]
+  - Includes better rewards for each rankup (maybe exp boost or sell multiplier? or something else? have not decided yet)
+  - Bug that instantly ranked you up to max (i think is bedrock) is now gone
+  - Suffix for each select rank
