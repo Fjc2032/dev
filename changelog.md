@@ -27,3 +27,4 @@ Planned Changelog:
 - Allow faster break speed while flying [waiting on upgrade]
 - Add artificial server stock to prevent easy price gouging. This will alow allow for more lenient prices.
 - Allow for only end island resets, instead of the whole end [waiting on upgrade]
+- Bring back HeadsPlus kill challenges [ongoing]
