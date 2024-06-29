@@ -14,7 +14,7 @@ levels:
   dirt:
     display-name: '&6&lDirt'
     added-version: 0.1
-    required-xp: 250
+    required-xp: 500
     hierarchy: 2
     rewards:
       enabled: false
@@ -25,7 +25,7 @@ levels:
   stone:
     display-name: '&7&lStone'
     added-version: 0.1
-    required-xp: 750
+    required-xp: 1000
     hierarchy: 3
     rewards:
       enabled: false
@@ -36,7 +36,7 @@ levels:
   coal:
     display-name: '&8&lCoal'
     added-version: 0.1
-    required-xp: 1500
+    required-xp: 2000
     hierarchy: 4
     rewards:
       enabled: false
@@ -47,7 +47,7 @@ levels:
   coal_2:
     display-name: '&8&lCoal &0&lII'
     added-version: 0.1
-    required-xp: 2000
+    required-xp: 4000
     hierarchy: 5
     rewards:
       enabled: false
@@ -58,7 +58,7 @@ levels:
   iron:
     display-name: '&f&lIron'
     added-version: 0.1
-    required-xp: 2750
+    required-xp: 8000
     hierarchy: 6
     rewards:
       enabled: false
@@ -69,7 +69,7 @@ levels:
   iron_2:
     display-name: '&f&lIron &7&lII'
     added-version: 0.1
-    required-xp: 3500
+    required-xp: 12000
     hierarchy: 7
     rewards:
       enabled: false
@@ -80,7 +80,7 @@ levels:
   redstone:
     display-name: '&c&lRedstone'
     added-version: 0.1
-    required-xp: 4500
+    required-xp: 16000
     hierarchy: 8
     rewards:
       enabled: false
@@ -91,7 +91,7 @@ levels:
   redstone_2:
     display-name: '&c&lRedstone &4&lII'
     added-version: 0.1
-    required-xp: 5500
+    required-xp: 20000
     hierarchy: 9
     rewards:
       enabled: false
@@ -102,7 +102,7 @@ levels:
   lapis:
     display-name: '&9&lLapis Lazuli'
     added-version: 0.1
-    required-xp: 7000
+    required-xp: 25000
     hierarchy: 10
     rewards:
       enabled: false
@@ -113,7 +113,7 @@ levels:
   lapis_2:
     display-name: '&9&lLapis Lazuli &1&lII'
     added-version: 0.1
-    required-xp: 8000
+    required-xp: 30000
     hierarchy: 11
     rewards:
       enabled: false
@@ -124,7 +124,7 @@ levels:
   lapis_3:
     display-name: '&9&lLapis Lazuli &1&lIII'
     added-version: 0.1
-    required-xp: 9000
+    required-xp: 35000
     hierarchy: 12
     rewards:
       enabled: false
@@ -135,7 +135,7 @@ levels:
   gold:
     display-name: '&e&lGold'
     added-version: 0.1
-    required-xp: 10000
+    required-xp: 40000
     hierarchy: 13
     rewards:
       enabled: false
@@ -146,7 +146,7 @@ levels:
   gold_2:
     display-name: '&e&lGold &6&lII'
     added-version: 0.1
-    required-xp: 12500
+    required-xp: 45000
     hierarchy: 14
     rewards:
       enabled: false
@@ -157,7 +157,7 @@ levels:
   gold_3:
     display-name: '&e&lGold &6&lIII'
     added-version: 0.1
-    required-xp: 15000
+    required-xp: 50000
     hierarchy: 15
     rewards:
       enabled: false
@@ -168,7 +168,7 @@ levels:
   diamond:
     display-name: '&b&lDiamond'
     added-version: 0.1
-    required-xp: 17000
+    required-xp: 55000
     hierarchy: 16
     rewards:
       enabled: false
@@ -179,7 +179,7 @@ levels:
   diamond_2:
     display-name: '&b&lDiamond &3&lII'
     added-version: 0.1
-    required-xp: 20000
+    required-xp: 60000
     hierarchy: 17
     rewards:
       enabled: false
@@ -190,7 +190,7 @@ levels:
   diamond_3:
     display-name: '&b&lDiamond &3&lIII'
     added-version: 0.1
-    required-xp: 22500
+    required-xp: 75000
     hierarchy: 18
     rewards:
       enabled: false
@@ -201,7 +201,7 @@ levels:
   obsidian:
     display-name: '&8&lObsidian'
     added-version: 0.1
-    required-xp: 25000
+    required-xp: 85000
     hierarchy: 19
     rewards:
       enabled: false
@@ -212,7 +212,7 @@ levels:
   obsidian_2:
     display-name: '&8&lObsidian &0&lII'
     added-version: 0.1
-    required-xp: 30000
+    required-xp: 95000
     hierarchy: 20
     rewards:
       enabled: false
@@ -223,7 +223,7 @@ levels:
   obsidian_3:
     display-name: '&8&lObsidian &0&lIII'
     added-version: 0.1
-    required-xp: 35000
+    required-xp: 100000
     hierarchy: 21
     rewards:
       enabled: false
@@ -234,7 +234,7 @@ levels:
   obsidian_4:
     display-name: '&8&lObsidian &0&lIV'
     added-version: 0.1
-    required-xp: 40000
+    required-xp: 110000
     hierarchy: 22
     rewards:
       enabled: false
@@ -245,7 +245,7 @@ levels:
   emerald:
     display-name: '&a&lEmerald'
     added-version: 0.1
-    required-xp: 45000
+    required-xp: 120000
     hierarchy: 23
     rewards:
       enabled: false
@@ -256,7 +256,7 @@ levels:
   emerald_2:
     display-name: '&a&lEmerald &2&lII'
     added-version: 0.1
-    required-xp: 50000
+    required-xp: 130000
     hierarchy: 24
     rewards:
       enabled: false
@@ -267,7 +267,7 @@ levels:
   emerald_3:
     display-name: '&a&lEmerald &2&lIII'
     added-version: 0.1
-    required-xp: 60000
+    required-xp: 140000
     hierarchy: 25
     rewards:
       enabled: false
@@ -278,7 +278,7 @@ levels:
   emerald_4:
     display-name: '&a&lEmerald &2&lIV'
     added-version: 0.1
-    required-xp: 75000
+    required-xp: 150000
     hierarchy: 26
     rewards:
       enabled: false
@@ -289,7 +289,7 @@ levels:
   bedrock:
     display-name: '&5&lBedrock'
     added-version: 0.1
-    required-xp: 100000
+    required-xp: 160000
     hierarchy: 27
     rewards:
       enabled: false
@@ -300,7 +300,7 @@ levels:
   bedrock_2:
     display-name: '&5&lBedrock &0&lII'
     added-version: 0.1
-    required-xp: 125000
+    required-xp: 170000
     hierarchy: 28
     rewards:
       enabled: false
@@ -311,7 +311,7 @@ levels:
   bedrock_3:
     display-name: '&5&lBedrock &0&lIII'
     added-version: 0.1
-    required-xp: 150000
+    required-xp: 180000
     hierarchy: 29
     rewards:
       enabled: false
