@@ -31,3 +31,4 @@ Planned Changelog:
   - Includes better rewards for each rankup (maybe exp boost or sell multiplier? or something else? have not decided yet)
   - Bug that instantly ranked you up to max (i think is bedrock) is now gone
   - Suffix for each select rank
+- New suffix for players marked afk [done, needs more testing]
