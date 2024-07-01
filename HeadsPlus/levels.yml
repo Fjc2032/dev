@@ -1,7 +1,7 @@
 version: 0.3
 levels:
   grass:
-    display-name: '&2&lGrass'
+    display-name: '&2&lStarter'
     added-version: 0.1
     required-xp: 0
     hierarchy: 1
@@ -12,93 +12,92 @@ levels:
       item-amount: 0
       command-sender: player
   dirt:
-    display-name: '&6&lDirt'
+    display-name: '#6e2c00&lDirt'
     added-version: 0.1
     required-xp: 500
     hierarchy: 2
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.dirt1
   stone:
-    display-name: '&7&lStone'
+    display-name: '#5d6d7e&lStone'
     added-version: 0.1
     required-xp: 1000
     hierarchy: 3
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.stone1
+      - lp user {player} permission unset group.dirt1
   coal:
-    display-name: '&8&lCoal'
+    display-name: '&8&lCoal I'
     added-version: 0.1
     required-xp: 2000
     hierarchy: 4
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.coal1
+      - lp user {player} permission unset group.stone1
   coal_2:
     display-name: '&8&lCoal &0&lII'
     added-version: 0.1
     required-xp: 4000
     hierarchy: 5
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.coal2
+      - lp user {player} permission unset group.coal1
   iron:
-    display-name: '&f&lIron'
+    display-name: '&f&lIron I'
     added-version: 0.1
     required-xp: 8000
     hierarchy: 6
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.iron1
+      - lp user {player} permission unset group.coal2
   iron_2:
     display-name: '&f&lIron &7&lII'
     added-version: 0.1
     required-xp: 12000
     hierarchy: 7
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.iron2
+      - lp user {player} permission unset group.iron1
   redstone:
     display-name: '&c&lRedstone'
     added-version: 0.1
     required-xp: 16000
     hierarchy: 8
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.redstone1
+      - lp user {player} permission unset group.iron2
   redstone_2:
     display-name: '&c&lRedstone &4&lII'
     added-version: 0.1
     required-xp: 20000
     hierarchy: 9
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.redstone2
+      - lp user {player} permission unset group.redstone1
   lapis:
     display-name: '&9&lLapis Lazuli'
     added-version: 0.1
