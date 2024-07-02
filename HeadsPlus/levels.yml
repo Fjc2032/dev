@@ -1,7 +1,7 @@
 version: 0.3
 levels:
   grass:
-    display-name: '&lI'
+    display-name: '&lNone'
     added-version: 0.1
     required-xp: 0
     hierarchy: 1
@@ -12,7 +12,7 @@ levels:
       item-amount: 0
       command-sender: player
   dirt:
-    display-name: '#D1D1D1&lII'
+    display-name: '#D1D1D1&lI'
     added-version: 0.1
     required-xp: 500
     hierarchy: 2
@@ -22,7 +22,7 @@ levels:
       reward-value:
       - lp user {player} permission set group.dirt1
   stone:
-    display-name: '#D1D1D1&lIII'
+    display-name: '#D1D1D1&lII'
     added-version: 0.1
     required-xp: 1000
     hierarchy: 3
@@ -33,7 +33,7 @@ levels:
       - lp user {player} permission set group.stone1
       - lp user {player} permission unset group.dirt1
   coal:
-    display-name: '#D1D1D1&lIV'
+    display-name: '#D1D1D1&lIII'
     added-version: 0.1
     required-xp: 2000
     hierarchy: 4
@@ -44,7 +44,7 @@ levels:
       - lp user {player} permission set group.coal1
       - lp user {player} permission unset group.stone1
   coal_2:
-    display-name: '#D1D1D1&lV'
+    display-name: '#D1D1D1&lIV'
     added-version: 0.1
     required-xp: 4000
     hierarchy: 5
@@ -55,7 +55,7 @@ levels:
       - lp user {player} permission set group.coal2
       - lp user {player} permission unset group.coal1
   iron:
-    display-name: '#D1D1D1&lVI'
+    display-name: '#D1D1D1&lV'
     added-version: 0.1
     required-xp: 8000
     hierarchy: 6
@@ -66,7 +66,7 @@ levels:
       - lp user {player} permission set group.iron1
       - lp user {player} permission unset group.coal2
   iron_2:
-    display-name: '#D1D1D1&lVII'
+    display-name: '#D1D1D1&lVI'
     added-version: 0.1
     required-xp: 12000
     hierarchy: 7
@@ -77,7 +77,7 @@ levels:
       - lp user {player} permission set group.iron2
       - lp user {player} permission unset group.iron1
   redstone:
-    display-name: '#D1D1D1&lVIII'
+    display-name: '#D1D1D1&lVII'
     added-version: 0.1
     required-xp: 16000
     hierarchy: 8
@@ -88,7 +88,7 @@ levels:
       - lp user {player} permission set group.redstone1
       - lp user {player} permission unset group.iron2
   redstone_2:
-    display-name: '#D1D1D1&lIX'
+    display-name: '#D1D1D1&lVIII'
     added-version: 0.1
     required-xp: 20000
     hierarchy: 9
@@ -99,7 +99,7 @@ levels:
       - lp user {player} permission set group.redstone2
       - lp user {player} permission unset group.redstone1
   lapis:
-    display-name: '#D1D1D1&lX'
+    display-name: '#D1D1D1&lIX'
     added-version: 0.1
     required-xp: 25000
     hierarchy: 10
@@ -110,7 +110,7 @@ levels:
       - lp user {player} permission set group.lapis1
       - lp user {player} permission unset group.redstone2
   lapis_2:
-    display-name: '#D1D1D1&lXI'
+    display-name: '#D1D1D1&lX'
     added-version: 0.1
     required-xp: 30000
     hierarchy: 11
@@ -121,7 +121,7 @@ levels:
       item-amount: 0
       command-sender: player
   lapis_3:
-    display-name: '#D1D1D1&lXII'
+    display-name: '#D1D1D1&lXI'
     added-version: 0.1
     required-xp: 35000
     hierarchy: 12
@@ -132,7 +132,7 @@ levels:
       item-amount: 0
       command-sender: player
   gold:
-    display-name: '#D1D1D1&lXIII'
+    display-name: '#D1D1D1&lXII'
     added-version: 0.1
     required-xp: 40000
     hierarchy: 13
@@ -143,7 +143,7 @@ levels:
       item-amount: 0
       command-sender: player
   gold_2:
-    display-name: '#D1D1D1&lXIV'
+    display-name: '#D1D1D1&lXIII'
     added-version: 0.1
     required-xp: 45000
     hierarchy: 14
@@ -154,7 +154,7 @@ levels:
       item-amount: 0
       command-sender: player
   gold_3:
-    display-name: '#D1D1D1&lXV'
+    display-name: '#D1D1D1&lXIV'
     added-version: 0.1
     required-xp: 50000
     hierarchy: 15
@@ -165,7 +165,7 @@ levels:
       item-amount: 0
       command-sender: player
   diamond:
-    display-name: '#D1D1D1&lXVI'
+    display-name: '#D1D1D1&lXV'
     added-version: 0.1
     required-xp: 55000
     hierarchy: 16
@@ -176,7 +176,7 @@ levels:
       item-amount: 0
       command-sender: player
   diamond_2:
-    display-name: '#D1D1D1&lXVII'
+    display-name: '#D1D1D1&lXVI'
     added-version: 0.1
     required-xp: 60000
     hierarchy: 17
