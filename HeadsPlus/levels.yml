@@ -77,7 +77,7 @@ levels:
       - lp user {player} permission set group.iron2
       - lp user {player} permission unset group.iron1
   redstone:
-    display-name: '&c&lRedstone'
+    display-name: '&c&lRedstone I'
     added-version: 0.1
     required-xp: 16000
     hierarchy: 8
@@ -99,7 +99,7 @@ levels:
       - lp user {player} permission set group.redstone2
       - lp user {player} permission unset group.redstone1
   lapis:
-    display-name: '&9&lLapis Lazuli'
+    display-name: '&1&lLapis I'
     added-version: 0.1
     required-xp: 25000
     hierarchy: 10
@@ -110,7 +110,7 @@ levels:
       item-amount: 0
       command-sender: player
   lapis_2:
-    display-name: '&9&lLapis Lazuli &1&lII'
+    display-name: '&1&lLapis II'
     added-version: 0.1
     required-xp: 30000
     hierarchy: 11
@@ -121,7 +121,7 @@ levels:
       item-amount: 0
       command-sender: player
   lapis_3:
-    display-name: '&9&lLapis Lazuli &1&lIII'
+    display-name: '&1&lLapis III'
     added-version: 0.1
     required-xp: 35000
     hierarchy: 12
