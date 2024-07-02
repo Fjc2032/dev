@@ -14,7 +14,7 @@ levels:
   dirt:
     display-name: '#D1D1D1&lI'
     added-version: 0.1
-    required-xp: 500
+    required-xp: 1000
     hierarchy: 2
     rewards:
       enabled: true
@@ -24,7 +24,7 @@ levels:
   stone:
     display-name: '#D1D1D1&lII'
     added-version: 0.1
-    required-xp: 1000
+    required-xp: 2090
     hierarchy: 3
     rewards:
       enabled: true
@@ -35,7 +35,7 @@ levels:
   coal:
     display-name: '#D1D1D1&lIII'
     added-version: 0.1
-    required-xp: 2000
+    required-xp: 4368
     hierarchy: 4
     rewards:
       enabled: true
@@ -46,7 +46,7 @@ levels:
   coal_2:
     display-name: '#D1D1D1&lIV'
     added-version: 0.1
-    required-xp: 4000
+    required-xp: 9129
     hierarchy: 5
     rewards:
       enabled: true
@@ -57,7 +57,7 @@ levels:
   iron:
     display-name: '#D1D1D1&lV'
     added-version: 0.1
-    required-xp: 8000
+    required-xp: 19080
     hierarchy: 6
     rewards:
       enabled: true
@@ -68,7 +68,7 @@ levels:
   iron_2:
     display-name: '#D1D1D1&lVI'
     added-version: 0.1
-    required-xp: 12000
+    required-xp: 39878
     hierarchy: 7
     rewards:
       enabled: true
@@ -79,7 +79,7 @@ levels:
   redstone:
     display-name: '#D1D1D1&lVII'
     added-version: 0.1
-    required-xp: 16000
+    required-xp: 83345
     hierarchy: 8
     rewards:
       enabled: true
@@ -90,7 +90,7 @@ levels:
   redstone_2:
     display-name: '#D1D1D1&lVIII'
     added-version: 0.1
-    required-xp: 20000
+    required-xp: 174190
     hierarchy: 9
     rewards:
       enabled: true
@@ -101,7 +101,7 @@ levels:
   lapis:
     display-name: '#D1D1D1&lIX'
     added-version: 0.1
-    required-xp: 25000
+    required-xp: 364058
     hierarchy: 10
     rewards:
       enabled: true
@@ -112,91 +112,91 @@ levels:
   lapis_2:
     display-name: '#D1D1D1&lX'
     added-version: 0.1
-    required-xp: 30000
+    required-xp: 760881
     hierarchy: 11
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.lapis2
+      - lp user {player} permission unset group.lapis1
   lapis_3:
     display-name: '#D1D1D1&lXI'
     added-version: 0.1
-    required-xp: 35000
+    required-xp: 1590000
     hierarchy: 12
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.lapis3
+      - lp user {player} permission unset group.lapis2
   gold:
     display-name: '#D1D1D1&lXII'
     added-version: 0.1
-    required-xp: 40000
+    required-xp: 3320000
     hierarchy: 13
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.gold1
+      - lp user {player} permission unset group.lapis3
   gold_2:
     display-name: '#D1D1D1&lXIII'
     added-version: 0.1
-    required-xp: 45000
+    required-xp: 6950000
     hierarchy: 14
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.gold2
+      - lp user {player} permission unset group.gold1
   gold_3:
     display-name: '#D1D1D1&lXIV'
     added-version: 0.1
-    required-xp: 50000
+    required-xp: 14000000
     hierarchy: 15
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.gold3
+      - lp user {player} permission unset group.gold2
   diamond:
     display-name: '#D1D1D1&lXV'
     added-version: 0.1
-    required-xp: 55000
+    required-xp: 30300000
     hierarchy: 16
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.diamond1
+      - lp user {player} permission unset group.gold3
   diamond_2:
     display-name: '#D1D1D1&lXVI'
     added-version: 0.1
-    required-xp: 60000
+    required-xp: 63400000
     hierarchy: 17
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.diamond2
+      - lp user {player} permission unset group.diamond1
   diamond_3:
-    display-name: '&b&lDiamond &3&lIII'
+    display-name: '&b&lXVII'
     added-version: 0.1
-    required-xp: 75000
+    required-xp: 133000000
     hierarchy: 18
     rewards:
-      enabled: false
-      reward-type: ECO
-      reward-value: 300
-      item-amount: 0
-      command-sender: player
+      enabled: true
+      reward-type: RUN_COMMAND
+      reward-value:
+      - lp user {player} permission set group.diamond3
+      - lp user {player} permission unset group.diamond2
   obsidian:
     display-name: '&8&lObsidian'
     added-version: 0.1
