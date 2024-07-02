@@ -676,4 +676,6 @@ quests:
        - "adjustbonusclaimblocks %player% 3000"
        - "msg %player% &2You have received &a3000 &2claim blocks."
 
+
+#DEPRECATED. DO NOT USE OR IMPORT THIS FILE INTO THE MAIN DIRECTORY. Use mediumQuests.yml as all the quests will be moved in there to make room for the boss update.
     
