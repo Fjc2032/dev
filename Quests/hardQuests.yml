@@ -1,0 +1,65 @@
+# ==============================================================
+#                        HARD QUESTS FILE
+# ==============================================================
+# Quests must be numbered and increment from 1 to 1.
+# Please be attentive to the indentation and respect the scheme.
+# This could cause several bugs.
+# ==============================================================
+# AVAILABLE QUESTS TYPES :
+# https://ordwenplugins.gitbook.io/odailyquests/quests/quests-types
+# ==============================================================
+# AVAILABLE REWARDS TYPES :
+# https://ordwenplugins.gitbook.io/odailyquests/quests/rewards-types
+# ==============================================================
+# AVAILABLE PLUGIN PLACEHOLDERS FOR QUESTS DESCRIPTIONS :
+# %progress% is replaced by the progression of the quest.
+# %required% is replaced by the required amount to complete the quest.
+# ==============================================================
+# More tips available on Wiki :
+# https://ordwenplugins.gitbook.io/odailyquests/
+# Need help ? https://discord.gg/Q8sw5KFvqg
+# For more affected objects or types, please make suggestion.
+# ==============================================================
+
+
+#This file is being reused for BOSS SLAYER quests.
+
+quests: #This is an example quest, I guess. Try to follow this format.
+  1:
+    name: "&c&lSLAYER - &cPhantom Boss"
+    menu_item: END_CRYSTAL
+    description:
+      - "&7Kill &f15 &7phantoms."
+    quest_type: KILL
+    required_entity: PHANTOM
+    required_amount: 15
+    reward:
+      reward_type: COMMAND
+      commands:
+       - "bosssummon phantom1" #Empty placeholder for future boss summoning command. After completing the quest, the boss will spawn.
+  2:
+    name: "&6&lGold blocks"
+    menu_item: GOLD_BLOCK
+    description:
+      - "&eGet 16 gold blocks."
+      - "&eWin &b&m32 diamond blocks."
+    quest_type: GET
+    required_item: GOLD_BLOCK
+    required_amount: 16
+    reward:
+      reward_type: COMMAND
+      commands:
+        - "msg %player% Hello !"
+        - "give %player% diamond_block 32"
+  3:
+    name: "Too many zombies"
+    menu_item: ZOMBIE_HEAD
+    description:
+      - "&cKill &65 &czombies."
+      - "&aWin &b500 &aTokens."
+    quest_type: KILL
+    required_entity: ZOMBIE
+    required_amount: 5
+    reward:
+      reward_type: POINTS
+      amount: 500
