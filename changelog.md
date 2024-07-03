@@ -29,7 +29,8 @@ Planned Changelog:
 - Allow for only end island resets, instead of the whole end [waiting on upgrade]
 - Bring back HeadsPlus kill challenges [ongoing]
   - Includes better rewards for each rankup (maybe exp boost or sell multiplier? or something else? have not decided yet)
-  - Bug that instantly ranked you up to max (i think is bedrock) is now gone
-  - Suffix for each select rank
+  - Bug that instantly ranked you up to max (i think is bedrock) is now gone [done, XP reqs raised]
+  - Suffix for each select rank [ongoing]
+  - New bosses that will accompany the tiering system and provide custom rewards (currently phantom and zombie is planned)
 - New suffix for players marked afk [done, needs more testing]
 - Add /online command for #aurora channel
