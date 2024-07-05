@@ -31,7 +31,7 @@ Planned Changelog:
   - Includes better rewards for each rankup (maybe exp boost or sell multiplier? or something else? have not decided yet)
   - Bug that instantly ranked you up to max (i think is bedrock) is now gone [done, XP reqs raised]
   - Suffix for each select rank [ongoing]
-  - New bosses that will accompany the tiering system and provide custom rewards (currently phantom and zombie is planned)
+  - New bosses that will accompany the tiering system and provide custom rewards (~~currently phantom and zombie is planned~~)(phantom is scrapped, zombie and ravager bosses are in preparation)
 - New suffix for players marked afk [done, needs more testing]
 - Add /online command for #aurora channel
 - Add /dump command to dump inventory items into chest
