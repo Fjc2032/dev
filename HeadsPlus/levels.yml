@@ -12,7 +12,7 @@ levels:
       item-amount: 0
       command-sender: player
   dirt:
-    display-name: '#D1D1D1&lI'
+    display-name: '&lI'
     added-version: 0.1
     required-xp: 1000
     hierarchy: 2
@@ -22,7 +22,7 @@ levels:
       reward-value:
       - lp user {player} permission set group.dirt1
   stone:
-    display-name: '#D1D1D1&lII'
+    display-name: '&lII'
     added-version: 0.1
     required-xp: 2090
     hierarchy: 3
@@ -33,7 +33,7 @@ levels:
       - lp user {player} permission set group.stone1
       - lp user {player} permission unset group.dirt1
   coal:
-    display-name: '#D1D1D1&lIII'
+    display-name: '&lIII'
     added-version: 0.1
     required-xp: 4368
     hierarchy: 4
@@ -44,7 +44,7 @@ levels:
       - lp user {player} permission set group.coal1
       - lp user {player} permission unset group.stone1
   coal_2:
-    display-name: '#D1D1D1&lIV'
+    display-name: '&lIV'
     added-version: 0.1
     required-xp: 9129
     hierarchy: 5
@@ -55,7 +55,7 @@ levels:
       - lp user {player} permission set group.coal2
       - lp user {player} permission unset group.coal1
   iron:
-    display-name: '#D1D1D1&lV'
+    display-name: '&lV'
     added-version: 0.1
     required-xp: 19080
     hierarchy: 6
@@ -66,7 +66,7 @@ levels:
       - lp user {player} permission set group.iron1
       - lp user {player} permission unset group.coal2
   iron_2:
-    display-name: '#D1D1D1&lVI'
+    display-name: '&lVI'
     added-version: 0.1
     required-xp: 39878
     hierarchy: 7
@@ -77,7 +77,7 @@ levels:
       - lp user {player} permission set group.iron2
       - lp user {player} permission unset group.iron1
   redstone:
-    display-name: '#D1D1D1&lVII'
+    display-name: '&lVII'
     added-version: 0.1
     required-xp: 83345
     hierarchy: 8
@@ -88,7 +88,7 @@ levels:
       - lp user {player} permission set group.redstone1
       - lp user {player} permission unset group.iron2
   redstone_2:
-    display-name: '#D1D1D1&lVIII'
+    display-name: '&lVIII'
     added-version: 0.1
     required-xp: 174190
     hierarchy: 9
@@ -99,7 +99,7 @@ levels:
       - lp user {player} permission set group.redstone2
       - lp user {player} permission unset group.redstone1
   lapis:
-    display-name: '#D1D1D1&lIX'
+    display-name: '&lIX'
     added-version: 0.1
     required-xp: 364058
     hierarchy: 10
@@ -110,7 +110,7 @@ levels:
       - lp user {player} permission set group.lapis1
       - lp user {player} permission unset group.redstone2
   lapis_2:
-    display-name: '#D1D1D1&lX'
+    display-name: '&lX'
     added-version: 0.1
     required-xp: 760881
     hierarchy: 11
@@ -121,7 +121,7 @@ levels:
       - lp user {player} permission set group.lapis2
       - lp user {player} permission unset group.lapis1
   lapis_3:
-    display-name: '#D1D1D1&lXI'
+    display-name: '&lXI'
     added-version: 0.1
     required-xp: 1590000
     hierarchy: 12
@@ -132,7 +132,7 @@ levels:
       - lp user {player} permission set group.lapis3
       - lp user {player} permission unset group.lapis2
   gold:
-    display-name: '#D1D1D1&lXII'
+    display-name: '&lXII'
     added-version: 0.1
     required-xp: 3320000
     hierarchy: 13
@@ -143,7 +143,7 @@ levels:
       - lp user {player} permission set group.gold1
       - lp user {player} permission unset group.lapis3
   gold_2:
-    display-name: '#D1D1D1&lXIII'
+    display-name: '&lXIII'
     added-version: 0.1
     required-xp: 6950000
     hierarchy: 14
@@ -154,7 +154,7 @@ levels:
       - lp user {player} permission set group.gold2
       - lp user {player} permission unset group.gold1
   gold_3:
-    display-name: '#D1D1D1&lXIV'
+    display-name: '&lXIV'
     added-version: 0.1
     required-xp: 14000000
     hierarchy: 15
@@ -165,7 +165,7 @@ levels:
       - lp user {player} permission set group.gold3
       - lp user {player} permission unset group.gold2
   diamond:
-    display-name: '#D1D1D1&lXV'
+    display-name: '&lXV'
     added-version: 0.1
     required-xp: 30300000
     hierarchy: 16
@@ -176,7 +176,7 @@ levels:
       - lp user {player} permission set group.diamond1
       - lp user {player} permission unset group.gold3
   diamond_2:
-    display-name: '#D1D1D1&lXVI'
+    display-name: '&lXVI'
     added-version: 0.1
     required-xp: 63400000
     hierarchy: 17
@@ -187,7 +187,7 @@ levels:
       - lp user {player} permission set group.diamond2
       - lp user {player} permission unset group.diamond1
   diamond_3:
-    display-name: '&b&lXVII'
+    display-name: '&lXVII'
     added-version: 0.1
     required-xp: 133000000
     hierarchy: 18
@@ -198,7 +198,7 @@ levels:
       - lp user {player} permission set group.diamond3
       - lp user {player} permission unset group.diamond2
   obsidian:
-    display-name: '&8&lObsidian'
+    display-name: ''
     added-version: 0.1
     required-xp: 85000
     hierarchy: 19
@@ -209,7 +209,7 @@ levels:
       item-amount: 0
       command-sender: player
   obsidian_2:
-    display-name: '&8&lObsidian &0&lII'
+    display-name: ''
     added-version: 0.1
     required-xp: 95000
     hierarchy: 20
@@ -220,7 +220,7 @@ levels:
       item-amount: 0
       command-sender: player
   obsidian_3:
-    display-name: '&8&lObsidian &0&lIII'
+    display-name: ''
     added-version: 0.1
     required-xp: 100000
     hierarchy: 21
@@ -231,7 +231,7 @@ levels:
       item-amount: 0
       command-sender: player
   obsidian_4:
-    display-name: '&8&lObsidian &0&lIV'
+    display-name: ''
     added-version: 0.1
     required-xp: 110000
     hierarchy: 22
@@ -242,7 +242,7 @@ levels:
       item-amount: 0
       command-sender: player
   emerald:
-    display-name: '&a&lEmerald'
+    display-name: ''
     added-version: 0.1
     required-xp: 120000
     hierarchy: 23
@@ -253,7 +253,7 @@ levels:
       item-amount: 0
       command-sender: player
   emerald_2:
-    display-name: '&a&lEmerald &2&lII'
+    display-name: ''
     added-version: 0.1
     required-xp: 130000
     hierarchy: 24
@@ -264,7 +264,7 @@ levels:
       item-amount: 0
       command-sender: player
   emerald_3:
-    display-name: '&a&lEmerald &2&lIII'
+    display-name: ''
     added-version: 0.1
     required-xp: 140000
     hierarchy: 25
@@ -275,7 +275,7 @@ levels:
       item-amount: 0
       command-sender: player
   emerald_4:
-    display-name: '&a&lEmerald &2&lIV'
+    display-name: ''
     added-version: 0.1
     required-xp: 150000
     hierarchy: 26
@@ -286,7 +286,7 @@ levels:
       item-amount: 0
       command-sender: player
   bedrock:
-    display-name: '&5&lBedrock'
+    display-name: ''
     added-version: 0.1
     required-xp: 160000
     hierarchy: 27
@@ -297,7 +297,7 @@ levels:
       item-amount: 0
       command-sender: player
   bedrock_2:
-    display-name: '&5&lBedrock &0&lII'
+    display-name: ''
     added-version: 0.1
     required-xp: 170000
     hierarchy: 28
@@ -308,7 +308,7 @@ levels:
       item-amount: 0
       command-sender: player
   bedrock_3:
-    display-name: '&5&lBedrock &0&lIII'
+    display-name: ''
     added-version: 0.1
     required-xp: 180000
     hierarchy: 29
@@ -319,7 +319,7 @@ levels:
       item-amount: 0
       command-sender: player
   bedrock_4:
-    display-name: '&5&lBedrock &0&lIV'
+    display-name: ''
     added-version: 0.1
     required-xp: 200000
     hierarchy: 30
@@ -330,7 +330,7 @@ levels:
       item-amount: 0
       command-sender: player
   bedrock_5:
-    display-name: '&5&lBedrock &0&lV'
+    display-name: ''
     added-version: 0.1
     required-xp: 300000
     hierarchy: 31
@@ -341,7 +341,7 @@ levels:
       item-amount: 0
       command-sender: player
   netherite:
-    display-name: '&4&lNetherite I'
+    display-name: ''
     added-version: 0.2
     required-xp: 500000
     hierarchy: 32
@@ -352,7 +352,7 @@ levels:
       item-amount: 0
       command-sender: player
   netherite_2:
-    display-name: '&4&lNetherite II'
+    display-name: ''
     added-version: 0.2
     required-xp: 750000
     hierarchy: 33
@@ -363,7 +363,7 @@ levels:
       item-amount: 0
       command-sender: player
   netherite_3:
-    display-name: '&4&lNetherite III'
+    display-name: ''
     added-version: 0.2
     required-xp: 1000000
     hierarchy: 34
@@ -374,7 +374,7 @@ levels:
       item-amount: 0
       command-sender: player
   netherite_4:
-    display-name: '&4&lNetherite IV'
+    display-name: ''
     added-version: 0.2
     required-xp: 1500000
     hierarchy: 35
@@ -385,7 +385,7 @@ levels:
       item-amount: 0
       command-sender: player
   netherite_5:
-    display-name: '&4&lNetherite V'
+    display-name: ''
     added-version: 0.2
     required-xp: 2000000
     hierarchy: 36
