@@ -34,3 +34,4 @@ Planned Changelog:
   - New bosses that will accompany the tiering system and provide custom rewards (currently phantom and zombie is planned)
 - New suffix for players marked afk [done, needs more testing]
 - Add /online command for #aurora channel
+- Add /dump command to dump inventory items into chest
