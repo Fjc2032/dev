@@ -1,0 +1,155 @@
+StaticallyChargedSheep:
+  Type: SHEEP
+  Display: '&eStatically Charged Sheep'
+  Health: 250
+  Damage: 5
+  Options:
+    MovementSpeed: 0.3
+  DamageModifiers:
+  - LIGHTNING 0
+  - FIRE 0.5
+  Skills:
+  - lightning @LivingInRadius{r=10} ~onTimer:100
+AngrySludge:
+  Type: SLIME
+  Display: '&aAngry Sludge'
+  Health: 100
+  Damage: 2
+  Options:
+    Size: 20
+    MovementSpeed: 0.1
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=AngrySludgePoison} 0.2
+  - blockmask{material=SLIME_BLOCK;r=1;duration=100} @self ~onTimer:20
+Terrorwing:
+  Type: PHANTOM
+  Display: '&e&lEnraged Terrorwing'
+  Health: 750
+  Damage: 14
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: Enraged Terrorwing
+    Range: 45
+    Color: YELLOW
+    Style: NOTCHED_6
+    DarkenSky: true
+  Options:
+    MovementSpeed: 3
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  AITargetSelectors:
+  - players
+  - attacker
+  Drops:
+  - phantom_membrane 17 95
+  DamageModifiers:
+    - ENTITY_ATTACK 5
+    - PROJECTILE 15
+  KillMessages:
+    - &cHow tragic...
+  LevelModifiers:
+    Damage: 5
+    Health: 75
+  Skills:
+  - BlockDestabilize{ticks:50} @target ~onDamaged <75% 0.8
+  - ignite{ticks:100} @target ~onAttack <99% 0.9
+StrengthenedRavager:
+  Type: RAVAGER
+  Display: '&c&lStrengthened Ravager'
+  Health: 1950
+  Damage: 55
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: Strengthened Ravager
+    Range: 15
+    Color: RED
+    Style: NOTCHED_6
+  Options:
+    MovementSpeed: 7
+    AttackSpeed: 3
+    DigOutOfGround: true
+    ReviveHealth: 750
+  AIGoalSelectors:
+  - randomstroll
+  - meleeattack
+  AITargetSelectors:
+  - players
+  - attacker
+  - villagers
+  Drops:
+  - emerald 19 44
+  DamageModifiers:
+  - ENTITY_ATTACK 3
+  - PROJECTILE 9
+  Skills:
+  - shield{amount=25,maxShield=30} @self ~onDamaged 0.3
+  - propel{v=5;delay=1} @trigger ~onDamaged ?~distance{d=5} 0.6
+  - effect:bloodyscreen{d=25} @PIR{r=15} ~onTimer:20
+  - blackscreen{d=10} @PIR{r=20} ~onDamaged 0.05
+  - cancelevent{sync=true} @self ~onDeath 0.5
+  LevelModifiers:
+    Health: 150
+    Damage: 10
+HastyGoblin:
+  Type: ZOMBIE
+  Display: '&2&lHasty Goblin'
+  Health: 1750
+  Modules:
+    ThreatTable: true
+  Damage: 26
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: Hasty Goblin
+    Range: 30
+    Color: BLUE
+    Style: NOTCHED_6
+  Equipment:
+  - DIAMOND_HELMET HEAD
+  - DIAMOND_CHESTPLATE CHEST
+  - DIAMOND_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  - DIAMOND_PICKAXE HAND
+  - LANTERN OFFHAND
+  Options:
+    MovementSpeed: 0.5
+    KnockbackResistance: 0.1
+    Despawn: false
+    PreventSunburn: true
+    RepeatAllSkills: true
+    Baby: true
+    PreventJockeyMounts: false
+    ReinforcementsChance: 0.44
+    AttackSpeed: 4
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  AITargetSelectors:
+  - players
+  - villagers
+  - attacker
+  DamageModifiers:
+  - MAGIC 35
+  - FIRE 17
+  - FIRE_TICK 11
+  - ENTITY_ATTACK 3
+  - PROJECTILE 1
+  Skills:
+  - blockdestabilize @BIR{r=6} ~onDamaged 0.1
+  - swap @target ~onAttack 0.7
+  - healpercent{m=0.15} @self ~onAttack 0.3
+  - shootpotion{type=SLOW;duration=200;level=4;velocity=5} @target 0.2
+  - pull{v=6;to=true} @PIR{r=10} 0.05
+  Drops:
+  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.24
+  - command{c="headsplus xp <target.name> add 15000"} 1 1
+  LevelModifiers:
+    Health: 200
+    Damage: 11
