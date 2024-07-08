@@ -63,7 +63,7 @@ StrengthenedRavager:
   Type: RAVAGER
   Display: '&c&lStrengthened Ravager'
   Health: 1950
-  Damage: 55
+  Damage: 60
   Armor: 30
   BossBar:
     Enabled: true
@@ -85,15 +85,19 @@ StrengthenedRavager:
   - villagers
   Drops:
   - emerald 19 44
+  - command{c='essentials:give <target.name> iron_axe 1 sharpness:10 looting:6 mending:1 efficiency:7 name:&cBloodied_Axe lore:&6Sometimes_used_by_pillagers_in_difficult_raids.'} 1 0.03
+  - command{c='headsplus xp <target.name> add 15000'} 1 1
   DamageModifiers:
   - ENTITY_ATTACK 3
   - PROJECTILE 9
   Skills:
-  - shield{amount=25,maxShield=30} @self ~onDamaged 0.3
-  - propel{v=5;delay=1} @trigger ~onDamaged ?~distance{d=5} 0.6
+  - shield{amount=25;maxShield=30} @self ~onDamaged 0.3
+  - lunge{v=1;vy=1} @self ~onDamaged 0.2
   - effect:bloodyscreen{d=25} @PIR{r=15} ~onTimer:20
   - blackscreen{d=10} @PIR{r=20} ~onDamaged 0.05
   - cancelevent{sync=true} @self ~onDeath 0.5
+  - shieldbreak{d=200} @target 0.3
+  - potion{t=SLOW;duration=200;level=3}
   LevelModifiers:
     Health: 150
     Damage: 10
@@ -126,6 +130,7 @@ HastyGoblin:
     RepeatAllSkills: true
     Baby: true
     PreventJockeyMounts: false
+    Glowing: true
     ReinforcementsChance: 0.44
     AttackSpeed: 4
     DigOutOfGround: true
@@ -203,3 +208,59 @@ Terminator:
   - healpercent{m=0.15} @self ~onBowHit 0.25
   - shootfireball{s=15;v=1;ft=100;i=true;c=true;ps=true;t=LARGE} ~onTimer:20
   - shootskull{y=15;ps=true}
+VorpalSpiritMaster:
+  Type: RABBIT
+  Display: "&4&lVorpal Spirit Master"
+  Health: 750
+  Modules:
+    ThreatTable: true
+  Damage: 30
+  Armor: 5
+  BossBar:
+    Enabled: true
+    Title: Vorpal Spirit Master
+    Range: 50
+    Color: RED
+    Style: NOTCHED_6
+  Options: 
+    AttackSpeed: 1
+    DigOutOfGround: true
+    Despawn: false
+    Glowing: true
+    FollowRange: 50
+    HealOnReload: true
+    KnockbackResistance: 1
+    MovementSpeed: 0.4
+    NoDamageTicks: 40
+    PassthroughDamage: true
+    PreventLeashing: true
+    UseThreatTable: true
+    IsKillerBunny: true
+    RabbitType: THE_KILLER_BUNNY
+  DamageModifiers:
+  - FIRE: -5
+  - LAVA: -5
+  - FIRE_TICK: -15
+  - HOT_FLOOR: -15
+  - PROJECTILE: 11
+  - ENTITY_DAMAGE: 8
+  - WITHER: 7
+  - THORNS: 8
+  AIGoalSelectors:
+  - clear
+  - randomlookaround
+  - lookatplayers{r=40}
+  - movetowardstarget
+  AITargetSelectors:
+  - clear
+  - players
+  Skills:
+  - basedamage {m=1.1} @PIR ~onDamaged
+  - damage{a=20;ia=true;is=true;ieff=true;ie=true;ii=true} ~onDamaged 0.5
+  - hit{m=1.5;ia=true}
+  - rally{r=15} ~onTimer:20
+  - summon{type=StaticallyChargedSheep;a=1;os=true;sio=true} @PIR{r=20} ~onTimer:100 0.15
+  - summon{type=WITHER_SKELETON;a=1-6;os=true;sio=true} @PIR{r=20} ~onTimer:100 0.15
+  - forcepull{spread=5} @PIR{r=30} ~onTimer:200 0.4
+  - remove @MobsInRadius{r=50;types=StaticallyChargedSheep} ~onDeath
+  - remove @MobsInRadius{r=50;types=WITHER_SKELETON} ~onDeath
