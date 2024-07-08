@@ -128,6 +128,7 @@ HastyGoblin:
     PreventJockeyMounts: false
     ReinforcementsChance: 0.44
     AttackSpeed: 4
+    DigOutOfGround: true
   AIGoalSelectors:
   - clear
   - meleeattack
@@ -146,10 +147,59 @@ HastyGoblin:
   - swap @target ~onAttack 0.7
   - healpercent{m=0.15} @self ~onAttack 0.3
   - shootpotion{type=SLOW;duration=200;level=4;velocity=5} @target 0.2
-  - pull{v=6;to=true} @PIR{r=10} 0.05
+  - pull{v=6;to=true} @PIR{r=10} ~onTimer 0.1
   Drops:
-  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.24
+  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.05
   - command{c="headsplus xp <target.name> add 15000"} 1 1
   LevelModifiers:
     Health: 200
     Damage: 11
+Terminator:
+  Type: SKELETON
+  Display: '&4&lTerminator'
+  Health: 3500
+  Modules:
+    ThreatTable: true
+  Damage: 75
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: Terminator
+    Range: 45
+    Color: RED
+    Style: NOTCHED_6
+  Equipment:
+  - LEATHER_HELMET HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_CHESTPLATE LEGS
+  Options:
+    MovementSpeed: 0.3
+    PreventSunburn: true
+    KnockbackResistance: 0.25
+    AttackSpeed: 7
+    DigOutOfGround: true
+    Despawn: false
+    FollowRange: 40
+    HealOnReload: true
+    MaxCombatDistance: 20
+    NoDamageTicks: 20
+    UseThreatTable: true
+  AIGoalSelectors:
+  - clear
+  - rangedattack{s=1;smax=40;amin=10;r=15}
+  - bowattack{amin=10;r=10}
+  AITargetSelectors:
+  - clear
+  - players
+  - attacker
+  DamageModifiers:
+  - ENTITY_ATTACK 9
+  - PROJECTILE 7
+  - MAGIC 0
+  Skills:
+  - arrowvolley{a=18;s=15;v=5;f=60;rd=20;pickup=false} @Target ~onDamaged 0.4
+  - blackscreen{d=3} @PlayersInRadius{r=15} ~onDamaged 0.2
+  - basedamage{m=0.75} @target ~onDamaged 0.3
+  - healpercent{m=0.15} @self ~onBowHit 0.25
+  - shootfireball{s=15;v=1;ft=100;i=true;c=true;ps=true;t=LARGE} ~onTimer:20
+  - shootskull{y=15;ps=true}
