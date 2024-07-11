@@ -1,14 +1,14 @@
-SmashAttack:
-  Cooldown: 8
+ReverseOsmosisWater:
+  Cooldown: 3
   Conditions:
   - targetwithin{d=25}
   Skills:
-  - message{cooldown=30;m="<mob.name><&co> Hahahah! I will crush you, fool!"} @PlayersInRadius{r=40}
+  - message{m="<caster.name> &fused &b&oReverse Osmosis"} @PIR{r=25}
   - teleport @target
   - effect:sound{s=mob.endermen.portal;volume=1.0;pitch=0.5}
   - delay 10
-  - damage{amount=5;ignorearmor=true} @PlayersInRadius{r=5}
-  - throw{velocity=10;velocityY=5} @PlayersInRadius{r=5}
+  - damage{amount=5;ignorearmor=true} @PlayersInRadius{r=20}
+  - throw{velocity=10;velocityY=5} @PlayersInRadius{r=20}
   - effect:explosion @Self
 SummonSkeletons:
   Cooldown: 15
@@ -26,3 +26,18 @@ AngrySludgePoison:
   - potion{type=POISON;lvl=2;duration=100} @PlayersInRadius{r=15}
   - effect:particles{p=happyVillager;amount=1000;hSpread=15;ySpread=1;speed=0;yOffset=0.5}
     @Self
+ParticleBeam:
+  Cooldown: 1
+  Skills:
+  - EnderBeam{d=100}
+  - delay 1
+  - damage{a=30;ia=true}
+  - message{m="<caster.name> used &bParticle Beam"} @PIR{r=30}
+  - explosion{y=4}
+RaiseSoulsWater:
+  Cooldown: 1
+  Skills:
+  - summonfallingblock{m=ANVIL}
+  - summonfallingblock{m=BRAIN_CORAL_BLOCK}
+  - summon {m=GUARDIAN;then=ReverseOsmosisWater;a=5-13;r=6}
+  - potion{t=SLOW;d=300;level=3}
