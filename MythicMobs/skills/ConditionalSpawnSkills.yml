@@ -1,0 +1,8 @@
+ConditionalSpawnTerminator:
+    TargetConditions:
+    - haspermission{p=boss.regular.no} cast Kill
+    Skills:
+    - message{m="&aBoss spawned."} @target
+Kill:
+    Skills:
+    - remove @self ~onTimer:5
