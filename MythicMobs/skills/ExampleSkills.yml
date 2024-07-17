@@ -1,25 +1,14 @@
 ReverseOsmosisWater:
-  Cooldown: 3
+  Cooldown: 5
   Conditions:
   - targetwithin{d=25}
   Skills:
   - message{m="<caster.name> &fused &b&oReverse Osmosis"} @PIR{r=25}
   - teleport @target
   - effect:sound{s=mob.endermen.portal;volume=1.0;pitch=0.5}
-  - delay 10
   - damage{amount=5;ignorearmor=true} @PlayersInRadius{r=20}
   - throw{velocity=10;velocityY=5} @PlayersInRadius{r=20}
   - effect:explosion @Self
-SummonSkeletons:
-  Cooldown: 15
-  Skills:
-  - message{m="<caster.name><&co> Arise, my minions!"} @PlayersInRadius{r=40}
-  - delay 20
-  - summon{mob=SkeletalMinion;amount=2;noise=5} @Self
-  - delay 20
-  - summon{mob=SkeletalMinion;amount=2;noise=5} @Self
-  - delay 20
-  - summon{mob=SkeletalMinion;amount=2;noise=5} @Self
 AngrySludgePoison:
   Cooldown: 10
   Skills:
@@ -41,3 +30,8 @@ RaiseSoulsWater:
   - summonfallingblock{m=BRAIN_CORAL_BLOCK}
   - summon {m=GUARDIAN;then=ReverseOsmosisWater;a=5-13;r=6}
   - potion{t=SLOW;d=300;level=3}
+DoubleFireball:
+  Skills:
+  - shootfireball{y=8;v=4;c=true;ps=true} @target
+  - shootfireball{y=8;v=4;c=true;ps=true} @target
+  - shootfireball{y=8;v=4;c=true;ps=true} @target
