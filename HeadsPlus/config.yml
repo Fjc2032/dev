@@ -1,0 +1,411 @@
+####################################################################################################
+#                                           HeadsPlus v7                                           #
+#                                Developed by Thatsmusic99 (Holly)                                 #
+#                                                                                                  #
+####################################################################################################
+# This is an MVP release of v7, so configuration is not completely polished over.                  #
+# If there's ANY part of the config you can't find or don't understand, please bring it up in      #
+# Discord:                                                                                         #
+# https://discord.gg/DHE2aSh                                                                       #
+#                                                                                                  #
+# Find a vague error message or stacktrace occurring in the plugin? Send it over.                  #
+# https://github.com/Errored-Innovations/HeadsPlus                                                 #
+#                                                                                                  #
+# Experiencing lag problems? Try using a specific server type that's made out of trees.            #
+#                                                                                                  #
+# Got any other feedback? Let me know or leave a review. Don't report bugs in reviews or I will    #
+# send the screaming goat gods your way.                                                           #
+#                                                                                                  #
+# Other than that, enjoy the hellscape I put together four years ago. :)                           #
+#                                                                                                  #
+####################################################################################################
+
+###################
+#  Main Features  #
+###################
+
+# Whether or not players are able to sell heads.
+# This requires the Vault and an economy plugin - such as Essentials - to be enabled!
+# To troubleshoot this, please make sure that Economy in /vault-info isn't null. If it is, you don't have an economy plugin.
+# If it isn't null and HeadsPlus isn't picking it up, please contact the developer.
+sell-heads: true
+
+# Whether or not mobs drop their heads when they die.
+# To see the full settings for this, please look at the mobs.yml config file.
+mob-drops: true
+
+# Whether or not players drop their heads when they die.
+# To see the full settings for this too, please look at the mobs.yml config file.
+player-drops: true
+
+# Whether or not players can craft heads.
+# Whilst this option is set to true,
+enable-crafting: false
+
+# Whether to allow people to use /heads or not.
+# The permission for this is heasplus.heads.
+heads-selector: true
+
+# Whether players should be able to complete challenges or not.
+# The command to access challenges is /hpc, with the permission headsplus.challenges.
+challenges: true
+
+# Whether or not people can view leaderboards for the plugin that list up the players with the most heads collected from mob drops and crafting.
+# The command to access this is /hplb, with the permission headsplus.leaderboards
+leaderboards: true
+
+# Whether or not HeadsPlus Levels should be enabled or not.
+# HeadsPlus Levels are cosmetic levels which players can reach through gaining XP. XP can be gained by getting/crafting heads and completing challenges.
+# To configure this further, use the levels.yml file.
+levels: true
+
+# Whether or not masks should be enabled or not.
+# Masks are heads which can be worn and apply a special effect upon the person who wears it.
+# However, it does require extensive configuration, which is best done using /hp settings.
+masks: true
+
+# Whether or not the plugin should respond to interactions with a given head.
+# This can be configured further using interactions.yml.
+interactions: true
+
+# Whether or not creative mode players are able to retreive heads using the pick block button.
+block-pickup: true
+
+###########
+#  MySQL  #
+###########
+
+# Whether or not the plugin should connect using MySQL.
+# When this option is set to false, it just uses the default SQLite storage.
+enable-mysql: false
+
+# The host of the MySQL database to be used.
+mysql-host: 127.0.0.1
+
+# The port of the MySQL database. It's often 3306 by default.
+mysql-port: 3306
+
+# The name of the database/schema to connect to.
+mysql-database: database
+
+# The username used to access the database.
+mysql-username: username
+
+# The password for the user specified above.
+mysql-password: password
+
+###############
+#  Mob Drops  #
+###############
+
+# Configure this further in the mobs.yml config file.
+
+# The default drop chance of mob heads.
+# Per-head drop chance can be configured in the mobs.yml file.
+default-drop-chance: 5
+
+# The default price that mob heads can be sold at.
+# Per-head price can be configured in the mobs.yml file.
+default-head-price: 2.0
+
+# The default amount of XP (plugin) gained when receiving a dropped head.
+# Per-head XP gained can be configured in the mobs.yml file.
+default-xp-gained: 10
+
+# Spawn causes that stop heads dropping from a given mob.
+# In this example, mobs spawned using spawner eggs will not drop heads at all.
+blocked-spawn-causes: []
+
+# Whether or not mob drops need a player killing them or not.
+needs-killer: true
+
+# If the above option is disabled, list here the entities that DO need a killer to drop a head.
+# This is to prevent potential exploits with sellable heads.
+entities-needing-killer:
+- player
+
+# Whether or not the looting enchantment should have an effect on how many heads are dropped.
+enable-looting: true
+thresholds:
+  # The maximum chance needed for the looting enchantment to increase the head drop number.
+  # For example, heads with a 50% chance of dropping will drop extra heads depending on the looting level.
+  # Every 100% added guarantees a new head, but the extra 50% - the remaining head - is decided by random chance.
+  # Equation used: chance += level * 100
+  common: 100
+  # The minimum chance needed for the looting enchantment to bump up the chance of the head dropping.
+  # In this example, a head with a 10% chance is changed to 50% with level 1 looting, 66% with level 2 and 75%  with level 3.
+  # Equation used: chance = level / (level + 1)
+  uncommon: 20
+  # The minimum chance for the looting enchantment to softly bump the chance of a head dropping.
+  # Equation used: chance *= level when chance is below 1, chance += level when chance is above or equal to 1
+  rare: 5
+
+# Mobs that will get ignored by the looting enchantment so their head drop count remains unchanged.
+looting-ignored: []
+
+# Whether the plugin should ignore MythicMobs mobs or not.
+disable-for-mythic-mobs: true
+
+#######################
+#  Player Head Drops  #
+#######################
+
+# The default chance that a player head will drop when killed.
+default-player-drop-chance: 100
+
+# The default price of a player head when it is dropped.
+default-player-head-price: 10.0
+
+# A list of players that shouldn't drop heads at all.
+# Any entries made here should all be in lowercase.
+ignored-players: []
+
+# Whether or not messages should be broadcasted when a player loses their head upon death.
+enable-player-head-death-messages: false
+
+# The list of death messages you can set and add.
+player-head-death-messages:
+- '&c{player} &7was killed by &c{killer} &7and had their head removed!'
+- '&c{killer} &7finished the job and removed the worst part of &c{player}&7: The head.'
+- '&7The server owner screamed at &c{player} &7"OFF WITH HIS HEAD!". &c{killer} &7finished
+  the job.'
+
+# Whether or not to adjust the price of the head according to either the victim's or killer's balance (see below).
+adjust-price-according-to-balance: false
+
+# Whether to use the killer's balance or victim's balance when the option above is enabled.
+# If set to true, the killer's balance is used.
+# If set to false, the victim's balance is used.
+use-killer-balance: false
+
+# The percentage of the victim's/killer's balance that is taken off the actual victim.
+# This is a value out of 100, so in the default option, 5% of the balance is taken.
+percentage-taken-off-victim: 5
+
+# The percentage of the victim's/killer's balance that is used as the actual price of the head.
+# Must be a value out of 100.
+percentage-of-balance-as-price: 5
+
+###################
+#  Selling Heads  #
+###################
+
+# Whether or not players should be able to place heads that can be sold.
+# Heads lose their metadata when placed on the ground, so this purely serves as an option to prevent that.
+stop-placement-of-sellable-heads: false
+
+# Whether or not the sellhead GUI is opened when a player does /sellhead.
+use-sellhead-gui: true
+
+# Whether or not names in /sellhead should be case sensitive.
+case-sensitive-names: false
+
+####################
+#  Crafting Heads  #
+####################
+
+# The default amount of XP (plugin) gained when crafting a head.
+default-crafting-xp: 10
+
+###########
+#  Masks  #
+###########
+
+# How often in ticks the plugin checks to make sure it is still on the player's head.
+# Default is 3 seconds.
+check-interval: 60
+
+# How many check intervals it takes for a potion mask to reset.
+# The default here makes the mask reset every minute.
+reset-after-x-intervals: 20
+
+# How long in ticks the effects on the potion mask lasts.
+# The effect is removed after the mask is taken off.
+effect-length: 12000
+
+##################
+#  Restrictions  #
+##################
+
+# Whether or not the list below should be treated as a whitelist.
+# If this is disabled, all worlds in the lists below will not have the respected event occur in them.
+# If this is enabled, on the other hand, any worlds not in the lists will not have the respected event occur in them.
+whitelist-worlds: false
+
+# Worlds in which heads cannot drop from mobs.
+# If whitelist-worlds is enabled, worlds specified below *will* drop mob heads.
+mob-drops-list: []
+
+# Worlds in which heads cannot drop from players.
+player-drops-list:
+- world_nether
+- world_the_end
+
+# Worlds in which players cannot craft heads. The heads will still appear, but the player cannot pick them up.
+crafting-list: []
+
+# Worlds in which masks cannot be effective.
+masks-list:
+- Spawn
+
+# Worlds in which players cannot gain XP.
+xp-gain: []
+
+# Worlds in which players cannot have their HP statistics increased.
+stats-collection: []
+
+# Heads which players cannot access using /head.
+# For example, if a player tries to do /head Thatsmusic99 but the name is included in this list, they cannot access the head.
+# All additions made to this list must be in lowercase only!
+blocked-heads: []
+
+#################
+#  Autograbber  #
+#################
+
+# Enables the autograbber feature.
+# This grabs the texture of a player's head when they join and add it to the local head storage cache for HeadsPlus.
+enable-autograb: false
+
+# Whether or not player heads fetched through the autograbber should be put in the /heads selector.
+add-grabbed-heads-to-selector: true
+
+# The section in the /heads selector that grabbed heads get placed in if the option above is enabled.
+autograb-section: players
+
+# The display name given to the head when it is autograbbed.
+autograb-display-name: '&8[&6{player}&8]'
+
+# The default price set for autograbbed heads. Use "default" to use the default price used for all heads.
+autograb-price: default
+
+################
+#  Challenges  #
+################
+
+# Whether or not challenge completion should be broadcasted.
+broadcast-challenge-complete: true
+
+############
+#  Levels  #
+############
+
+# Whether or not boss bars should be displayed to show the progress of a player's level.
+add-boss-bars: false
+
+# The colour of the bossbar.
+# See https://papermc.io/javadocs/paper/1.17/org/bukkit/boss/BarColor.html for a list of possible colours.
+boss-bar-color: RED
+
+# The title of the bossbar.
+boss-bar-title: '&c&lXP to next HP level'
+
+# The number of seconds the bossbar should last before disappearing.
+boss-bar-lifetime: 3
+
+# Whether or not a broadcast should be made when a player levels up.
+# The message for this can be changed in your localisation file (in the locale folder).
+broadcast-level-up: true
+
+# Whether or not multiple level-ups should occur at once.
+# If disabled for example, a player levelling up from A to C will only get the broadcast for level C, but all rewards in between.
+# If enabled, there will be broadcasts for levelling up to B and C despite the player's new level being level C.
+multiple-level-ups: false
+
+################
+#  Statistics  #
+################
+
+# How long in seconds statistics are cached for.
+# Statistics are cached if you use the PlaceholderAPI expansion for HeadsPlus.
+cache-duration: 300
+
+# When using PlaceholderAPI, determines if stats and such that rely on MySQLare forced if not cached. This will cause lag if set to true and if the cache duration is too low.
+force-placeholders: true
+
+#############
+#  Updates  #
+#############
+
+# Whether or not the plugin should check for new updates.
+check-for-updates: true
+
+# Whether or not the plugin should notify admins when a plugin update is available.
+notify-admins-about-updates: true
+
+##################
+#  Localisation  #
+##################
+
+# The localisation used globally within the plugin.
+# See the locale folder for viable options. To select a language, write its file name - without the .yml - in here.
+locale: en_us
+
+# Whether or not to enable smart locale.
+# This makes HeadsPlus automatically translate itself into a different language for each user depending on their chosen language.
+smart-locale: false
+
+# Whether or not /tellraw should be used to send messages.
+# Will be replaced in a future version. May cause problems with floodgate players.
+use-tellraw: true
+
+####################
+#  Heads Selector  #
+####################
+
+# The default price the heads in the heads selector can be sold at.
+default-selector-head-price: 10.0
+
+# Defines the price of heads by default in a given world.
+per-world-prices:
+  cool-world: 15.0
+
+#################
+#  Permissions  #
+#################
+
+# The list of permissions users should have by default.
+# It is not recommended to rely on this alone, but use this with a permissions plugin like LuckPerms.
+# If you want to set up permissions purely from scratch, turn this into an empty list:
+# default-permissions:[]
+default-permissions:
+- headsplus.craft.*
+- headsplus.challenges
+- headsplus.drops.*
+- headsplus.drops.player.*
+- headsplus.head
+- headsplus.heads
+- headsplus.leaderboards
+- headsplus.maincommand
+- headsplus.maincommand.info
+- headsplus.maincommand.profile
+- headsplus.myhead
+- headsplus.section.*
+- headsplus.sellhead
+- headsplus.sellhead.gui
+
+###################
+#  Miscellaneous  #
+###################
+
+# Enables the debugging verbose in the console.
+debug: false
+
+# This April Fool's feature genuinely got me a complaint.
+# Basically, it strikes the player with lightning whenever a head is dropped. That is it.
+# Someone genuinely complained about it.
+smite-player: false
+
+# Whether or not GUI warnings from HeadsPlus should be suppressed.
+suppress-gui-warnings: true
+
+# Whether or not the plugin should allow negative XP.
+allow-negative-xp: false
+
+# Whether or not you are able to receive messages when searching for a head.
+suppress-messages-during-search: false
+
+# The format in which prices should appear in messages, heads, wherever.
+# By default, this adds a comma for every 1000$ and rounds to two decimal points.
+# Please do not swap the notation for this as Java doesn't like that, see the option below.
+price-decimal-format: '#,###.##'
