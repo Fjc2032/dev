@@ -26,40 +26,96 @@
 
 quests: #This is an example quest, I guess. Try to follow this format.
   1:
-    name: "&c&lSLAYER - &cPhantom Boss"
-    menu_item: END_CRYSTAL
+    name: "&c&lSLAYER - &6Hasty Goblin"
+    menu_item: DIAMOND_PICKAXE
     description:
-      - "&7Kill &f15 &7phantoms."
-    quest_type: KILL
-    required_entity: PHANTOM
-    required_amount: 15
-    reward:
-      reward_type: COMMAND
-      commands:
-       - "bosssummon phantom1" #Empty placeholder for future boss summoning command. After completing the quest, the boss will spawn.
-  2:
-    name: "&6&lGold blocks"
-    menu_item: GOLD_BLOCK
-    description:
-      - "&eGet 16 gold blocks."
-      - "&eWin &b&m32 diamond blocks."
-    quest_type: GET
-    required_item: GOLD_BLOCK
-    required_amount: 16
-    reward:
-      reward_type: COMMAND
-      commands:
-        - "msg %player% Hello !"
-        - "give %player% diamond_block 32"
-  3:
-    name: "Too many zombies"
-    menu_item: ZOMBIE_HEAD
-    description:
-      - "&cKill &65 &czombies."
-      - "&aWin &b500 &aTokens."
+      - "&7Kill &f75 &7zombies."
+      - "&8Killing this boss grants &f1500 &8boss XP."
+      - "&c&lWARNING! &cThis boss is very destructive! Take caution in where you decide to spawn this thing."
+      - "&cDevs are not responsible for loss of property or assets."
     quest_type: KILL
     required_entity: ZOMBIE
-    required_amount: 5
+    required_amount: 75
     reward:
-      reward_type: POINTS
-      amount: 500
+      reward_type: COMMAND
+      commands:
+       - "mm mobs egg give %player% HastyGoblin" #This should give the player an egg for the boss. Don't even know if this works.
+
+
+  2:
+    name: "&c&lSLAYER - &4Strengthened Ravager"
+    menu_item: NETHERITE_AXE
+    description:
+      - "&7Kill &f40 &7pillagers."
+      - "&8This boss grants &f2000 &8boss XP."
+    quest_type: KILL
+    required_entity: PILLAGER
+    required_amount: 40
+    reward:
+      reward_type: COMMAND
+      commands:
+        - "mm mobs egg give %player% StrengthenedRavager" #STILL IN DEVELOPMENT
+
+  3:
+    name: "&c&lSLAYER - &4Terminator&kI"
+    menu_item: WITHER_SKELETON_SKULL
+    description:
+      - "&7Kill &f75 &7skeletons."
+      - "&8Killing this boss grants &f7000 &8boss XP."
+      - "&c&lWARNING! &cThis boss drains armor durability at a fast rate due to some of its abilities."
+      - "&cThe dev team is not responsible for lost armor."
+    quest_type: KILL
+    required_entity: SKELETON
+    required_amount: 75
+    reward:
+      reward_type: COMMAND
+      commands:
+        - "mm mobs egg give %player% Terminator" #WILL BE ADJUSTED
+  
+  4:
+    name: "&c&lSLAYER - &4Vorpal Spirit Master&kII"
+    menu_item: RABBIT_FOOT
+    description:
+      - "&7Kill &f50 &7rabbits."
+      - "&8Killing this boss grants &f15,000 &8boss XP."
+      - "&c&lNOTICE: &eThis boss deals true damage! Most armor defense is ignored."
+    quest_type: KILL
+    required_entity: RABBIT
+    required_amount: 50
+    reward:
+      reward_type: COMMAND
+      commands:
+        - "mm mobs egg give %player% VorpalSpiritMaster"
+
+  5:
+    name: "&c&lSLAYER - &4Elemental Water Fairy&b&kII"
+    menu_item: TUBE_CORAL
+    description:
+      - "&7Kill &f25 &7guardians."
+      - "&8Killing this boss grants &f35,000 &8boss XP."
+      - "&4&lWARNING! &cThis boss has a high DPS rate and can shatter armor. Please keep an eye on your durability."
+      - "&cThe dev team is NOT responsible for lost armor."
+    quest_type: KILL
+    required_entity: GUARDIAN
+    required_amount: 25
+    reward:
+      reward_type: COMMAND
+      commands:
+        - "mm mobs egg give %player% ElementalWaterFairy" #WILL BE ADJUSTED
+
+  6:
+    name: "&c&lSLAYER - &4Evolved Inferno&4I"
+    menu_item: BLAZE_POWDER
+    description:
+      - "&7Kill &f48 &7creepers."
+      - "&8Killing this boss grants &f21,000 boss XP."
+      - "&c&lWARNING! &cThis boss can shatter armor."
+      - "&cDevelopers are NOT responsible for lost armor or property."
+    quest_type: KILL
+    required_entity: CREEPER
+    required_amount: 48
+    reward:
+      reward_type: COMMAND
+      commands:
+        - "mm mobs egg give %player% EvolvedInferno" #MAY BE ADJUSTED
+#More coming soon
