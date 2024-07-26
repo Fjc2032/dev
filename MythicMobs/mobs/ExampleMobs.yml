@@ -103,6 +103,7 @@ StrengthenedRavager:
     DigOutOfGround: true
     ReviveHealth: 750
     Despawn: false
+    PreventOtherDrops: true
   AIGoalSelectors:
   - randomstroll
   - meleeattack
@@ -112,13 +113,13 @@ StrengthenedRavager:
   - villagers
   Drops:
   - emerald 19-45 0.49
-  - command{c="mi give GREATAXE BLOODIED_AXE <target.name>"} 1 0.11
+  - command{c="mi give GREATAXE BLOODIED_AXE <target.name>"} 1 0.01
   - command{c="headsplus xp <target.name> add 2000"} 1 1
   DamageModifiers:
   - ENTITY_ATTACK 3
   - PROJECTILE 9
   Skills:
-  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=30} ~onSpawn
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
   - shield{amount=25;maxShield=30} @self ~onDamaged 0.3
   - lunge{v=1;vy=1} @self ~onDamaged 0.2
@@ -127,7 +128,7 @@ StrengthenedRavager:
   - cancelevent{sync=true} @self ~onDeath 0.5
   - shieldbreak{d=200} @target 0.3
   - potion{t=SLOW;duration=200;level=3}
-  - command{c="lp user <target.name> permission set worldguard.god true world=world";asOp=true} ~onDeath
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   LevelModifiers:
     Health: 150
     Damage: 10
@@ -178,7 +179,7 @@ HastyGoblin:
   - ENTITY_ATTACK 3
   - PROJECTILE 1
   Skills:
-  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=30} ~onSpawn
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
   - skill{s=DoubleFireball} @PIR{r=50} ~onTimer:60
   - explosion{y=0.3;bd=true} @PIR{r=50} ~onDamaged 0.2
@@ -186,9 +187,10 @@ HastyGoblin:
   - healpercent{m=0.15} @self ~onAttack 0.3
   - shootpotion{type=SLOW;duration=200;level=4;velocity=5} @target 0.2
   - pull{v=6;to=true} @PIR{r=10} ~onTimer:160 0.25
-  - command{c="lp user <target.name> permission set worldguard.god true world=world";asOp=true} ~onDeath
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
-  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.09
+  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.11
+  - command{c="mi give TOOL PIONEER_PICKAXE <target.name>"} 1 0.13
   - command{c="headsplus xp <target.name> add 1500"} 1 1
   - golden_apple 3-7 0.5
   LevelModifiers:
@@ -237,18 +239,18 @@ Terminator:
   - PROJECTILE 7
   - MAGIC 0
   Skills:
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - skill{s=ConditionalSpawnTerminator} @target ~onSpawn
-  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=30} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
-  - command{c="lp user <target.name> permission set worldguard.god true world=world";asOp=true} ~onDeath
   - arrowvolley{a=18;s=15;v=5;f=60;rd=20;pickup=false} @Target ~onDamaged 0.4
   - blackscreen{d=3} @PlayersInRadius{r=15} ~onDamaged 0.2
   - basedamage{m=0.75} @target ~onDamaged 0.3
   - healpercent{m=0.15} @self ~onBowHit 0.25
   - shootfireball{s=15;v=1;ft=100;i=true;c=true;ps=true;t=LARGE} ~onTimer:20
   - summon{type=SKELETON;a=3-5} @PIR ~onTimer:100 0.21
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
-  - command{c="mi give GREATBOW SYLVETTA_LONGBOW <target.name>"} 1 0.17
+  - command{c="mi give GREATBOW SYLVETTA_LONGBOW <target.name>"} 1 0.05
   - command{c="give FjcX instantdamagearrowlevelii 1"} 13-27 0.45
   - netherite_helmet{enchants=PROJECTILE_PROTECTION:8,MENDING:1} 1 0.17
   - command{c="headsplus xp <target.name> add 7000"}
@@ -299,11 +301,11 @@ VorpalSpiritMaster:
   - clear
   - players
   Skills:
-  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=30} ~onSpawn
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
-  - basedamage{m=1.1} @PIR{r=30} ~onDamaged
-  - damage{a=20;ia=true;is=true;ieff=true;ie=true;ii=true} ~onDamaged 0.5
-  - hit{m=1.5;ia=true}
+  - basedamage{m=1.09} @PIR{r=30} ~onDamaged
+  - damage{a=14;ia=true;is=true;ieff=true;ie=true;ii=true} ~onDamaged 0.4
+  - hit{m=1.4;ia=true} ~onTimer:200
   - rally{r=15} ~onTimer:20
   - summon{type=StaticallyChargedSheep;a=1;os=true;sio=true} @PIR{r=20} ~onTimer:100 0.15
   - summon{type=WITHER_SKELETON;a=1-6;os=true;sio=true} @PIR{r=20} ~onTimer:100 0.15
@@ -314,11 +316,14 @@ VorpalSpiritMaster:
   - remove @MobsInRadius{r=50;types=DarkenedSoldier} ~onDeath
   - skill{s=ParticleBeam} @PIR{r=50} ~onTimer:200 0.5
   - healpercent{m=0.05} @self ~onAttack 0.1
-  - command{c="lp user <target.name> permission set worldguard.god true world=world";asOp=true} ~onDeath
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
+  - command{c="minecraft:kill @e[type=end_crystal]";asOp=true} ~onDeath
   Drops:
+  - command{c="mi give GREATSWORD EXCALIBUR <target.name>"} 0.03
   - command{c="mi generate <target.name> GREATSWORD"} 1 0.3
   - command{c="mi generate <target.name> SWORD"} 1 0.35
   - command{c="headsplus xp <target.name> add 15000"}
+  - command{c="mi give ARMOR BLACKBELT <target.name>"} 1 0.07
 EvolvedInferno:
   Type: CREEPER
   Display: '&4&lEvolved Inferno'
@@ -364,6 +369,7 @@ EvolvedInferno:
   - players
   - attacker
   Skills:
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
   - shootskull{y=5;ps=true} @PIR{r=20} ~onTimer:60
   - damagepercent{p=0.3;ia=true} @PIR{r=10} ~onTimer:200
@@ -372,12 +378,19 @@ EvolvedInferno:
   - lightning{d=7} @EntitiesInRadius{r=15} ~onTimer:100
   - effect:particle{p=angry_villager;a=10;size=3} @self ~onTimer:20
   - effect:particle{p=lava;a=10;size=3} @self ~onTimer:20
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
   - command{c="headsplus xp <target.name> add 21500"} 1 1
+  - command{c="mi give WAND SALVATION_WAND <target.name>"} 1 0.08
+  - command{c="mi give ARMOR MOLTEN_CHESTPLATE <target.name>"} 1 0.05
+  - command{c="mi give ARMOR CREEPER_HELMET <target.name>"} 1 0.15
+  - command{c="mi give ARMOR CREEPER_CHESTPLATE <target.name>"} 1 0.15
+  - command{c="mi give ARMOR CREEPER_LEGGINGS <target.name>"} 1 0.15
+  - command{c="mi give ARMOR CREEPER_BOOTS <target.name>"} 1 0.15
 ElementalWaterFairy:
   Type: ALLAY
   Display: '&7&lElemental &b&lWater Fairy'
-  Health: 4000
+  Health: 6000
   Modules:
     ThreatTable: true
   Damage: 95
@@ -393,18 +406,19 @@ ElementalWaterFairy:
     FollowRange: 50
     Glowing: true
     HealOnReload: true
-    Despawn: false
+    Despawn: PERSISTENT
     KnockbackResistance: 1
     Silent: true
+    PreventItemPickup: true
     UseThreatTable: true
   DamageModifiers:
   - DROWNING -30
-  - ENTITY_ATTACK 0
+  - ENTITY_ATTACK 5
   - PROJECTILE 1
   - BLOCK_EXPLOSION 1
   - ENTITY_EXPLOSION 1
-  - MAGIC 11
-  - POISON 9
+  - MAGIC 17
+  - POISON 11
   - FIRE 9
   - FIRE_TICK 3
   - LAVA 13
@@ -416,16 +430,73 @@ ElementalWaterFairy:
   - player
   - attacker
   Skills:
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:100
   - geyser{h=30;s=12} @PIR{r=50} ~onTimer:60
   - skybox{s=1} @PIR{r=50}
   - skybox{s=0} @PIR{r=50} ~onDeath
   - blockwave{m=BLUE_ICE;r=12;d=40;v=0.7;n=3} @PIR{r=50} ~onTimer:120
-  - skill{s=ParticleBeam} @PIR{r=30} ~onDamaged
-  - skill{s=RaiseSoulsWater} ~onTimer:300 @PIR{r=50}
+  - skill{s=ParticleBeam} @PIR{r=30} ~onDamaged 0.3
+  - skill{s=RaiseSoulsWater} @PIR{r=50} ~onTimer:300
   - skill{s=ReverseOsmosisWater} ~onDamaged @PIR{r=50} 0.3
-  - healpercent{m=0.25;oh=true} ~onDamaged 0.15
-  - healpercent{m=0.2;oh=true} ~onTimer:100
-  - command{c="ungod <target.name>";asOp=true} ~onTimer:100
+  - healpercent{m=0.25;oh=true} ~onDamaged 0.5
+  - healpercent{m=0.2;oh=true} ~onTimer:60
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
   - command{c="headsplus xp <target.name> add 35000"} 1 1
+  - command{c="mi give SPEAR GREATER_ALLAY_TRIDENT <target.name>"} 1 0.13
+  - command{c="give <target.name> trident 1"} 1-3 0.29
+  - command{c="mi give GREATSTAFF GREATER_REJUVENATION_STAFF <target.name>"} 1 0.07
+ElementalVexFairy:
+  Type: VEX
+  Display: '&8&lElemental Vex Fairy'
+  Health: 8000
+  Modules:
+    ThreatTable: true
+  Damage: 117
+  Armor: 30
+  BossBar:
+      Enabled: true
+      Title: Elemental Vex Fairy
+      Range: 50
+      Color: WHITE
+      Style: SOLID
+      CreateFog: true
+      DarkenSky: true 
+  Options:
+      AttackSpeed: 3
+      Despawn: false
+      FollowRange: 50
+      Glowing: true
+      MaxCombatDistance: 30
+      MovementSpeed: 0.7
+      NoDamageTicks: 60
+      UseThreatTable: true
+      KnockbackResistance: 0.9
+  DamageModifiers:
+  - BLOCK_EXPLOSION 5
+  - ENTITY_EXPLOSION 5
+  - ENTITY_SWEEP_ATTACK 4
+  - ENTITY_ATTACK 2
+  - PROJECTILE 4
+  - WITHER -15
+  AIGoalSelectors:      
+  - meleeattack
+  - movetowardstarget
+  AITargetSelectors:
+  - clear
+  - player
+  - attacker
+  Skills:
+  - damagepercent{p=0.17;ia=true} @PIR{r=50} ~onTimer:100
+  - geyser{t=LAVA;h=4;speed=12} @PIR{r=50} ~onTimer:250
+  - basedamage{m=0.4} @target ~onDamaged 0.5
+  - particlesphere{p=LARGE_SMOKE;amount=200;radius=5;fo=true} @PIR{r=50} ~onTimer:20
+  - setflying{f=false} @PIR{r=15} ~onTimer:40
+  - potionclear @PIR{r=50} ~onTimer:200
+  - teleport{sh=8;sv=1} @target ~onTimer:100
+  Drops:
+  - command{c="give <target.name> godapple 1"} 2-7 0.21
+  - command{c="mi give DAGGER DEATH_RAPIER <target.name>"} 1 0.08
+  - command{c="give <target.name> totem_of_undying 1"} 2-3 0.27
+  - command{c="give <target.name> wither_skeleton_skull 1"} 1-3 0.35
