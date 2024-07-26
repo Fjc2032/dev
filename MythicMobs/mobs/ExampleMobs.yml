@@ -500,3 +500,47 @@ ElementalVexFairy:
   - command{c="mi give DAGGER DEATH_RAPIER <target.name>"} 1 0.08
   - command{c="give <target.name> totem_of_undying 1"} 2-3 0.27
   - command{c="give <target.name> wither_skeleton_skull 1"} 1-3 0.35
+MagnateArachnid:
+  Type: SPIDER
+  Display: '&a&lMagnate Arachnid'
+  Health: 5000
+  Modules:
+    ThreatTable: true
+  Damage: 35
+  Armor: 15
+  BossBar:
+    Enabled: true
+    Title: Magnate Arachnid
+    Range: 30
+    Color: WHITE
+    Style: SOLID
+    CreateFog: true
+  Options:
+    AttackSpeed: 10
+    Invisible: true
+    DigOutOfGround: true
+    Despawn: PERSISTENT
+    FollowRange: 30
+    Glowing: true
+    HealOnReload: true
+    KnockbackResistance: 1
+    MovementSpeed: 0.5
+    PreventOtherDrops: true
+    UseThreatTable: true
+  DamageModifiers:
+  - ENTITY_ATTACK 3
+  - PROJECTILE 3
+  - MAGIC 0
+  - POISON 0
+  AIGoalSelectors:
+  - clear
+  - spiderattack
+  AITargetSelectors:
+  - clear
+  - attacker
+  Skills:
+  - skill{s=PoisonJab} @PIR{r=30} ~onTimer:250
+  - mount{t=DarkenedSoldier;s=true} @self ~onDamaged 0.1
+  
+  
+  
