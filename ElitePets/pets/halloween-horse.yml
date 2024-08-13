@@ -7,14 +7,12 @@ item:
   lore:
     - ''
     - '&e&lPASSIVE'
-    - '&7Lurk in the shadows of the forests'
+    - '&7Lurk in the shadow of the forests'
     - '&7like a raccoon.'
     - ''
     - '&6&lACTIVATION'
-    - '&7Cut through the vast plains as if'
-    - '&7you were never there.'
-    - '&8Provides Speed 10 on activation. Can stack with equipment'
-    - '&8that provides additional movement speed.'
+    - '&7Mimics the &8Swift Sneak &7enchant, which allows you to move faster'
+    - '&7while sneaking.'
     - ''
     - '&8This pet has been inspired by &5&lBuilder &f&l| &5SpeedyDS12'
     - ''
@@ -24,8 +22,11 @@ item:
 
 settings:
   levelup-methods:
+    - 'PASSIVE:false:5'
     - 'INTERACT'
 
 effects:
+  PASSIVE:
+    - 'POTION:INVISIBILITY:premade-equation:PLAYER'
   INTERACT:
-    - 'HALLOWEEN_HORSE:level*2'
+    - 'ACTIVATE_ENCHANT:SWIFT_SNEAK:3'
