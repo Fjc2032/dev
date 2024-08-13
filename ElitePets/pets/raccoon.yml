@@ -1,0 +1,31 @@
+tier: "LEGENDARY"
+cooldown: 15
+
+item:
+  skin: "30e0abd2e446c251b4c04a40256d0d8b367bdd757bd72f250b6bb7b90987643"
+  name: "{TIER-COLOR}&lRaccoon Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Lurk in the shadows of the forests'
+    - '&7like a raccoon.'
+    - ''
+    - '&6&lACTIVATION'
+    - '&7Cut through the vast plains as if'
+    - '&7you were never there.'
+    - '&8Provides Speed 10 on activation. Can stack with equipment'
+    - '&8that provides additional movement speed.'
+    - ''
+    - '&8This pet has been inspired by &5&lBuilder &f&l| &5SpeedyDS12'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+
+effects:
+  INTERACT:
+    - 'HALLOWEEN_HORSE:level*2'
