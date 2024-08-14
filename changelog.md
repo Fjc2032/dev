@@ -75,5 +75,7 @@ Planned Changelog:
 - Upgrade to EconomyShopGUI Premium for easier price control
 - Allow for only main end island resets, instead of the whole end [waiting on upgrade]
 - Add /dump command for inventory dumping into chests
-- Balance certain bosses
+- Balance certain bosses [done]
 - Add proper rewards for tier upgrades [ongoing]
+- Cooldown indicator for pets [ongoing, working with API]
+- Significant reduction of lag (with the new hardware should be nonexistant)
