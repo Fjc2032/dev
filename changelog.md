@@ -61,9 +61,10 @@ Some other changes:
 - Obsidian Trident chance in obsidian crate was reduced
 
 Known Bugs:
-- Some bosses may randomly disappear
+- Some bosses may randomly disappear [mostly fixed, elemental water fairy may still do this since it's based on a passive mob]
 - Boss egg is lost if inv is full
 - Some players lose access to /god after killing a boss (usually happens when player abandons boss instead of killing)
+- Players without Emperor gain access to /god after killing a boss [fixed]
 - Quest resetting still not working
 - Vorpal Spirit Master boss drains durability at an unreasonable rate
 - Hasty Goblin fireball not working correctly
