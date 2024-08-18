@@ -1,0 +1,66 @@
+menu-settings:
+    inventory-type: chest
+    rows: 6
+    command: bosspreview
+    title: "&3Custom Boss Drop Previews"
+    auto-refresh: 20
+    cached: false
+
+magnatearachnid:
+    id: lime_stained_glass
+    name: "&aMagnate Arachnid"
+    lore:
+    - "&7Infected rodent carrying many diseases. Turns even the most beautiful of cities into quarantined death pits."
+    - "&3Abilities: &aQuick Attack  &ePoison Jab  &cRaise Souls"
+    slot: 0
+    close-on-click: false
+
+venomblade:
+    itembridge: saved:venomblade
+    slot: 1
+    close-on-click: false
+spiderpet:
+    itembridge: saved:spiderpet
+    slot: 2
+    close-on-click: false
+
+hastygoblin:
+    id: orange_stained_glass
+    name: "&6Hasty Goblin"
+    lore:
+    - "&7Zombie-like creature that roams the underground. Will become aggressive if it notices you."
+    - "&3Abilities: &aSwap  &eMagnet  &eRejuvenate  &6Frenzy  &6Dominate  &cRaise Souls"
+    slot: 9
+    close-on-click: false
+
+hastygoblinpickaxe:
+    itembridge: saved:hastygoblinpickaxe
+    slot: 10
+    close-on-click: false
+pioneerpickaxe:
+    itembridge: saved:pioneerpickaxe
+    slot: 11
+    close-on-click: false
+
+strengthenedravager:
+    id: orange_stained_glass
+    name: "&6Strengthened Ravager"
+    lore:
+    - "&7A go-to choice by pillagers for most raids. Aggressive and sometimes stupid."
+    - "&3Abilities: &aAbsorption  &eLunge  &6Shatter  &6Dominate  &4Self-Revival"
+    slot: 18
+    close-on-click: false
+
+bloodiedaxe:
+    itembridge: saved:bloodiedaxe
+    slot: 19
+    close-on-click: false
+
+terminator:
+    id: red_stained_glass
+    name: "&cTerminator &kI"
+    lore:
+    - "&7Undead soldier that has gone crazy. Will attack anything in sight, including you."
+    - "&3Abilities: &eSmoke Screen  &eRapid Fire  &6Barrage  &6Arrow Lifesteal  &6Soul Crusher  &cCannonball  &cSonic Boom"
+    slot: 27
+    close-on-click: false
