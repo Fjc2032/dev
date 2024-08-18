@@ -1,0 +1,37 @@
+menu-settings:
+    inventory-type: chest
+    auto-refresh: 5
+    command: resetquests
+    title: "&cQuest Reset Menu"
+    cached: false
+    rows: 1
+
+    permission: group.tier5
+
+reset:
+    slot: 4
+    id: redstone_block
+    name: "&c&lReset Quests"
+    lore:
+    - "&6Clicking on this button will reset your daily quests."
+    - "&6 Costs &c$12,000."
+    - ""
+    - "&c&lWarning! &cThis cannot be undone!"
+    - "&8Note: &7&lExcludes boss slayer quests!"
+    close-on-click: true
+    click-requirement:
+       default:
+        check-money:
+            money:
+                value: 12000
+                take: true
+            success-action:
+               - "console: qadmin reroll {player} 1"
+               - "console: qadmin reroll {player} 2"
+               - "console: qadmin reroll {player} 3"
+               - "tell: &aSelected quests were successfully reset."
+            fail-action: "tell: &cInsuffient funds!"
+        click-cooldown:
+           cooldown: 3
+        fail-command: "tell: &cWoah there buddy slow down!"
+#Cooldown is 15 minutes
