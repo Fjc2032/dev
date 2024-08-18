@@ -1,0 +1,61 @@
+#Only meant for Emperor group
+menu-settings:
+    title: "&5Emperor Information"
+    auto-refresh: 10
+    open-action:
+    - "tell: &fOpening &5Emperor Information"
+
+    permission: group.tier10
+    inventory-type: CHEST
+    rows: 1
+    command: emperor
+    cached: true
+
+basicinfo:
+    slot: 0
+    id: netherite_ingot
+    name: "&5&lEmperor"
+    lore:
+    - "&dThe top rank in the Imperium Server (for now)."
+    - "&dProvides many convenient perks with a subscription (/ranks)."
+
+
+perk1:
+    slot: 2
+    id: purple_wool
+    name: "&5/fly"
+    lore:
+    - "&2Unrestricted fly anywhere on the server."
+    - "&8Note: Some bosses or other hostile entities can cancel flight!"
+
+perk2:
+    slot: 3
+    id: purple_wool
+    name: "&5/god"
+    lore:
+    - "&2Invulnerability to all incoming sources of damage."
+    - "&8Limitations are imposed on this feature."
+
+perk3:
+    slot: 4
+    id: purple_wool
+    name: "&5More playerwarps"
+    lore:
+    - "&2You now have the ability to own 4 playerwarps."
+    - "&8Server rules apply."
+
+perk4:
+    slot: 5
+    id: purple_wool
+    name: "&5/nick"
+    lore:
+    - "&2Allows you to change your nickname (chat displayname)."
+    - "&8Some restrictions currently apply on this feature."
+    - "&8All server rules apply. No inappropriate nicknames."
+
+timer:
+    slot: 8
+    id: clock
+    name: "&5&lTime Left"
+    lore:
+    - "&6You currently have &c%luckperms_group_expiry_time_tier10% &6left."
