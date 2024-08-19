@@ -1,0 +1,27 @@
+tier: "LEGENDARY"
+cooldown: 1800
+
+item:
+  skin: "1f716c1a80da85d5e6784c336b2583d61dc76de3d99a1984d3e593721e21327"
+  name: "{TIER-COLOR}&lFish Pet &7[LVL {LEVEL}]"
+  lore:
+    - '&e&lPASSIVE'
+    - '&7Increase your total fishing output by'
+    - '&7a dynamic multiplier.'
+    - ''
+    - '&c&lACTIVATION'
+    - '&bMake it rain! &7Small chance to change the weather to rain'
+    - '&7on activation click.'
+    - ''
+    - '&8This pet has been inspired by &5&lBuilder &f&l| &5&lFreeNord'
+
+settings:
+  levelup-methods:
+    - 'FISHING'
+    - 'INTERACT'
+
+effects:
+  FISHING:
+    - 'FISHING:level*1.5:level*8'
+  INTERACT:
+    - 'COMMAND:weather storm:CONSOLE:level*0.5'
