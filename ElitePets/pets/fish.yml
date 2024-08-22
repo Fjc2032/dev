@@ -10,8 +10,6 @@ item:
     - '&7Increase the amount of items on catch'
     - '&7when fishing'
     - ''
-    - '&c&lON FISH'
-    - '&7Gain an additional looting multiplier when
     - '&e&lLevel: &e{LEVEL}'
     - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
     - '{LEVEL-BAR}'
@@ -19,9 +17,8 @@ item:
 settings:
   levelup-methods:
     - 'INTERACT'
-    - 'FISHING'
 
 effects:
   INTERACT:
     - 'FISHING:0.5*level+1:2+level/20'
-    - 'MESSAGE:&7&l(&5&lFish Pet&7&l) &dYou have been given a &5<0.5*level+1>x Fishing Multiplier &dfor &5<2+level/20>&ds!'
+    - 'MESSAGE:&7&l(&5&lFish Pet&7&l) &dYou have received a &5<0.5*level+1>x Fishing Multiplier &dfor &5<2+level/20>&ds!'
