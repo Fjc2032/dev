@@ -1,27 +1,27 @@
-tier: "LEGENDARY"
-cooldown: 1800
+tier: "SPECIAL"
+cooldown: 60
 
 item:
-  skin: "1f716c1a80da85d5e6784c336b2583d61dc76de3d99a1984d3e593721e21327"
+  skin: "9fbe1be19e4ffaba97d61beef7ca3010b62996c641e57084fc364a6f3eb14138"
   name: "{TIER-COLOR}&lFish Pet &7[LVL {LEVEL}]"
   lore:
-    - '&e&lPASSIVE'
-    - '&7Increase your total fishing output by'
-    - '&7a dynamic multiplier.'
     - ''
-    - '&c&lACTIVATION'
-    - '&bMake it rain! &7Small chance to change the weather to rain'
-    - '&7on activation click.'
+    - '&e&lACTIVATION'
+    - '&7Increase the amount of items on catch'
+    - '&7when fishing'
     - ''
-    - '&8This pet has been inspired by &5&lBuilder &f&l| &5&lFreeNord'
+    - '&c&lON FISH'
+    - '&7Gain an additional looting multiplier when
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
 
 settings:
   levelup-methods:
-    - 'FISHING'
     - 'INTERACT'
+    - 'FISHING'
 
 effects:
-  FISHING:
-    - 'FISHING:level*1.5:level*8'
   INTERACT:
-    - 'COMMAND:weather storm:CONSOLE:level*0.5'
+    - 'FISHING:0.5*level+1:2+level/20'
+    - 'MESSAGE:&7&l(&5&lFish Pet&7&l) &dYou have been given a &5<0.5*level+1>x Fishing Multiplier &dfor &5<2+level/20>&ds!'
