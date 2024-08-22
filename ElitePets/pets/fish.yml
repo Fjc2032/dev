@@ -13,12 +13,17 @@ item:
     - '&e&lLevel: &e{LEVEL}'
     - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
     - '{LEVEL-BAR}'
+    - ''
+    - '&8This pet was re-inspired by &5&lBuilder &f&l| &5&lFreeNord'
 
 settings:
   levelup-methods:
     - 'INTERACT'
+    - 'FISHING'
 
 effects:
   INTERACT:
     - 'FISHING:0.5*level+1:2+level/20'
     - 'MESSAGE:&7&l(&5&lFish Pet&7&l) &dYou have received a &5<0.5*level+1>x Fishing Multiplier &dfor &5<2+level/20>&ds!'
+  FISHING:
+    - 'PARTICLE:HAPPY_VILLAGER:1:4'
