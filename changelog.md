@@ -80,3 +80,28 @@ Planned Changelog:
 - Add proper rewards for tier upgrades [ongoing]
 - Cooldown indicator for pets [ongoing, working with API]
 - Significant reduction of lag (with the new hardware should be nonexistant)
+
+Changelog 8/18:
+- Fixed a bug where resetting quests would ignore balance (moved to /resetquests)
+- Fixed a bug where Pioneer Pickaxe would destroy blocks in protected regions
+- Antimatter Void Pickaxe custom durability was replaced with regular dura, lvl 300 requirement instead needed for use
+- Some custom skills/gear no longer work (or only work partially) in the arena
+- New Draconic Strongbow custom item is now available from Elemental Vex Fairy
+- Molten Chestplate was nerfed
+- Blackbelt was slightly nerfed
+- Space Marine Boots were modified, and slow falling effect was removed
+- Emperor expiration timer is now present both in tab and in /emperor (you need emperor rank to access either)
+- Devoted Void Priest was slightly nerfed
+- Netherite cost to craft Devoted Void Priest was reduced
+- Some custom items can be previewed in /bosspreviews (not finished yet)
+- Added raccoon pet
+- Fixed dragon pet
+
+Also, your data will be transferred to the new server hardware once the upgrade starts.
+
+Current Changelog Priority:
+- Fix claimblocks in /trade OR add another method of trading claimblocks
+- Reintroduce fish pet
+- More balancing on custom gear
+- Inventory dump feature
+- More additions to /bosspreview
