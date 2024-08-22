@@ -101,6 +101,7 @@ Also, your data will be transferred to the new server hardware once the upgrade 
 
 Current Changelog Priority:
 - Fix claimblocks in /trade OR add another method of trading claimblocks
+- Fix afk plugin
 - Reintroduce fish pet
 - More balancing on custom gear
 - Inventory dump feature
