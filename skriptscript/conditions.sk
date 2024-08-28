@@ -1,9 +1,0 @@
-load script file "endislandreset.sh"
-enable script file "endislandreset.sh"
-
-# Checks if the script is loaded properly
-script "endislandreset.sh" is loaded
-return true
-
-on async load:
-  set {running: :%script%} to true
