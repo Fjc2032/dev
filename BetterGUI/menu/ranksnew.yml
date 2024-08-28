@@ -1,0 +1,17 @@
+#New GUI for 1.21 update. The old ranks system dependent on TabuuCore will most likely be deprecated.
+#Hopefully this new dependency is better.
+menu-settings:
+    title: "&7&lImperium Ranks"
+    auto-refresh: 20
+    open-action:
+    - "tell: &7Opening &7&lRanks"
+
+    permission: group.dev
+    inventory-type: CHEST
+    rows: 3
+    command: ranksnew
+
+    tier1:
+        slot: 0
+        id:
+    
