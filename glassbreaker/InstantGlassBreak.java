@@ -1,7 +1,9 @@
 package me.Fjc.instantglassbreak;
 
 
+import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.event.Listener;
+import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -10,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.lang.reflect.Field;
 import java.time.Instant;
 
 public class InstantGlassBreak extends JavaPlugin implements Listener {
@@ -17,15 +20,20 @@ public class InstantGlassBreak extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        Enchantment.registerEnchantment(GLASS_BREAKER);
-        getServer().getPluginManager().registerEvents(this, this);
-
+        try {
+            Field f = Enchantment.class.getDeclaredField("acceptingNew");
+            f.setAccessible(true);
+            f.set(null, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        
+        }
 
     }
 
     @Override
     public void onDisable() {
-        Enchantment.unregisterEnchantment(GLASS_BREAKER);
+       getLogger().info("Plugin disabled I guess");
     }
 
     @EventHandler
