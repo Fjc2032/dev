@@ -1,3 +1,5 @@
 name: InstantGlassBreak
-version: 0.1
-main: com.Fjc.InstantGlassBreak.InstantGlassBreak
+version: 1.1
+main: me.Fjc.instantglassbreak.InstantGlassBreak
+api-version: 1.20
+author: Fjc
