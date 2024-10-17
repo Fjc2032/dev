@@ -3,6 +3,53 @@ ConditionalSpawnTerminator:
     - haspermission{p=boss.regular.no} cast Kill
     Skills:
     - message{m="&aBoss spawned."} @target
-Kill:
+VoidPriestKill:
     Skills:
     - remove @self ~onTimer:5
+    - command{c="mm mobs egg give <target.name> DevotedVoidPriest"} @NearestPlayer
+    - message{m="&cThis boss can only be spawned in the end dimension!"} @NearestPlayer
+OrdeliaKill:
+    Skills:
+    - remove @self ~onTimer:5
+    - command{c="mm mobs egg give <target.name> Ordelia"} @NearestPlayer
+    - message{m="&cThis boss can only be spawned in the nether!"} @NearestPlayer
+ConditionalSpawnDevotedVoidPriest:
+    Conditions:
+    - dimension{d=THE_END} orElseCast VoidPriestKill
+    Skills:
+    - remove @MobsNearOrigin{r=15;t=DevotedVoidPriest,LesserVoidCitizen} ~onTimer:5
+ConditionalOrdeliaSpawn:
+    Conditions:
+    - dimension{d=NETHER} orElseCast OrdeliaKill
+ConditionalTerrorwingSpawn:
+    Conditions:
+    - day castInstead TerrorwingKill
+    Skills:
+    - skill{s=TerrorwingKill}
+TerrorwingKill:
+    - remove @MobsInRadius{r=50;t=Terrorwing,HardBat} ~onTimer:5
+    - command{c="mm mobs egg give <target.name> Terrorwing"} @NearestPlayer
+    - message{m="&6Invalid spawn conditions (can only be spawned at night)!"} @NearestPlayer
+#All for goblin check
+#
+#
+#
+#
+GoblinQuestComplete:
+    TargetConditions:
+    - variableEquals{var=quest.hastygoblin;value=3;scope=TARGET} true
+    Skills:
+    - setvariable{var=quest.hastygoblin;value=0;scope=TARGET;save=true} @NearestPlayer
+GoblinQuestCheck:
+    TargetConditions:
+    - variableisset{var=quest.hastygoblin} orElseCast GoblinQuestSet
+    Skills:
+    - message{m="&eDebug check for variable. Ignore this."} @PIR{r=50}
+GoblinQuestSet:
+    Skills:
+    - setvariable{var=quest.hastygoblin;value=0;scope=TARGET;save=true} @target
+#
+#
+#
+#
+#END of check
