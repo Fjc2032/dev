@@ -1,14 +1,16 @@
 ReverseOsmosisWater:
-  Cooldown: 5
+  Cooldown: 18
   Conditions:
   - targetwithin{d=25}
   Skills:
   - message{m="<caster.name> &fused &b&oReverse Osmosis"} @PIR{r=25}
   - teleport @target
-  - effect:sound{s=mob.endermen.portal;volume=1.0;pitch=0.5}
-  - damage{amount=5;ignorearmor=true} @PlayersInRadius{r=20}
+  - sound{s=entity.enderman.scream;volume=5.0;pitch=0.5;sc=MASTER} @PIR{r=50}
+  - delay 60
+  - sethealth{a=8} @target
   - throw{velocity=10;velocityY=5} @PlayersInRadius{r=20}
-  - effect:explosion @Self
+  - explosion{y=3} @self
+  - teleport @target
 AngrySludgePoison:
   Cooldown: 10
   Skills:
@@ -16,13 +18,15 @@ AngrySludgePoison:
   - effect:particles{p=happyVillager;amount=1000;hSpread=15;ySpread=1;speed=0;yOffset=0.5}
     @Self
 ParticleBeam:
-  Cooldown: 1
+  Cooldown: 10
   Skills:
-  - EnderBeam{d=100}
-  - delay 1
-  - damage{a=30;ia=true}
+  - EnderBeam{d=100} @target
+  - delay 20
+  - damage{a=25;ia=true} @target
   - message{m="<caster.name> used &bParticle Beam"} @PIR{r=30}
-  - explosion{y=4}
+  - explosion{y=8} @target
+  - delay 40
+  - explosion{y=14} @target
 RaiseSoulsWater:
   Cooldown: 1
   Skills:
@@ -32,6 +36,226 @@ RaiseSoulsWater:
   - potion{t=SLOW;d=300;level=3}
 DoubleFireball:
   Skills:
-  - shootfireball{y=8;v=4;c=true;ps=true} @target
-  - shootfireball{y=8;v=4;c=true;ps=true} @target
-  - shootfireball{y=8;v=4;c=true;ps=true} @target
+  - shootfireball{y=8;v=4;c=true;ps=true} @origin
+  - shootfireball{y=8;v=4;c=true;ps=true} @origin
+  - shootfireball{y=8;v=4;c=true;ps=true} @origin
+ArrowVolley: #This skill is only meant for players
+  Skills:
+  - MMOItemsVolley{a=6;s=65;rd=20;ss=4;;spa=true;fe=true} @targetLocation
+PoisonJab:
+  Cooldown: 7
+  Skills:
+  - itemspray{item=diamond_sword,iron_sword,arrow;a=15;d=40;g=false} @PIR{r=30}
+  - potion{t=POISON;d=100;level=4;force=true} @PIR{r=30}
+  - potion{t=WITHER;d=100;level=4} @PIR{r=30}
+  - message{m="<caster.name> &fused &a&lPoison Jab"} @PIR{r=30}
+Valkyrie:
+  Cooldown: 5
+  Skills:
+  - message{m="<caster.name> &fused &4Valkyrie"} @PIR{r=50}
+  - ender @target
+  - delay 2
+  - ender @target
+  - itemspray{item=ender_pearl,ender_eye,end_crystal;a=17;d=100;r=5;g=false} @target
+  - command{c="playsound minecraft:entity.vex.charge player <target.name>"} @target
+  - basedamage{m=3.75} @target
+  - basedamage{m=3.75} @target
+EndDoubleStrike:
+  Skills:
+  - hit{m=2.3;ia=true} @target
+  - hit{m=2.3;ia=true} @target
+  - delay 40
+  - basedamage{m=1.5} @target
+WitherBeam:
+  Cooldown: 8
+  Skills:
+  - message{m="<caster.name> &fused &8&lWither Beam"} @PIR{r=50}
+  - look{headOnly=true;immediately=true} @target
+  - particleline{p=large_smoke;a=30;size=4;d=true;db=0.15;fo=true} @target
+  - stun{d=60;stopai=true;nokb=true} @self
+  - basedamage{m=0.5} @target
+  - hit{a=2;m=0.5;ia=true} @target
+  - message{m="&cHit for &4<skill.var.damage-amount>"} @target
+  - delay 20
+  - basedamage{m=0.3} @target
+  - basedamage{m=0.3} @target
+  - hit{a=3;m=0.7} @target
+  - message{m="&cHit for &4<skill.var.damage-amount>"} @target
+  - delay 20
+  - basedamage{m=2.0} @target
+  - hit{a=5;m=0.6} @target
+  - message{m="&cHit for &4<skill.var.damage-amount>"} @target
+  - potion{t=WITHER;d=35;level=6} @target
+GreedDrain: #Only meant for players
+  Skills:
+  - currencytake{a=5000} @self ~onTimer:20
+BlockShatter:
+  Skills:
+  - breakblock{origin=@TargetBlock;forcesync=true;doDrops=true;doEffect=true;useTool=true} @Vein{bt=#_ORE} ~onBlockBreak
+Incinerate:
+  Cooldown: 10
+  Skills:
+  - message{m="<caster.name> &fused &c&lIncinerate"}
+  - particleorbital{p=flame;a=20;hSpread=6;t=160;offsetY=-3;avx=3} @target
+  - delay 60
+  - ignite{t=120} @target
+  - command{c="title <target.name> title "Watch out!!""} @PIR{r=20}
+  - delay 100
+  - explosion{y=40} @RandomLocationsNearTarget{a=4;r=6;minr=2}
+  - shootskull{y=40;ps=true} @target
+  - delay 10
+  - shootskull{y=40;ps=true} @target
+  - delay 10
+  - shootskull{y=300;ps=true} @target
+  - shootskull{y=300;ps=true} @target
+  - shootskull{y=300;ps=true} @target
+  - delay 40
+  - basedamage{m=0.6} @target
+Bloodbath:
+  Cooldown: 20
+  Skills:
+  - message{m="<caster.name> &fused &cBloodbath"} @PIR{r=50}
+  - summon{t=BLAZE;then=DoubleFireball;a=3-7;r=8;ctt=true} @self
+  - summon{t=MAGMA_CUBE;then=DoubleFireball;a=3-6;r=8;ctt=true} @self
+  - effect:bloodyScreen{d=60} @PIR{r=50}
+  - command{c="title <target.name> title "&cStrike incoming!""} @PIR{r=50}
+  - delay 60
+  - lightning{d=295} @target
+ExplosiveBarrage:
+  Conditions:
+  - dimension{d=NETHER} OrElseCast ExplosiveBarrageWeak
+  Skills:
+  - MMOItemsVolley{a=12;s=65;rd=20;ss=4;;spa=true;fe=true} @targetLocation
+  - delay 13
+  - explosion{y=17;bd=true;f=true} @targetLocation
+ExplosiveBarrageWeak:
+  Skills:
+  - MMOItemsVolley{a=6;s=65;rd=20;ss=4;;spa=true;fe=true} @targetLocation
+  - delay 13
+  - explosion{y=8;bd=true;f=true} @targetLocation
+Floodgates:
+  Cooldown: 16
+  Skills:
+  - command{c="title <target.name> title "&cSwarm inbound!""} @PIR{r=50}
+  - delay 40
+  - message{m="&eKill the bats to lower potential damage stacks."} @PIR{r=50}
+  - summon{t=HardBat;a=7-19;r=15;ctt=true} @self
+  - lightning{d=100} @target
+Parallax:
+  Cooldown: 15
+  Skills:
+  - message{m="<caster.name> &fused &bParallax"} @PIR{r=50}
+  - geyser{h=30;s=12} @RandomLocationsNearTarget{a=5;r=6;minr=1}
+  - command{c="title <target.name> title "&3Watch out (5)!""} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "&3Watch out (4)!""} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "&bWatch out (3)!""} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "&eWatch out (2)!""} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "&cWatch out (1)!""} @PIR{r=50}
+  - delay 20
+  - explosion{y=15} @RandomLocationsNearTarget{a=11;r=9;minr=4}
+  - blockwave{m=BLUE_ICE;r=12;d=60;v=0.7;n=3} @RandomLocationsNearTarget{a=2;r=12;minr=3}
+  - delay 30
+  - teleport @target
+  - basedamage{m=0.6} @target
+  - delay 10
+  - basedamage{m=0.6} @target
+  - delay 10
+  - basedamage{m=0.6} @target
+  - delay 10
+  - basedamage{m=0.6} @target
+  - delay 10
+  - basedamage{m=0.95} @target
+  - delay 5
+  - basedamage{m=0.95} @target
+  - delay 5
+  - basedamage{m=0.95} @target
+Freeze:
+  Skills:
+  - velocity{m=set;x=0;y=0;z=0;delay=1} @self
+  - freeze{t=100} @self
+  
+SuperDrainWater:
+  Conditions:
+  - blockTypeInRadius{t=WATER;r=2}
+  Skills:
+  - message{m=&aSuper drain!! &eGet out of the water!} @target
+  - damagepercent{p=0.15} @target
+  - delay 5
+  - damagepercent{p=0.15} @target
+  - delay 5
+  - damagepercent{p=0.15} @target
+MultiStrikeSilent:
+  Cooldown: 15
+  Skills:
+  - damage{a=3;cause=sonic_boom;ir=true} @target
+  - delay 5
+  - damage{a=3;cause=sonic_boom;ir=true} @target
+  - delay 5
+  - damage{a=3;cause=sonic_boom;ir=true} @target
+  - delay 5
+  - damage{a=3;cause=sonic_boom;ir=true} @target
+  - delay 10
+  - damage{a=5;cause=sonic_boom;ir=true} @target
+  - delay 10
+  - damage{a=5;cause=sonic_boom;ir=true} @target
+  - delay 10
+  - damage{a=5;cause=sonic_boom;ir=true} @target
+  - delay 15
+  - damage{a=8;cause=sonic_boom;ir=true} @target
+  - delay 15
+  - damage{a=8;cause=sonic_boom;ir=true} @target
+  - delay 15
+  - damage{a=8;cause=sonic_boom;ir=true} @target
+  - delay 20
+  - damage{a=13;cause=sonic_boom;ir=true} @target
+Hammer:
+  Cooldown: 10
+  Skills:
+  - pull{v=15} @PIR{r=50}
+  - delay 20
+  - blockdestabilize @BIR{r=6;n=1;blockignore=BEDROCK}
+  - hit{m=1.3} @target
+  - explosion{y=16} @RandomLocationsNearTarget{a=4;r=2;minr=1}
+Blackout:
+  Conditions:
+  - health{h=<8000} true
+  Cooldown: 30
+  Skills:
+  - blackscreen{d=20} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "&cDebuffed!""} @PIR{r=50}
+  - potion{t=WEAKNESS;d=200;lvl=7} @PIR{r=50}
+  - command{c="damage <target.name> 300"} @target #Deals 300 damage to the target. Let's hope they have boss gear on.
+Strike:
+  Cooldown: 16
+  Skills:
+  - command{c="title <target.name> title "Watch out!""} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "Watch out!""} @PIR{r=50}
+  - delay 20
+  - command{c="title <target.name> title "&cWatch out!!""} @PIR{r=50}
+  - delay 20
+  - throw{v=12;vy=8} @PIR{r=50}
+  - delay 40
+  - sound{s=block.note_block.pling;p=2.0;v=10;categoroy=BLOCK} @PIR{r=50}
+  - delay 20
+  - lightning{d=10} @PIR{r=50}
+  - command{c="damage <target.name> 300 minecraft:lightning_bolt"} @PIR{r=50}
+  - explosion{y=15} @PIR{r=50}
+Callback:
+  Conditions:
+  - nearclaim{r=256} true
+  Skills:
+  - remove @self ~onTimer:10
+  - message{m="&cDo not spawn this boss near your claims (unless you want to end up like belly)."} @NearestPlayer
+  - command{c="mm mobs egg give <target.name> MutatedHybrid"} @NearestPlayer
+  - delay 20
+  - remove @MIR{r=50;t=ConstructionWorker} ~onTimer:5
+SummonWorker:
+  Skills:
+  - delay 40
+  - summon{t=ConstructionWorker;a=3;r=8;ctt=true;sio=true} @self ~onSpawn
