@@ -69,12 +69,81 @@ LesserVoidCitizen:
   - clear
   - players
   - attacker
+  Drops:
+  - command{c="mi give accessory CONDENSED_EYE <target.name>"} 1-2 0.15
+  - GHAST_TEAR 3-7 0.11
+CustomBossBar:
+  Type: SKELETON
+  Display: '&7Custom Boss Bar'
+  Health: 10
+  BossBar:
+    Enabled: true
+    Title: <caster.display>
+    Range: 75
+    Color: PURPLE
+    Style: SOLID
+  Options:
+    Despawn: PERSISTENT
+    PreventRenaming: false
+    PreventItemPickup: true
+    PreventMobKillDrops: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventTransformation: true
+    Silent: true
+    NoAI: true
+HardBat:
+  Type: BAT
+  Display: '&8&lHard Bat'
+  Health: 200
+  Damage: 7
+  Skills:
+  - basedamage{m=4.5} @PIR{r=50} ~onTimer:60
+  - skill{s=EndDoubleStrike} @PIR{r=50} ~onDamaged
+  - hit{m=3.0} @PIR{r=50} ~onTimer:20
+  - hit{m=2.5} @PIR{r=50} ~onDamaged 0.4
+  - skill{s=MultiStrikeSilent} @PIR{r=50} ~onTimer:120
+ConstructionWorker:
+  Type: IRON_GOLEM
+  Display: '&7&lConstruction Worker'
+  Health: 3500
+  Modules:
+    ThreatTable: true
+  Damage: 507
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: '&7&lConstruction Worker &f[&6<caster.php>% health&f]'
+    Range: 30
+    Color: YELLOW
+    Style: NOTCHED_6
+  Options:
+    MovementSpeed: 0.5
+    Despawn: false
+    DigOutOfGround: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  AITargetSelectors:
+  - clear
+  - players
+  - attacker
+  Skills:
+  - teleport{spreadh=4} @MobsNearOrigin{r=300;t=MutatedHybrid} ~onTimer:200
+  Drops:
+  - command{c="mi give SHIELD GOLEM_SHIELD <target.name>"} 1 0.19
 #Actual bosses
-Terrorwing:
+#are below..
+#
+#
+#here
+Terrorwing: #Standard
   Type: PHANTOM
   Display: '&e&lEnraged Terrorwing'
-  Health: 750
-  Damage: 14
+  Health: 4000
+  Damage: 35
   Armor: 30
   BossBar:
     Enabled: true
@@ -84,27 +153,26 @@ Terrorwing:
     Style: NOTCHED_6
     DarkenSky: true
   Options:
-    MovementSpeed: 3
-  AIGoalSelectors:
-  - clear
-  - meleeattack
-  AITargetSelectors:
-  - players
-  - attacker
+    MovementSpeed: 0.3
+    Glowing: true
+    PreventSunburn: true
+    Scale: 2
   Drops:
-  - phantom_membrane 17 95
+  - phantom_membrane 17 0.95
+  - elytra 1 0.24
+  - nether_star 1 0.09
+  - command{c="give <target.name> enchanted_book 1 mending:1"} 1 0.33
+  - command{c="headsplus xp <target.name> add 3100"} 1 1
   DamageModifiers:
-    - ENTITY_ATTACK 5
-    - PROJECTILE 15
-  KillMessages:
-    - &cHow tragic...
-  LevelModifiers:
-    Damage: 5
-    Health: 75
+    - ENTITY_ATTACK 3
+    - PROJECTILE 5
   Skills:
-  - BlockDestabilize{ticks:50} @target ~onDamaged <75% 0.8
-  - ignite{ticks:100} @target ~onAttack <99% 0.9
-StrengthenedRavager:
+  - skill{s=ConditionalTerrorwingSpawn} ~onTimer:5
+  - hit{a=3;m=1.5} @target ~onTimer:100
+  - skill{s=Floodgates} ~onTimer:100
+  - skill{s=ParticleBeam} @target ~onDamaged 0.35
+  - remove @MobsInRadius{r=200;t=HardBat} ~onDeath
+StrengthenedRavager: #Mini
   Type: RAVAGER
   Display: '&c&lStrengthened Ravager'
   Health: 1950
@@ -132,9 +200,13 @@ StrengthenedRavager:
   - villagers
   Drops:
   - emerald 19-45 0.49
-  - command{c="mi give GREATAXE BLOODIED_AXE <target.name>"} 1 0.01
+  - command{c="mi give AXE LESSER_RAGNAROK <target.name>"} 1 0.13
   - command{c="headsplus xp <target.name> add 2000"} 1 1
   - saddle 1-2 0.99
+  - command{c="mi give ARMOR SPIKED_HELMET <target.name>"} 1 0.17
+  - command{c="mi give ARMOR SPIKED_CHESTPLATE <target.name>"} 1 0.12
+  - command{c="mi give ARMOR SPIKED_LEGGINGS <target.name>"} 1 0.17
+  - command{c="mi give ARMOR SPIKED_BOOTS <target.name>"} 1 0.17
   DamageModifiers:
   - ENTITY_ATTACK 3
   - PROJECTILE 9
@@ -152,7 +224,7 @@ StrengthenedRavager:
   LevelModifiers:
     Health: 150
     Damage: 10
-HastyGoblin:
+HastyGoblin: #Mini
   Type: ZOMBIE
   Display: '&2&lHasty Goblin'
   Health: 1750
@@ -201,22 +273,28 @@ HastyGoblin:
   Skills:
   - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
+  - skill{s=GoblinQuestCheck} @PIR{r=50} ~onSpawn
   - skill{s=DoubleFireball} @PIR{r=50} ~onTimer:60
   - explosion{y=0.3;bd=true} @PIR{r=50} ~onDamaged 0.2
   - swap @target ~onAttack 0.7
   - healpercent{m=0.15} @self ~onAttack 0.3
-  - shootpotion{type=SLOW;duration=200;level=4;velocity=5} @target 0.2
+  - shootpotion{type=SLOW;duration=200;level=3;velocity=3} @target 0.2
   - pull{v=6;to=true} @PIR{r=10} ~onTimer:160 0.25
   - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
+  - variableadd{var=quest.hastygoblin;scope=TARGET;a=1} @NearestPlayer ~onDeath
   Drops:
-  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.11
-  - command{c="mi give TOOL PIONEER_PICKAXE <target.name>"} 1 0.13
+  - command{c="essentials:give <target.name> diamond_pickaxe 1 efficiency:15 unbreaking:4 sharpness:4 vanishingcurse:1 name:&2&lHasty_Goblin's_Pickaxe lore:Forged_with_the_finest_materials._Breaks_almost_anything."} 1 0.15
+  - command{c="mi give ARMOR GOBLIN_HELMET <target.name>"} 1 0.16
+  - command{c="mi give ARMOR GOBLIN_CHESTPLATE <target.name>"} 1 0.16
+  - command{c="mi give ARMOR GOBLIN_LEGGINGS <target.name>"} 1 0.16
+  - command{c="mi give ARMOR GOBLIN_BOOTS <target.name>"} 1 0.16
+  - command{c="mi give TOOL PIONEER_PICKAXE"} 1 0.17
   - command{c="headsplus xp <target.name> add 1500"} 1 1
   - golden_apple 3-7 0.5
   LevelModifiers:
     Health: 200
     Damage: 11
-Terminator:
+Terminator: #Standard
   Type: SKELETON
   Display: '&4&lTerminator'
   Health: 3900
@@ -256,13 +334,13 @@ Terminator:
   - attacker
   DamageModifiers:
   - ENTITY_ATTACK 8.1
-  - PROJECTILE 7
+  - PROJECTILE 4
   - MAGIC 0
   Skills:
   - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - skill{s=ConditionalSpawnTerminator} @target ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:100
-  - arrowvolley{a=18;s=15;v=5;f=60;rd=20;pickup=false} @Target ~onDamaged 0.4
+  - arrowvolley{a=18;s=55;v=7;f=60;rd=20;pickup=false} @targetLocation ~onTimer:60 0.4
   - blackscreen{d=3} @PlayersInRadius{r=15} ~onDamaged 0.2
   - basedamage{m=0.75} @target ~onDamaged 0.3
   - healpercent{m=0.15} @self ~onBowHit 0.25
@@ -270,11 +348,12 @@ Terminator:
   - summon{type=SKELETON;a=3-5} @PIR ~onTimer:100 0.21
   - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
-  - command{c="mi give GREATBOW SYLVETTA_LONGBOW <target.name>"} 1 0.05
+  - command{c="mi give GREATBOW SYLVETTA_LONGBOW <target.name>"} 1 0.13
+  - command{c="mi give BOW MULTIPURPOSE_RANGED_BOW" <target.name>} 1 0.21
   - command{c="give FjcX instantdamagearrowlevelii 1"} 13-27 0.45
   - netherite_helmet{enchants=PROJECTILE_PROTECTION:8,MENDING:1} 1 0.17
-  - command{c="headsplus xp <target.name> add 7000"}
-VorpalSpiritMaster:
+  - command{c="headsplus xp <target.name> add 5500"}
+VorpalSpiritMaster: #Standard
   Type: RABBIT
   Display: "&4&lVorpal Spirit Master"
   Health: 750
@@ -339,12 +418,11 @@ VorpalSpiritMaster:
   - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   - command{c="minecraft:kill @e[type=end_crystal]";asOp=true} ~onDeath
   Drops:
-  - command{c="mi give GREATSWORD EXCALIBUR <target.name>"} 0.03
-  - command{c="mi generate <target.name> GREATSWORD"} 1 0.3
-  - command{c="mi generate <target.name> SWORD"} 1 0.35
-  - command{c="headsplus xp <target.name> add 15000"}
-  - command{c="mi give ARMOR BLACKBELT <target.name>"} 1 0.07
-EvolvedInferno:
+  - command{c="mi give GREATSWORD EXCALIBUR <target.name>"} 0.07
+  - command{c="headsplus xp <target.name> add 12000"}
+  - command{c="mi give ARMOR BLACKBELT <target.name>"} 1 0.12
+  - command{c="mi give ARMOR SPIRIT_BOOTS"} 1 0.13
+EvolvedInferno: #Standard
   Type: CREEPER
   Display: '&4&lEvolved Inferno'
   Health: 3000
@@ -398,20 +476,85 @@ EvolvedInferno:
   - effect:particle{p=lava;a=10;size=3} @self ~onTimer:20
   - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
-  - command{c="headsplus xp <target.name> add 21500"} 1 1
-  - command{c="mi give WAND SALVATION_WAND <target.name>"} 1 0.08
-  - command{c="mi give ARMOR MOLTEN_CHESTPLATE <target.name>"} 1 0.05
+  - command{c="headsplus xp <target.name> add 15000"} 1 1
+  - command{c="mi give WAND SALVATION_WAND <target.name>"} 1 0.10
+  - command{c="mi give ARMOR MOLTEN_CHESTPLATE <target.name>"} 1 0.08
   - command{c="mi give ARMOR CREEPER_HELMET <target.name>"} 1 0.15
   - command{c="mi give ARMOR CREEPER_CHESTPLATE <target.name>"} 1 0.15
   - command{c="mi give ARMOR CREEPER_LEGGINGS <target.name>"} 1 0.15
   - command{c="mi give ARMOR CREEPER_BOOTS <target.name>"} 1 0.15
-ElementalWaterFairy:
-  Type: ALLAY
-  Display: '&7&lElemental &b&lWater Fairy'
-  Health: 3900
+  - command{c="mi give GREATAXE BLOODIED_AXE <target.name>"} 1 0.09
+Ordelia: #Ultimate
+  Type: WITHER_SKELETON
+  Display: '&c&lOrdelia - &8&lWither Knight'
+  Health: 9800
   Modules:
     ThreatTable: true
-  Damage: 95
+  Damage: 6
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: Ordelia
+    Range: 50
+    Color: RED
+    Style: NOTCHED_6
+  Options:
+    AttackSpeed: 11
+    DigOutOfGround: true
+    Despawn: PERSISTENT
+    Glowing: true
+    FollowRange: 50
+    HealOnReload: true
+    KnockbackResistance: 1
+    MovementSpeed: 0.45
+    NoDamageTicks: 10
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+  Equipment:
+  - NETHERITE_CHESTPLATE{enchants=PROTECTION_ENVIRONMENTAL:10}
+  DamageModifiers:
+  - ENTITY_ATTACK 3
+  - ENTITY_SWEEP_ATTACK 8
+  - PROJECTILE 0.3
+  - LIGHTNING -7
+  - ENTITY_EXPLOSION -1
+  - BLOCK_EXPLOSION -1
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  AITargetSelectors:
+  - clear
+  - player
+  - attacker
+  Skills:
+  - skill{s=ConditionalOrdeliaSpawn} ~onSpawn
+  - command{c="lp user {player} permission set worldguard.god false world=world_nether";asOp=true} @PIR{r=50} ~onSpawn
+  - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:100
+  - takeexperiencelevels{a=1} @target ~onTimer:100 0.15
+  - skill{s=Incinerate} @target ~onTimer:200
+  - skill{s=Bloodbath} @PIR{r=50} ~onDamaged 0.15
+  - skill{s=WitherBeam} @PIR{r=50} ~onDamaged 0.17
+  - basedamage{m=0.21} @target ~onDamaged
+  - command{c="lp user {player} permission unset worldguard.god world=world_nether";asOp=true} @PIR{r=50} ~onDeath
+  - message{m="<caster.name>&f &2was successfully defeated."} @PIR{r=50} ~onDeath
+  - remove @MobsNearOrigin{r=50;types=BLAZE,MAGMA_CUBE} ~onDeath
+  Drops:
+  - command{c="mi give ARMOR BEDROCK_HELMET <target.name>"} 1 0.12
+  - command{c="mi give ARMOR BEDROCK_CHESTPLATE <target.name>"} 1 0.12
+  - command{c="mi give ARMOR BEDROCK_LEGGINGS <target.name"} 1 0.12
+  - command{c="mi give ARMOR BEDROCK_BOOTS <target.name>"} 1 0.12
+  - command{c="mi give CROSSBOW CROSSDIMENSIONAL_ASSAULT_BOW <target.name>"} 1 0.21
+  - command{c="mi give ARMOR CROWN_OF_GREED <target.name>"} 1 0.05
+  - wither_skeleton_skull 1-3 0.22
+  - command{c="headsplus xp <target.name> add 40000"} 1 1
+  - money 57000-354009 0.27
+ElementalWaterFairy: #Advanced
+  Type: ALLAY
+  Display: '&7&lElemental &b&lWater Fairy'
+  Health: 6500
+  Modules:
+    ThreatTable: true
+  Damage: 65
   Armor: 30
   BossBar:
     Enabled: true
@@ -420,6 +563,7 @@ ElementalWaterFairy:
     Color: BLUE
     Style: NOTCHED_6
   Options:
+    MovementSpeed: 0.1
     AttackSpeed: 4
     FollowRange: 50
     Glowing: true
@@ -449,24 +593,28 @@ ElementalWaterFairy:
   - attacker
   Skills:
   - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
+  - message{m="&eFinal warning! &c&lDo not fight this boss in full netherite armor! It &4&lWILL &cbe shattered!!"} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:100
+  - skill{s=Freeze} @self ~onDamaged
   - geyser{h=30;s=12} @PIR{r=50} ~onTimer:60
   - skybox{s=1} @PIR{r=50}
   - skybox{s=0} @PIR{r=50} ~onDeath
-  - blockwave{m=BLUE_ICE;r=12;d=40;v=0.7;n=3} @PIR{r=50} ~onTimer:120
   - skill{s=ParticleBeam} @PIR{r=30} ~onDamaged 0.3
   - skill{s=RaiseSoulsWater} @PIR{r=50} ~onTimer:300
-  - skill{s=ReverseOsmosisWater} ~onDamaged @PIR{r=50} 0.3
+  - skill{s=ReverseOsmosisWater} ~onDamaged 0.23
+  - skill{s=Parallax} ~onDamaged
+  - skill{s=SuperDrainWater} ~onTimer:20
   - healpercent{m=0.25;oh=true} ~onDamaged 0.5
   - healpercent{m=0.2;oh=true} ~onTimer:60
   - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
+  - message{m="<caster.name> &2was successfully defeated."} @PIR{r=50} ~onDeath
   Drops:
-  - command{c="headsplus xp <target.name> add 35000"} 1 1
+  - command{c="headsplus xp <target.name> add 21000"} 1 1
   - command{c="mi give SPEAR GREATER_ALLAY_TRIDENT <target.name>"} 1 0.13
   - command{c="give <target.name> trident 1"} 1-3 0.29
   - command{c="mi give GREATSTAFF GREATER_REJUVENATION_STAFF <target.name>"} 1 0.07
   - command{c="mi give SWORD SWORD_OF_UNITY <target.name>"} 1 0.09
-ElementalVexFairy:
+ElementalVexFairy: #Advanced
   Type: VEX
   Display: '&8&lElemental Vex Fairy'
   Health: 8000
@@ -507,6 +655,8 @@ ElementalVexFairy:
   - player
   - attacker
   Skills:
+  - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
+  - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:100
   - damagepercent{p=0.17;ia=true} @PIR{r=50} ~onTimer:100
   - geyser{t=LAVA;h=4;speed=12} @PIR{r=50} ~onTimer:250
   - basedamage{m=0.4} @target ~onDamaged 0.5
@@ -514,14 +664,16 @@ ElementalVexFairy:
   - setflying{f=false} @PIR{r=15} ~onTimer:40
   - potionclear @PIR{r=50} ~onTimer:200
   - teleport{sh=8;sv=1} @target ~onTimer:100
+  - command{c="lp user <target.name> permission unset worldguard.god world=world";asOp=true} @PIR{r=50} ~onDeath
   Drops:
   - command{c="give <target.name> godapple 1"} 2-7 0.21
-  - command{c="headsplus xp <target.name> add 51000"} 1 1
+  - command{c="headsplus xp <target.name> add 30000"} 1 1
   - command{c="mi give DAGGER DEATH_RAPIER <target.name>"} 1 0.08
   - command{c="give <target.name> totem_of_undying 1"} 2-3 0.27
   - command{c="give <target.name> wither_skeleton_skull 1"} 1-3 0.35
-  - command{c="mi give BOW DRACONIC_STRONGBOW <target.name>"} 1 0.05
-MagnateArachnid:
+  - command{c="mi give BOW DRACONIC_STRONGBOW <target.name>"} 1 0.10
+  - money 250000-875000 0.43
+MagnateArachnid: #Mini
   Type: SPIDER
   Display: '&a&lMagnate Arachnid'
   Health: 5000
@@ -561,7 +713,7 @@ MagnateArachnid:
   - attacker
   Skills:
   - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=30} ~onSpawn
-  - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onSpawn
+  - command{c="ungod <target.name>";asOp=true} @PIR{r=30} ~onTimer:60
   - summon{t=CAVE_SPIDER;a=4-13;r=6;sip=true} @PIR{r=30} ~onTimer:200
   - skill{s=PoisonJab} @PIR{r=30} ~onTimer:250
   - mount{t=DarkenedSoldier;s=true} @self ~onDamaged 0.1
@@ -570,7 +722,7 @@ MagnateArachnid:
   - command{c="mi give DAGGER VENOM_BLADE <target.name>"} 1 0.17
   - command{c="elitepets give <target.name> spider 1 1"} 1 0.06
   - command{c="headsplus xp <target.name> add 500"} 1 1
-DevotedVoidPriest:
+DevotedVoidPriest: #Advanced XK
   Type: ENDERMAN
   Display: '&5&lDevoted Void Priest'
   Health: 10000
@@ -608,8 +760,8 @@ DevotedVoidPriest:
   - attacker
   Skills:
   - skill{s=ConditionalSpawnDevotedVoidPriest} ~onSpawn
-  - command{c="lp user <target.name> permission set worldguard.god false world=world_the_end"} @PIR{r=50} ~onTimer:20
-  - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onSpawn
+  - command{c="lp user <target.name> permission set worldguard.god false"} @PIR{r=50} ~onTimer:20
+  - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:60
   - skill{s=WitherBeam} @target ~onTimer:200 0.4
   - setflying{f=false} @PIR{r=50} ~onTimer:100
   - particletornado{p=Dripping_obsidian_tear;a=16;s=3;s=2;cp=cloud} @self ~onTimer:100
@@ -619,10 +771,79 @@ DevotedVoidPriest:
   - heal{a=40;oh=true} @self ~onTimer:10
   - teleportin{v=-2,0,0} @target ~onDamaged 0.1
   - summon{t=LesserVoidCitizen;a=5-9;itt=true} @PIR{r=50} ~onTimer:100 0.15
-  - command{c="lp user <target.name> permission unset worldguard.god world=world_the_end"} @PIR{r=50} ~onDeath
+  - command{c="lp user <target.name> permission unset worldguard.god"} @PIR{r=50} ~onDeath
   Drops:
   - command{c="mi give WHIP ENDER_SHACKLES <target.name>"} 1 0.19
+  - command{c="headsplus xp <target.name> add 37000"} 1 1
   - totem_of_undying 2-5 0.37
   - golden_apple 8-10 0.75
   - command{c="mi give ACCESSORY CONDENSED_EYE <target.name>"} 1-3 0.4
   - command{c="mi give TOOL ANTIMATTER_VOID_PICKAXE <target.name>"} 1 0.08
+  - command{c="mi give ARMOR SPACE_MARINE_BOOTS <target.name>"} 1 0.13
+  - command{c="headsplus xp <target.name> add 29000"} 1 1
+MutatedHybrid:
+  Type: ZOMBIE_VILLAGER
+  Display: '&3&lMutated Hybrid&4&kIII'
+  Health: 16000
+  Modules:
+    ThreatTable: true
+  Damage: 409
+  Armor: 30
+  BossBar:
+    Enabled: true
+    Title: '&3Mutated Hybrid - &2Infected &f[&c<caster.hp>&f (&6<caster.php>% health)&f]'
+    Range: 50
+    Color: RED
+    Style: NOTCHED_6
+    DarkenSky: true
+  Options:
+    AttackSpeed: 4
+    DigOutOfGround: true
+    Despawn: PERSISTENT
+    Glowing: true
+    LockPitch: true
+    MovementSpeed: 0.7
+    NoDamageTicks: 5
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventTransformation: true
+    UseThreatTable: true
+  DamageModifiers:
+  - ENTITY_ATTACK 8
+  - PROJECTILE 6
+  - LAVA 20
+  - FIRE 15
+  - FIRE_TICK 10
+  - HOT_FLOOR 8
+  Equipment:
+  - netherite_leggings LEGS
+  - NETHERITE_PICKAXE{e=sharpness:10} HAND
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - breakdoors
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  - villagers
+  Skills:
+  - skill{s=Callback} ~onSpawn
+  - command{c="lp user <target.name> permission set worldguard.god false world=world"} @PIR{r=50} ~onSpawn
+  - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:60
+  - skill{s=ConditionalSpawnTerminator} @target ~onSpawn
+  - skill{s=SummonWorker} @self ~onSpawn
+  - summon{t=Terminator;a=1-2;r=8;ctt=true;sio=true} @self ~onTimer:1500
+  - skill{s=Hammer} @PIR{r=50}
+  - healpercent{m=0.05} @self ~onAttack 0.3
+  - skill{s=Blackout} @target ~onTimer:200
+  - skill{s=Strike} @PIR{r=50} ~onDamaged 0.25
+  - velocity{m=set;x=0;y=0;z=0;delay=1} @self ~onDamaged
+  - command{c="lp user <target.name> permission unset worldguard.god world=world"} @PIR{r=50} ~onDeath
+  - remove @MobsNearOrigin{r=100;types=ConstructionWorker,Terminator} ~onDeath
+  Drops:
+  - command{c="mi give GREATAXE GREATNECK_BATTLEAXE <target.name>"} 1 0.14
+  - command{c="mi give SWORD BEDROCK_SWORD <target.name>"} 1 0.24
+  - money 300561-980000 0.39
+  
+    
