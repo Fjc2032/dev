@@ -1,0 +1,227 @@
+# Item sets let you create links betweens the different items you create.
+# By wearing multiple items from the same set, the player will benefit from
+# set bonuses which incites him to use items from the same type.
+# This is a very powerful system for RPG items.
+#
+# You can also use potion effects as set bonuses, e.g
+# - "potion-speed: 2" gives permanent Speed II
+# - "potion-increase_damage: 3" gives permanent Strength III
+# https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
+#
+# You may also add abilities as full set bonuses. The ability ID
+# must start with 'ability-' but it is only used as reference.
+# You can configure the ability cast mode, type & modifiers as usual.
+
+
+ARCANE:
+    name: '&2Arcane Set'
+    bonuses:
+        '3':
+            magic-damage: 20
+        '4':
+            max-mana: 30
+            potion-speed: 1
+    lore-tag:
+    - '&7Arcane Set Bonus:'
+    - '&8[3] +20% Magic Damage'
+    - '&8[4] 30 Max Mana'
+    - '&8[4] Permanent Speed I'
+
+STEEL:
+    name: '&8Steel Set'
+    bonuses:
+        '3':
+            damage-reduction: 5
+        '4':
+            damage-reduction: 5
+    lore-tag:
+    - '&7Steel Set Bonus:'
+    - '&8[3] +5% Damage Reduction'
+    - '&8[4] +10% Damage Reduction'
+
+GINGERBREAD:
+    name: '&cGingerbread Set'
+    bonuses:
+        '4':
+            damage-reduction: 6
+            potion-jump: 3
+    lore-tag:
+    - '&7Gingerbread Set Bonus:'
+    - '&8[4] +5% Damage Reduction'
+    - '&8[4] Permanent Jump III'
+
+DRAGON:
+    name: '&5Dragon Set'
+    bonuses:
+        '4':
+            ability-1:
+                type: MAGICAL_SHIELD
+                cooldown: 10
+                duration: 5
+                power: 60
+                radius: 5
+                mode: WHEN_HIT
+    lore-tag:
+        - '&3Full Dragon Set Bonus:'
+        - '&7When an enemy attacks you, a &bmagical'
+        - '&bshield&7 appears on you, protecting'
+        - '&7you from &c60%&7 of all damage for'
+        - '&c5s&7. &7&o10s cooldown.'
+PSYCHIC:
+    name: '&dPsychic'
+    bonuses:
+        '2':
+            ability-1:
+                type: TELEKINESY
+                duration: 8.0
+                cooldown: 12.0
+                knockback: 2.0
+                mode: RIGHT_CLICK
+            ability-2:
+                type: BLINK
+                cooldown: 8.0
+                range: 60
+                mode: SHIFT_RIGHT_CLICK
+    lore-tag:
+        - '&dPsychic:'
+        - '&7When equipping &dControl Devices&7 and'
+        - '&7holding &fThin Transparent Gloves&7, you'
+        - '&7can use telekinesy on an entity with'
+        - '&7&3right-click&7 and teleport to the block'
+        - '&7you are facing with &3shift-right-click&7.'
+        - '&8&oGood grief...'
+UNDEADSLAYER:
+    name: '&4&l&k||| &4> &c&lUndead Slayer Set'
+    bonuses:
+        '4':
+            pve-damage: 10
+        '5':
+            undead-damage: 15
+    lore-tag:
+        - '&4&l&k||| &4> &c&lUndead Slayer Set'
+        - '&7The full &carmor set&7 gives you &c+10%&7 PvE damage.'
+        - '&7Using the &cundead slayer&7 weapon gives an additional'
+        - '&c+15% &7undead damage.'
+SPELLCASTER:
+    name: '&dSpellcaster Set'
+    bonuses:
+        '3':
+            max-mana: 10
+        '4':
+            magic-damage: 25
+        '5' :
+            potion-speed: 1
+    lore-tag:
+        - '&dSpellcaster Set Bonus:'
+        - '&3[3] +10 Max Mana'
+        - '&3[4] +25% Magic Damage'
+        - '&3If you hold the Spellcaster Wand&7,'
+        - '&7&bPermanent Speed I&7.'
+
+OMNIELEMENTAL:
+    name: '&eOmnielemental Set'
+    bonuses:
+        '4':
+            water-defense: 100
+            fire-defense: 100
+            wind-defense: 100
+            earth-defense: 100
+        '5':
+            ice-defense: 100
+            thunder-defense: 100
+        '6':
+            lightness-defense: 100
+            darkness-defense: 100
+    lore-tag:
+        - '&eOmnielemental Set Bonus:'
+        - '&7[4] Protects you from &cFire&7, &3Water&7, Wind and &2Earth.'
+        - '&7[5] Protects you from &bIce&7 and &eThunder&7 aswell.'
+        - '&7[6] Protects you from &fLightness&7 and &8Darkness&7.'
+
+CREEPER:
+    name: '&2&lCreeper Set'
+    bonuses:
+        '1':
+            damage-reduction: 15
+            block-power: 50.0
+            block-rating: 15.0
+            item-particles:
+                particle: GLOW
+                type: FIREFLIES
+    lore-tag:
+    - '&6Full Set Bonus: &3&lPressurized Plating'
+    - '&8[1] &b15% &7damage reduction from all sources.'
+    - '&8[1] &2Chance to block up to &b50% &2of any inflicted damage.'
+
+SPIKED:
+    name: '&7&lSpiked Set'
+    bonuses:
+        '1':
+            pve-damage-reduction: 15
+            block-power: 15
+            block-rating: 30
+    lore-tag:
+    - '&8[1] &2Provides a &b15% &2damage reduction from hostile entities when the full set is worn.'
+    - '&cRequires &7Mark &7&lIII'
+
+GOBLIN:
+    name: '&a&lGoblin Set'
+    bonuses:
+        '1':
+            undead-damage: 30
+            pve-damage: 5
+            block-power: 5
+        '2':
+            potion-haste: 4
+    lore-tag:
+    - '&8[1] &9Multiplies damage against the undead by &b30% &9when full set is worn.'
+    - '&8[1] &9Also increases damage towards general mobs by &b5%'
+    - '&8[2] &9Provides &6Haste IV &9when full set is worn.'
+
+SLAYER:
+    name: '&c&lSlayer Set'
+    bonuses:
+        '4':
+            dodge-rating: 30
+            pve-damage: 15
+        '4':
+            max-health: 40
+    lore-tag:
+    - '&7When full set is worn:'
+    - '&8[4] &2Increases damage towards hostile entities by up to &a15%.'
+    - '&8[4] &2Higher chance to dodge an incoming attack.'
+    - ''
+    - '&8[4] &2Increases max health. Stacks with Overload.'
+BEDROCK:
+    name: '&8&lBedrock Set'
+    bonuses:
+        '4':
+            pve-damage-reduction: 30
+    lore-tag:
+    - '&7All environmental damage is reduced by &b30% &7when all four pieces are worn.'
+
+# Not used by default
+HATRED:
+    name: '&cHatred Set'
+    bonuses:
+        '2':
+            damage-reduction: 6
+            ability-1:
+                type: LIFE_ENDER
+                cooldown: 30
+                mode: ATTACK
+    lore-tag:
+        - '&7Hatred Set Bonus:'
+        - '&8[2] -6% Damage Taken'
+        - '&8[2] Summons a devastating fire meteor on hit.'
+CREEPER:
+    name: '&2&lCreeper Set'
+    bonuses:
+        '1':
+            damage-reduction: 15
+            block-power: 50.0
+            block-rating: 15.0
+    lore-tag:
+    - '&6Full Set Bonus: &3&lPressurized Plating'
+    - '&8[1] &b15% &7damage reduction from all sources.'
+    - '&8[1] &2Chance to block up to &b50% &2of any inflicted damage.'
