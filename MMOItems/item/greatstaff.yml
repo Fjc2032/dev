@@ -1,0 +1,24 @@
+GREATER_REJUVENATION_STAFF:
+  base:
+    material: ECHO_SHARD
+    name: '&9&lGreater Rejuvenation Staff&b&kIII'
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        mode: RIGHT_CLICK
+        heal: 13.0
+        cooldown: 5.0
+    enchants:
+      unbreaking: 5.0
+    hide-enchants: true
+    required-level: 300.0
+    amphibian: WET
+    lore:
+    - '&bThis item is &9&lAQUATIC. &bOnly works when in contact with water.'
+    max-durability: 1500.0
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    revision-id: 2

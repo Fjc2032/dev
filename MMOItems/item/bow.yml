@@ -1,0 +1,73 @@
+DRACONIC_STRONGBOW:
+  base:
+    material: BOW
+    name: '&5Draconic Strongbow&d&kII'
+    enchants:
+      power: 10.0
+      infinity: 1.0
+      mending: 1.0
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    attack-damage: 4.0
+    arrow-velocity: 2.0
+    pve-damage: 50.0
+    projectile-damage: 4.0
+    perm-effects:
+      ABSORPTION: 3.0
+    ability:
+      ability1:
+        type: ARROW_BARRAGE
+        mode: SHOOT_BOW
+    disable-mcmmo-repair: true
+    lore:
+    - '&dOnce used by the leader of the void priests. Can pierce through anything,
+      living or dead.'
+    - '&dCreates a passive absorption shield around the user.'
+    - '&dCustom enchants &ccannot &dbe applied on this item!'
+    - '&cRequires &7Mark &7&lIX'
+    item-particles:
+      particle: REVERSE_PORTAL
+      type: FIREFLIES
+    revision-id: 9
+    permission:
+    - custom.mark9
+    disable-advanced-enchants: true
+MULTIPURPOSE_RANGED_BOW:
+  base:
+    material: BOW
+    name: '&9Multipurpose Ranged Bow'
+    lore:
+    - '&7Shoots a barrage of arrows in a large radius.'
+    - '&7Custom enchants &ccannot &7be applied on this item.'
+    - '&cRequires &7Mark &7&lVI'
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    projectile-damage: 15.0
+    unbreakable: true
+    unstackable: true
+    ability:
+      ability1:
+        type: ARROW_BARRAGE
+        mode: SHOOT_BOW
+        damage: 4.0
+      ability2:
+        type: ARROW_BARRAGE
+        mode: LEFT_CLICK
+        damage: 4.0
+        cooldown: 0.05
+    revision-id: 9
+    disable-advanced-enchants: true
+    permission:
+    - custom.mark6
+TEST_BOW:
+  base:
+    material: BOW
+    enchants:
+      power: 10.0
+    name: TestBow
+    arrow-velocity: 2.0
+    pvp-damage: 12.0
+    revision-id: 4

@@ -1,0 +1,42 @@
+PIONEER_PICKAXE:
+  base:
+    material: WOODEN_PICKAXE
+    max-durability: 300.0
+    enchants:
+      unbreaking: 10.0
+    hide-enchants: true
+    name: '&cPioneer Pickaxe'
+    lore:
+    - '&5Stronger than it looks. Blasts through most materials.'
+    disable-smelting: true
+    disable-repairing: true
+    required-level: 75.0
+    item-cooldown: 7.0
+    pickaxe-power: 3.0
+    on-left-click: MINOR_EXPLOSION
+    bouncing-crack: 0.75
+    revision-id: 2
+ANTIMATTER_VOID_PICKAXE:
+  base:
+    material: NETHERITE_PICKAXE
+    name: '&dAntimatter Void Pickaxe'
+    lore:
+    - '&7Can delete almost anything. Use with caution.'
+    - '&cRequires &7Mark &7&lIX'
+    enchants:
+      efficiency: 20.0
+      fortune: 6.0
+      mending: 1.0
+    disable-crafting: true
+    disable-smelting: true
+    pickaxe-power: 13.0
+    bouncing-crack: true
+    ability:
+      ability1:
+        type: BLACK_HOLE
+        mode: SHIFT_RIGHT_CLICK
+    revision-id: 9
+    permission:
+    - custom.mark9
+    disable-enchanting: true
+    disable-repairing: true

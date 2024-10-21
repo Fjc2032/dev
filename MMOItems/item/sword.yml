@@ -1,0 +1,43 @@
+SWORD_OF_UNITY:
+  base:
+    material: IRON_SWORD
+    name: '&6Sword of Unity'
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    enchants:
+      sharpness: 15.0
+      mending: 1.0
+    hide-enchants: true
+    attack-damage: 6.0
+    ability:
+      ability1:
+        type: STUN
+        mode: LEFT_CLICK
+        duration: 7.0
+        cooldown: 5.0
+    lifesteal: 3.0
+    pve-damage: 210.0
+    disable-advanced-enchants: true
+    disable-droping: true
+    disable-repairing: true
+    lore:
+    - '&bThis item is &7&lSOULBOUND. &bCannot be enchanted, repaired, or dropped.'
+    item-particles:
+      particle: GLOW
+      type: AURA
+    disable-mcmmo-repair: true
+    revision-id: 6
+    critical-strike-chance: 45.0
+    critical-strike-power: 15.0
+BEDROCK_SWORD:
+  base:
+    material: NETHERITE_SWORD
+    enchants:
+      sharpness: 12.0
+      unbreaking: 3.0
+      mending: 1.0
+      sweeping: 3.0
+    name: '&8&lBedrock Sword'
+    attack-damage: 13.0

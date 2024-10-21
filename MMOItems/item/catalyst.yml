@@ -1,0 +1,19 @@
+PHANTOM_WINGS:
+  base:
+    material: ELYTRA
+    enchants:
+      unbreaking: 10.0
+      mending: 1.0
+      protection: 30.0
+    hide-enchants: true
+    name: '&fPhantom Wings'
+    revision-id: 4
+    displayed-type: Elytra
+    dodge-rating: 25.0
+    permission:
+    - group.tier6
+    lore:
+    - '&7Sown using phantom skin. Many phantoms were harmed in the creation of this
+      item.'
+    - '&7You need &b&lMagnate &7or above to use this item.'
+    disable-enchanting: true

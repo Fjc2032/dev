@@ -1,0 +1,30 @@
+CROSSDIMENSIONAL_ASSAULT_BOW:
+  base:
+    material: CROSSBOW
+    max-durability: 200.0
+    disable-smelting: true
+    disable-crafting: true
+    permission:
+    - custom.mark9
+    name: '&6Crossdimensional Assault Bow'
+    disable-arrow-consumption: true
+    pve-damage: 50.0
+    projectile-damage: 55.0
+    unstackable: true
+    ability:
+      ability1:
+        type: EXPLOSIVE_BARRAGE
+        mode: LEFT_CLICK
+      ability2:
+        type: FIREBOLT
+        mode: RIGHT_CLICK
+        cooldown: 0.0
+    durability-bar: true
+    revision-id: 8
+    lore:
+    - '&7Shoots a barrage of firecrackers and arrows at targets.'
+    - '&7Deals &cdouble damage &7in the &6nether &7dimension.'
+    - '&cRequires &7Mark &7&lIX'
+    attack-damage: 17.0
+    critical-strike-chance: 25.0
+    critical-strike-power: 20.0

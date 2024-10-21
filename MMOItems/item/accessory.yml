@@ -1,0 +1,39 @@
+VOIDPRIEST_BOSS:
+  base:
+    material: ENDER_PEARL
+    commands:
+      cmd0:
+        format: mm egg get DevotedVoidPriest
+        delay: 0.0
+        op: true
+    name: '&fUnformed &5Void &fBoss Spawn Egg'
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v NETHERITE_BLOCK - 4.0..|v end_crystal - 1.0..|v NETHERITE_BLOCK - 4.0..
+          - v end_crystal - 1.0..|m ACCESSORY CONDENSED_EYE 1.0..|v end_crystal -
+            1.0..
+          - v NETHERITE_BLOCK - 4.0..|v end_crystal - 1.0..|v NETHERITE_BLOCK - 4.0..
+    lore:
+    - '&5This item forms the &5&lDevoted Void Priest &5boss. Be careful out there.'
+    revision-id: 3
+    unstackable: true
+CONDENSED_EYE:
+  base:
+    material: ENDER_EYE
+    enchants:
+      vanishing_curse: 1.0
+    hide-enchants: true
+    name: '&5&lCondensed Eye&d&koewitj'
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v GOLD_BLOCK - 1.0..|v BLAZE_POWDER - 16.0..|v GOLD_BLOCK - 1.0..
+          - v BLAZE_POWDER - 16.0..|v ender_eye - 1.0..|v BLAZE_POWDER - 16.0..
+          - v GOLD_BLOCK - 1.0..|v BLAZE_POWDER - 16.0..|v GOLD_BLOCK - 1.0..

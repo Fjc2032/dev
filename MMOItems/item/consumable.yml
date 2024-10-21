@@ -1,0 +1,41 @@
+ROCK:
+  base:
+    material: COBBLESTONE
+    name: '&fRock'
+    lore:
+    - '&7Use it to sharpen your weapons,'
+    - '&7or &ndamage&7 your enemies.'
+    tier: TRASH
+    item-cooldown: 3
+    repair: 3.0
+    ability:
+      right-click:
+        type: ITEM_THROW
+        mode: RIGHT_CLICK
+        damage: 2.0
+        cooldown: 3
+INFUSED_WITHER_SKULL:
+  base:
+    material: WITHER_SKELETON_SKULL
+    disable-interaction: true
+    revision-id: 3
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v BLAZE_ROD - 64.0..|v COAL_BLOCK - 1.0..|v BLAZE_ROD - 64.0..
+          - v LAVA_BUCKET - 1.0..|v WITHER_SKELETON_SKULL - 1.0..|v LAVA_BUCKET -
+            1.0..
+          - v NETHERITE_BLOCK - 4.0..|v GOLD_BLOCK - 16.0..|v NETHERITE_BLOCK - 4.0..
+          output:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v BUCKET - 1.0..|v AIR 0 1..|v BUCKET - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+    name: '&7&lInfused Wither Skull&8&kII'
+    commands:
+      cmd0:
+        format: mm mobs egg get Ordelia
+        delay: 0.0
+        op: true
+    lore:
+    - '&7Interact with this item to obtain the &cOrdelia &7summon egg.'

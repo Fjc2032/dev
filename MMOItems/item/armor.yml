@@ -1,0 +1,900 @@
+MOLTEN_CHESTPLATE:
+  base:
+    material: IRON_CHESTPLATE
+    enchants:
+      protection: 10.0
+      fire_protection: 7.0
+      mending: 1.0
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    block-rating: 15.0
+    pve-damage-reduction: 35.0
+    name: '&c&lMolten Chestplate&4&kI'
+    item-particles:
+      particle: FLAME
+      type: FIREFLIES
+      amount: 4.0
+      radius: 1.5
+    hide-enchants: true
+    unbreakable: true
+    armor: 8.0
+    revision-id: 8
+    lore:
+    - '&2All attacks from hostile entities reduced by &b30% &2while worn.'
+CREEPER_HELMET:
+  base:
+    material: LEATHER_HELMET
+    enchants:
+      blast_protection: 10.0
+      thorns: 10.0
+      protection: 7.0
+    name: '&2&lCreeper Helmet'
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    required-level: 100.0
+    unbreakable: true
+    projectile-damage-reduction: 5.0
+    set: CREEPER
+    armor: 8.0
+    lore:
+    - '&2Reduces most damage from explosives by up to &b80%'
+    - '&9UNBREAKABLE'
+    dye-color: 0 255 0
+    hide-dye: true
+    unstackable: true
+CREEPER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: '&2&lCreeper Boots'
+    lore:
+    - '&2Reduces most damage from explosives by up to &b80%'
+    - '&9UNBREAKABLE'
+    enchants:
+      blast_protection: 10.0
+      thorns: 10.0
+      protection: 7.0
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    required-level: 100.0
+    fire-damage-reduction: 5.0
+    set: CREEPER
+    unbreakable: true
+    dye-color: 0 255 0
+    hide-dye: true
+    unstackable: true
+CREEPER_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&2&lCreeper Leggings'
+    lore:
+    - '&2Reduces most damage from explosives by up to &b80%'
+    - '&9UNBREAKABLE'
+    enchants:
+      blast_protection: 10.0
+      thorns: 10.0
+      protection: 10.0
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    required-level: 150.0
+    magic-damage-reduction: 10.0
+    set: CREEPER
+    dye-color: 0 255 0
+    unbreakable: true
+    hide-dye: true
+    unstackable: true
+CREEPER_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    lore:
+    - '&2Reduces most damage from explosives by up to &b85%'
+    - '&9UNBREAKABLE'
+    enchants:
+      blast_protection: 12.0
+      thorns: 10.0
+      protection: 10.0
+    hide-enchants: true
+    name: '&2&lCreeper Chestplate'
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    required-level: 175.0
+    pve-damage-reduction: 25.0
+    physical-damage-reduction: 5.0
+    set: CREEPER
+    unbreakable: true
+    dye-color: 10 255 10
+    hide-dye: true
+    unstackable: true
+BLACKBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&8&lBlackbelt'
+    enchants:
+      protection: 30.0
+      blast_protection: 30.0
+      fire_protection: 30.0
+      projectile_protection: 30.0
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    dodge-rating: 30.0
+    pve-damage-reduction: 29.0
+    unbreakable: true
+    movement-speed: 0.21
+    hide-dye: true
+    dye-color: 0 0 0
+    disable-advanced-enchants: true
+    disable-droping: true
+    pve-damage: 21.0
+    revision-id: 9
+    permission:
+    - custom.mark6
+    perm-effects:
+      DAMAGE_RESISTANCE: 2.0
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+    - '&cRequires &7Mark &7&lVI'
+    max-health: 20.0
+CROWN_OF_GREED:
+  base:
+    material: GOLDEN_HELMET
+    name: '&eCrown of &aGreed'
+    lore:
+    - '&eMultiplies damage up to &41.5x &ebut drains $5000 per second'
+    - '&ewhen attacked.'
+    - '&cCannot be enchanted.'
+    - '&cRequires &7Mark &7&lXI'
+    disable-crafting: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    pve-damage: 115.0
+    unstackable: true
+    ability:
+      ability1:
+        type: GREED_DRAIN
+        mode: DAMAGED
+    disable-advanced-enchants: true
+    armor: 3.0
+    enchants:
+      protection: 2.0
+    revision-id: 6
+    critical-strike-chance: 20.0
+    critical-strike-power: 20.0
+    perm-effects:
+      LUCK: 3.0
+    disable-smelting: true
+    permission:
+    - custom.mark11
+SPACE_MARINE_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    hide-enchants: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    name: '&3&lSpace Marine Boots&5&kII'
+    lore:
+    - '&5Bounce around like you''re in &f&l&ospace'
+    - '&2Reduces all incoming damage by up to &b15%'
+    - '&2Also provides &b+25% &2chance to dodge incoming attacks'
+    - '&cRequires &7Mark &7&lIX'
+    perm-effects:
+      JUMP: 6.0
+      ABSORPTION: 4.0
+    movement-speed: 0.12
+    unstackable: true
+    fall-damage-reduction: 25.0
+    dodge-rating: 19.0
+    unbreakable: true
+    dye-color: 20 40 20
+    hide-dye: true
+    armor: 3.0
+    revision-id: 5
+    pve-damage-reduction: 12.0
+    enchants:
+      protection: 15.0
+      depth_strider: 3.0
+    permission:
+    - custom.mark9
+SPIKED_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: '&7&lSpiked Helmet'
+    enchants:
+      protection: 10.0
+      thorns: 30.0
+    hide-enchants: true
+    permission:
+    - custom.mark3
+    lore:
+    - '&2Increases projectile damage by &b7%'
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    pve-damage-reduction: 5.0
+    projectile-damage: 7.0
+    set: SPIKED
+    unbreakable: true
+    unstackable: true
+    dye-color: 96 96 96
+    hide-dye: true
+    armor-toughness: 3.0
+    armor: 3.0
+    revision-id: 2
+SPIKED_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: '&7&lSpiked Chestplate'
+    enchants:
+      protection: 15.0
+      thorns: 30.0
+    hide-enchants: true
+    permission:
+    - custom.mark3
+    lore:
+    - '&2Reduces all incoming damage by &b5%'
+    - '&2Increases projectile damage by &b10%'
+    - '&7&lSOULBOUND. &7Item cannot be enchanted or modified.'
+    - '&c&lHEAVY'
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    projectile-damage: 10.0
+    damage-reduction: 10.0
+    set: SPIKED
+    armor: 7.0
+    armor-toughness: 7.0
+    unbreakable: true
+    unstackable: true
+    dye-color: 96 96 96
+    hide-dye: true
+    disable-advanced-enchants: true
+    perm-effects:
+      SLOW: 1.0
+    revision-id: 2
+SPIKED_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    enchants:
+      protection: 15.0
+      thorns: 30.0
+    hide-enchants: true
+    name: '&7&lSpiked Leggings'
+    lore:
+    - '&2Increases projectile damage by &b10%'
+    permission:
+    - custom.mark3
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    projectile-damage: 10.0
+    armor: 5.0
+    armor-toughness: 3.0
+    set: SPIKED
+    unstackable: true
+    dye-color: 96 96 96
+    hide-dye: true
+    pve-damage-reduction: 5.0
+    unbreakable: true
+    revision-id: 3
+SPIKED_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    permission:
+    - custom.mark3
+    name: '&7&lSpiked Boots'
+    enchants:
+      protection: 10.0
+      thorns: 30.0
+    hide-enchants: true
+    lore:
+    - '&2Increases projectile damage by &b5%'
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    projectile-damage: 5.0
+    set: SPIKED
+    pve-damage-reduction: 5.0
+    unbreakable: true
+    unstackable: true
+    dye-color: 96 96 96
+    hide-dye: true
+    armor-toughness: 3.0
+    armor: 3.0
+    revision-id: 2
+GOBLIN_HELMET:
+  base:
+    material: DIAMOND_HELMET
+    name: '&a&lGoblin Helmet'
+    enchants:
+      protection: 5.0
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    magic-damage-reduction: 15.0
+    unstackable: true
+    lore:
+    - '&aGoblin Hardhat.'
+    set: GOBLIN
+    projectile-damage-reduction: 15.0
+    trim-material: emerald
+    trim-pattern: dune
+    hide-armor-trim: true
+    disable-mcmmo-repair: true
+    armor-toughness: 4.0
+    hide-enchants: true
+    unbreakable: true
+    revision-id: 3
+GOBLIN_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: '&a&lGoblin Chestplate'
+    dye-color: 55 222 70
+    hide-dye: true
+    enchants:
+      protection: 8.0
+    hide-enchants: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    pve-damage-reduction: 10.0
+    unbreakable: true
+    set: GOBLIN
+    armor: 4.0
+    unstackable: true
+    knockback-resistance: 0.5
+    revision-id: 4
+GOBLIN_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&a&lGoblin Leggings'
+    dye-color: 55 222 70
+    hide-dye: true
+    enchants:
+      protection: 8.0
+    hide-enchants: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    pve-damage-reduction: 7.0
+    unbreakable: true
+    set: GOBLIN
+    armor: 2.0
+    unstackable: true
+    revision-id: 4
+GOBLIN_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: '&a&lGoblin Boots'
+    enchants:
+      protection: 8.0
+    hide-enchants: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    pve-damage-reduction: 5.0
+    armor: 1.0
+    unbreakable: true
+    movement-speed: 0.05
+    dye-color: 99 222 70
+    hide-dye: true
+    unstackable: true
+    set: GOBLIN
+    revision-id: 4
+SPIRIT_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: '&8&lSpirit Boots'
+    enchants:
+      protection: 10.0
+      feather_falling: 10.0
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    undead-damage: 30.0
+    movement-speed: 0.4
+    unbreakable: true
+    dye-color: 87 79 91
+    hide-dye: true
+    disable-advanced-enchants: true
+    disable-mcmmo-repair: true
+    lore:
+    - '&7Custom enchants &ccannot &7be applied on this item.'
+    - '&9&lUNBREAKABLE'
+    revision-id: 5
+    dodge-rating: 40.0
+    perm-effects:
+      JUMP: 8.0
+SLAYER_CHESTPLATE:
+  base:
+    material: NETHERITE_CHESTPLATE
+    enchants:
+      protection: 10.0
+    name: '&4Slayer Chestplate'
+    disable-smithing: true
+    pve-damage-reduction: 25.0
+    undead-damage: 100.0
+    unstackable: true
+    unbreakable: true
+    armor-toughness: 10.0
+    armor: 8.0
+    lore:
+    - '&7All damage towards the undead is &cdoubled.'
+    - '&7Custom enchants &ccannot &7be applied on this item.'
+    disable-advanced-enchants: true
+    set: SLAYER
+    revision-id: 3
+OBSIDIAN_CHESTPLATE:
+  base:
+    material: NETHERITE_CHESTPLATE
+    enchants:
+      protection: 8.0
+      unbreaking: 3.0
+      mending: 1.0
+    name: '&d&lObsidian Chestplate'
+    pvp-damage-reduction: 10.0
+    damage-reduction: 5.0
+    armor: 8.0
+    armor-toughness: 5.0
+    block-rating: 10.0
+    revision-id: 2
+OBSIDIAN_HELMET:
+  base:
+    material: NETHERITE_HELMET
+    enchants:
+      protection: 8.0
+      unbreaking: 3.0
+      mending: 1.0
+      aqua_affinity: 1.0
+      respiration: 3.0
+    name: '&d&lObsidian Helmet'
+    pvp-damage-reduction: 10.0
+    damage-reduction: 5.0
+    armor: 5.0
+    armor-toughness: 3.0
+OBSIDIAN_LEGGINGS:
+  base:
+    material: NETHERITE_LEGGINGS
+    enchants:
+      protection: 8.0
+      unbreaking: 3.0
+      mending: 1.0
+    name: '&d&lObsidian Leggings'
+    pvp-damage-reduction: 10.0
+    damage-reduction: 5.0
+    armor: 7.0
+    armor-toughness: 4.0
+    revision-id: 3
+OBSIDIAN_BOOTS:
+  base:
+    material: NETHERITE_BOOTS
+    enchants:
+      protection: 8.0
+      unbreaking: 3.0
+      mending: 1.0
+      depth_strider: 3.0
+      feather_falling: 4.0
+    name: '&d&lObsidian Boots'
+    pvp-damage-reduction: 10.0
+    damage-reduction: 5.0
+    armor: 4.0
+    armor-toughness: 1.0
+    revision-id: 2
+GOLDEN_CHESTPLATE:
+  base:
+    material: DIAMOND_CHESTPLATE
+    enchants:
+      protection: 4.0
+      mending: 1.0
+      unbreaking: 3.0
+    name: '&6&lGolden Chestplate'
+    pvp-damage-reduction: 5.0
+    damage-reduction: 3.0
+    armor: 6.0
+    block-rating: 5.0
+GOLDEN_LEGGINGS:
+  base:
+    material: DIAMOND_LEGGINGS
+    enchants:
+      protection: 4.0
+      unbreaking: 3.0
+      mending: 1.0
+    name: '&6&lGolden Leggings'
+    pvp-damage-reduction: 5.0
+    damage-reduction: 3.0
+    armor: 5.0
+GOLDEN_BOOTS:
+  base:
+    material: DIAMOND_BOOTS
+    enchants:
+      protection: 4.0
+      unbreaking: 3.0
+      mending: 1.0
+      depth_strider: 3.0
+      feather_falling: 4.0
+    name: '&6&lGolden Boots'
+    pvp-damage-reduction: 5.0
+    damage-reduction: 3.0
+    armor: 3.0
+GOLDEN_HELMET:
+  base:
+    material: DIAMOND_HELMET
+    enchants:
+      protection: 4.0
+      mending: 1.0
+      respiration: 3.0
+      aqua_affinity: 1.0
+      unbreaking: 3.0
+    name: '&6&lGolden Helmet'
+    pvp-damage-reduction: 5.0
+    damage-reduction: 3.0
+    armor: 3.0
+BEDROCK_CHESTPLATE:
+  base:
+    material: NETHERITE_CHESTPLATE
+    name: '&8&lBedrock Chestplate'
+    enchants:
+      protection: 10.0
+      unbreaking: 3.0
+      mending: 1.0
+    block-rating: 15.0
+    pvp-damage-reduction: 15.0
+    damage-reduction: 8.0
+    armor: 10.0
+    armor-toughness: 8.0
+    set: BEDROCK
+BEDROCK_LEGGINGS:
+  base:
+    material: NETHERITE_LEGGINGS
+    name: '&8&lBedrock Chestplate'
+    enchants:
+      protection: 10.0
+      unbreaking: 3.0
+      mending: 1.0
+    pvp-damage-reduction: 15.0
+    damage-reduction: 8.0
+    armor: 8.0
+    armor-toughness: 7.0
+    set: BEDROCK
+BEDROCK_BOOTS:
+  base:
+    material: NETHERITE_BOOTS
+    enchants:
+      protection: 10.0
+      unbreaking: 3.0
+      mending: 1.0
+      depth_strider: 3.0
+      feather_falling: 4.0
+    name: '&8&lBedrock Boots'
+    pvp-damage-reduction: 15.0
+    damage-reduction: 8.0
+    armor: 6.0
+    armor-toughness: 6.0
+    set: BEDROCK
+BEDROCK_HELMET:
+  base:
+    material: NETHERITE_HELMET
+    name: '&8&lBedrock Helmet'
+    enchants:
+      protection: 10.0
+      unbreaking: 3.0
+      mending: 1.0
+      aqua_affinity: 1.0
+      respiration: 3.0
+    pvp-damage-reduction: 15.0
+    damage-reduction: 8.0
+    armor: 5.0
+    armor-toughness: 4.0
+    set: BEDROCK
+WHITEBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&f&lWhitebelt'
+    pve-damage: 4.0
+    dodge-rating: 12.0
+    pve-damage-reduction: 5.0
+    dye-color: 250 250 250
+    hide-dye: true
+    disable-advanced-enchants: true
+    lore:
+    - '&fForged with the use of many ancient techniques.'
+    - '&8&lSOULBOUND. &7Item cannot be enchanted, combined, or dropped.'
+    - '&9&lUNBREAKABLE'
+    disable-enchanting: true
+    disable-smithing: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-repairing: true
+    unbreakable: true
+YELLOWBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&e&lYellowbelt'
+    dye-color: 230 247 30
+    hide-dye: true
+    pve-damage: 6.0
+    pve-damage-reduction: 8.0
+    dodge-rating: 14.0
+    enchants:
+      protection: 4.0
+    hide-enchants: true
+    unbreakable: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-droping: true
+    lore:
+    - '&8&lSOULBOUND. &8Item cannot be enchanted, combined, or dropped.'
+    - '&9&lUNBREAKABLE'
+ORANGEBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&6&lOrangebelt'
+    dye-color: 241 124 0
+    hide-dye: true
+    enchants:
+      protection: 6.0
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-droping: true
+    pve-damage: 8.0
+    dodge-rating: 16.0
+    pve-damage-reduction: 11.0
+    unbreakable: true
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+GREENBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&2&lGreenbelt'
+    enchants:
+      protection: 7.0
+    hide-enchants: true
+    pve-damage: 10.0
+    pve-damage-reduction: 14.0
+    unbreakable: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-droping: true
+    disable-advanced-enchants: true
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+    dye-color: 30 149 26
+    hide-dye: true
+    dodge-rating: 18.0
+BLUEBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&1&lBluebelt'
+    dye-color: 16 40 216
+    hide-dye: true
+    enchants:
+      protection: 8.0
+    hide-enchants: true
+    pve-damage: 12.0
+    dodge-rating: 20.0
+    pve-damage-reduction: 17.0
+    perm-effects:
+      DAMAGE_RESISTANCE: 1.0
+    unbreakable: true
+    disable-advanced-enchants: true
+    disable-droping: true
+    disable-repairing: true
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+PURPLEBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    enchants:
+      protection: 9.0
+    hide-enchants: true
+    name: '&5&lPurplebelt'
+    dye-color: 151 21 174
+    hide-dye: true
+    disable-advanced-enchants: true
+    unbreakable: true
+    disable-droping: true
+    disable-repairing: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    pve-damage: 14.0
+    dodge-rating: 22.0
+    pve-damage-reduction: 20.0
+    perm-effects:
+      DAMAGE_RESISTANCE: 1.0
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+REDBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    enchants:
+      protection: 10.0
+    hide-enchants: true
+    name: '&4&lRedbelt'
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-droping: true
+    dye-color: 250 0 0
+    hide-dye: true
+    disable-advanced-enchants: true
+    pve-damage: 16.0
+    dodge-rating: 24.0
+    pve-damage-reduction: 23.0
+    unbreakable: true
+    perm-effects:
+      DAMAGE_RESISTANCE: 1.0
+    movement-speed: 0.07
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+    - '&cRequires &7Mark &7&lVI'
+    permission:
+    - custom.mark6
+    revision-id: 2
+BROWNBELT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&7&lBrownbelt'
+    enchants:
+      protection: 11.0
+    hide-enchants: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-advanced-enchants: true
+    movement-speed: 0.14
+    unbreakable: true
+    pve-damage: 18.0
+    dodge-rating: 27.0
+    disable-repairing: true
+    disable-droping: true
+    pve-damage-reduction: 26.0
+    perm-effects:
+      DAMAGE_RESISTANCE: 2.0
+    lore:
+    - '&8&lSOULBOUND'
+    - '&9&lUNBREAKABLE'
+    - '&cRequires &7Mark &7&lVI'
+    dye-color: 110 44 0
+    hide-dye: true
+    permission:
+    - custom.mark6
+    revision-id: 3
+    max-health: 10.0
+SLAYER_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    enchants:
+      protection: 10.0
+      swift_sneak: 3.0
+    hide-enchants: true
+    name: '&4Slayer Leggings'
+    pve-damage-reduction: 12.0
+    undead-damage: 15.0
+    armor: 6.0
+    armor-toughness: 7.0
+    dye-color: 100 0 0
+    hide-dye: true
+    set: SLAYER
+    unbreakable: true
+    lore:
+    - '&9&lUNBREAKABLE'
+    revision-id: 2
+SLAYER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: '&4Slayer Boots'
+    enchants:
+      protection: 10.0
+      depth_strider: 5.0
+    hide-enchants: true
+    dye-color: 100 0 0
+    hide-dye: true
+    movement-speed: 0.05
+    pve-damage-reduction: 10.0
+    undead-damage: 12.0
+    armor: 4.0
+    armor-toughness: 5.0
+    lore:
+    - '&7Increases movement speed by &25%'
+    set: SLAYER
+    revision-id: 3
+    unbreakable: true
+SLAYER_HELMET:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTA4MGFhYzdlMmQwZDlkYTQ5OGJkM2FjZTE0YjE5MzlkYjIwZWRiNzZlOGE2NjQ2Y2IyMjgzMjUxMTY3NWY0ZSJ9fX0=
+      uuid: 8f35fddb-c4c1-4b3e-83e9-69b39a1f8b93
+    name: '&4Slayer Mask'
+    enchants:
+      protection: 15.0
+      aqua_affinity: 1.0
+      respiration: 20.0
+    hide-enchants: true
+    permission:
+    - custom.mark9
+    lore:
+    - '&7Increases projectile damage by &211%'
+    - '&cRequires &7Mark &7&lIX'
+    - '&9&lUNBREAKABLE'
+    pve-damage-reduction: 15.0
+    undead-damage: 12.0
+    projectile-damage: 11.0
+    armor: 4.0
+    armor-toughness: 4.0
+    set: SLAYER
+    lifesteal: 5.0
+    revision-id: 2
+SPIRIT_MASK:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ3NTZlYzAzMDQzMWQ5YTMwY2Y3MWMyZDdmNWQzN2E1ODIxNTlhMDlhNTJlMWMyMjE2MmViZDY3MDM1NjMxNSJ9fX0=
+      uuid: 76c5d84e-a405-4562-acd9-43d772f08597
+    name: '&5&kI&7&lSpirit Mask&5&kI'
+    enchants:
+      protection: 15.0
+    hide-enchants: true
+    dodge-rating: 40.0
+    movement-speed: 0.4
+    undead-damage: 30.0
+    disable-advanced-enchants: true
+    lore:
+    - '&7Custom enchants &ccannot &7be applied on this item.'
+    perm-effects:
+      REGENERATION: 1.0
+    revision-id: 2

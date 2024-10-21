@@ -1,0 +1,43 @@
+LESSER_RAGNAROK:
+  base:
+    material: GOLDEN_AXE
+    enchants:
+      smite: 10.0
+      looting: 4.0
+    name: '&cLesser Ragnarok'
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    lore:
+    - '&6Weaker variant of the infamous Bloodied Axe. Still pretty strong.'
+    - '&9&lUNBREAKABLE'
+    attack-damage: 6.0
+    pve-damage: 35.0
+    unbreakable: true
+    unstackable: true
+    sounds:
+      on-attack:
+        sound: block.bamboo.break
+        volume: 1.0
+        pitch: 1.0
+    attack-speed: 0.6
+    revision-id: 3
+MECHANICAL_TREE_FELLER:
+  base:
+    material: STONE_AXE
+    enchants:
+      efficiency: 10.0
+      unbreaking: 10.0
+OBSIDIAN_AXE:
+  base:
+    material: NETHERITE_AXE
+    name: '&d&lObsidian Axe'
+    enchants:
+      mending: 1.0
+      sharpness: 10.0
+      unbreaking: 3.0
+    attack-damage: 17.0
+    attack-speed: 1.0
+    physical-damage: 13.0
+    pvp-damage: 10.0
+    revision-id: 2

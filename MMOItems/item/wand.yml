@@ -1,0 +1,28 @@
+SALVATION_WAND:
+  base:
+    material: STICK
+    name: '&dSalvation Wand'
+    spell-vampirism: 7.0
+    magic-damage: 350.0
+    skill-damage: 350.0
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        mode: RIGHT_CLICK
+        cooldown: 3.0
+        heal: 7.0
+      ability2:
+        type: FIREBOLT
+        mode: LEFT_CLICK
+        damage: 11.0
+        cooldown: 0.0
+    required-level: 275.0
+    disable-smelting: true
+    disable-crafting: true
+    disable-repairing: true
+    lore:
+    - '&8Save yourself. But know that you have already died if you turn to this item.'
+    perm-effects:
+      CONFUSION: 2.0
+      SLOW: 6.0
+    unstackable: true

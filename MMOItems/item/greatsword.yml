@@ -1,0 +1,27 @@
+EXCALIBUR:
+  base:
+    material: DIAMOND_SWORD
+    name: '&9Excalibur&1&kII'
+    disable-crafting: true
+    disable-repairing: true
+    attack-damage: 5.0
+    critical-strike-chance: 30.0
+    critical-strike-power:
+      min: 15.0
+      max: 65.0
+    pvp-damage: 17.0
+    lifesteal: 1.0
+    unstackable: true
+    perm-effects:
+      SLOW: 2.0
+    two-handed: true
+    revision-id: 3
+    enchants:
+      sharpness: 10.0
+      smite: 15.0
+    undead-damage: 150.0
+    lore:
+    - '&c&lHEAVY! &cThis item cannot be used with another item in the offhand.'
+    - '&7&lEXTRA: &7This item multiplies damage against &6players.'
+    - '&7&lEXTRA: &7This item multiplies damage against &6undead &7significantly.'
+    hide-enchants: true

@@ -1,0 +1,54 @@
+BLOODIED_AXE:
+  base:
+    material: DIAMOND_AXE
+    item-damage: 11.0
+    lore:
+    - '&6Shatters almost anything that can move. Useful in raids.'
+    - '&bCan blast multiple enemies at once. Very nice for clearing.'
+    enchants:
+      sharpness: 8.0
+      looting: 4.0
+      mending: 1.0
+    name: '&4&kI&cBloodied Axe&4&kI'
+    disable-crafting: true
+    disable-smelting: true
+    disable-enchanting: true
+    attack-damage: 8.0
+    attack-speed: 1.2
+    critical-strike-chance: 40.0
+    critical-strike-power: 50.0
+    pve-damage: 30.0
+    unbreakable: true
+    perm-effects:
+      DAMAGE_RESISTANCE: 2.0
+    sounds:
+      on-attack:
+        sound: ENTITY.ZOMBIE.BREAK_WOODEN_DOOR
+        volume: 10.0
+        pitch: 1.0
+    disable-repairing: true
+    revision-id: 6
+GREATNECK_BATTLEAXE:
+  base:
+    material: IRON_AXE
+    enchants:
+      sharpness: 10.0
+      smite: 10.0
+      efficiency: 10.0
+    name: '&7&lGreatneck Battleaxe'
+    permission:
+    - custom.mark11
+    pve-damage: 300.0
+    sounds:
+      on-attack:
+        sound: block.amethyst_cluster.break
+        volume: 10.0
+        pitch: 2.0
+    lore:
+    - '&7Multipurpose battleaxe. Can be enchanted.'
+    - '&9&lUNBREAKABLE'
+    - '&cRequires &7Mark &7&lXI'
+    attack-speed: 0.4
+    unbreakable: true
+    revision-id: 2
+

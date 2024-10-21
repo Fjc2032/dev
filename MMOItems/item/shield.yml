@@ -1,0 +1,26 @@
+GOLEM_SHIELD:
+  base:
+    material: SHIELD
+    enchants:
+      mending: 1.0
+    hide-enchants: true
+    name: '&f&lGolem Shield'
+    permission:
+    - custom.mark11
+    parry-rating: 50.0
+    block-rating: 50.0
+    unbreakable: true
+    knockback-resistance: 1.0
+    shield-pattern:
+      color: WHITE
+    handworn: true
+    lore:
+    - '&fBlocks a lot of stuff.'
+    - '&9&lUNBREAKABLE'
+    - '&c&lHEAVY'
+    - '&cRequires &7Mark &7&lXI'
+    disable-enchanting: true
+    disable-repairing: true
+    perm-effects:
+      SLOW: 3.0
+    revision-id: 2

@@ -1,0 +1,28 @@
+SYLVETTA_LONGBOW:
+  base:
+    material: BOW
+    name: '&cSylvetta Longbow&kiii'
+    lore:
+    - '&5&oForged by countless souls of the damned.'
+    enchants:
+      power: 10.0
+      punch: 4.0
+      infinity: 1.0
+    arrow-particles:
+      particle: LAVA
+      amount: 5
+      speed: 0.1
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-droping: true
+    arrow-velocity: 7.0
+    pve-damage: 500.0
+    projectile-damage: 15.0
+    ability:
+      ability1: {}
+    skills:
+    - MMOItemsVolley{amount=10;spread=30;fireTicks=20;removeDelay=100;velocity=20;syo=1.2;sso=2}
+      @Forward{f=15.0;y=0.0}
+    revision-id: 3

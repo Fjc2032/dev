@@ -1,0 +1,32 @@
+ENDER_SHACKLES:
+  base:
+    material: FISHING_ROD
+    enchants:
+      sharpness: 17.0
+    name: '&5Ender Shackles'
+    parry-rating: 44.0
+    parry-cooldown-reduction: 85.0
+    attack-damage: 6.0
+    attack-speed: 10.0
+    skill-critical-strike-chance: 100.0
+    skill-critical-strike-power: 250.0
+    unstackable: true
+    lifesteal: 5.0
+    spell-vampirism: 11.0
+    ability:
+      ability1:
+        type: ARCANE_HAIL
+        mode: RIGHT_CLICK
+        damage: 13.0
+        cooldown: 4.0
+    hide-enchants: true
+    lore:
+    - '&5Sends a barrage of ender beams at the targeted location.'
+    - '&5Can strike endermen.'
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true

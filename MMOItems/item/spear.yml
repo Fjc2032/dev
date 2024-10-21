@@ -1,0 +1,17 @@
+GREATER_ALLAY_TRIDENT:
+  base:
+    material: TRIDENT
+    name: '&3Greater Allay Trident&b&kIII'
+    enchants:
+      channeling: 1.0
+      mending: 1.0
+      impaling: 10.0
+      sharpness: 4.0
+      loyalty: 5.0
+    disable-crafting: true
+    attack-damage: 13.0
+    projectile-damage: 300.0
+    perm-effects:
+      WATER_BREATHING: 1.0
+    pve-damage: 300.0
+    revision-id: 2

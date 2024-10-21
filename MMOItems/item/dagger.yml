@@ -1,0 +1,54 @@
+VENOM_BLADE:
+  base:
+    material: STONE_SWORD
+    enchants:
+      bane_of_arthropods: 45.0
+    hide-enchants: true
+    name: '&aVenom Blade'
+    lore:
+    - '&2Sharpened rock blade that is designed to eliminate any pest'
+    - '&2Multiplies damage against spiders up to &415x'
+    disable-repairing: true
+    attack-damage: 6.0
+    pve-damage: 75.0
+    unbreakable: true
+    lifesteal: 9.0
+    ability:
+      ability1:
+        type: POISON
+        mode: ATTACK
+        cooldown: 1.0
+        amplifier: 6.0
+DEATH_RAPIER:
+  base:
+    material: STONE_SWORD
+    name: '&8&lDeath Rapier'
+    lore:
+    - '&7Light and darkness swiftly divide to form voids of the unliving'
+    - ''
+    - '&7This item is only valid within &6DESERT &7biomes.'
+    - '&7This item &ccannot &7be enchanted.'
+    - '&9&lUNBREAKABLE'
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    attack-damage: 16.0
+    pve-damage: 300.0
+    lifesteal: 8.0
+    unbreakable: true
+    unstackable: true
+    perm-effects:
+      WITHER: 3.0
+      SLOW: 3.0
+    required-biomes:
+    - DESERT
+    - BADLANDS
+    two-handed: true
+    sounds:
+      on-attack:
+        sound: entity.wither.ambient
+        volume: 1.0
+        pitch: 1.0
+    revision-id: 2
