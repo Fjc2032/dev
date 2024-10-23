@@ -106,3 +106,27 @@ Current Changelog Priority:
 - More balancing on custom gear
 - Inventory dump feature
 - More additions to /bosspreview
+
+Next planned updates (not final):
+- Integrate EconomyShopGUI API into autosell [ongoing [Fj]]
+- Integrate Headsplus API into autosell [ongoing [Fj]]
+- Fix backend code for RocketPropelledMinecarts [done [Fj]]
+- Fix bug with eggs on the offhand breaking the boss [ongoing [Fj]]
+- Persistent invisible item frames [not started [Fj, Astra]]]
+- More balancing on boss gear [mostly done. Gold/obby/bedrock gear now uses custom calc.]
+- Fix Telepathy enchant breaking certain mechanics [ongoing [Fed]]]
+- Add SQL integration for CoreProtect [ongoing [Fed, Jane]]
+- More quest options [not available yet [Astra]]
+- Fix damage indicator being stuck on screen [done [Rat]]
+- Import new custom model data [ongoing [Rat]]
+- Fix bug with armor stands spamming ticks on magma/fire [ongoing [Rat, Fj]]
+- Claim flags [not started yet [Astra]]
+- More homes [Astra]
+Priority (in order):
+- Autosell APIs
+- SQL integration
+- Persistent invis item frames
+- Boss gear balancing
+- Claim flags
+- More quest options
+- everything else
