@@ -122,6 +122,7 @@ Next planned updates (not final):
 - Fix bug with armor stands spamming ticks on magma/fire [ongoing [Rat, Fj]]
 - Claim flags [not started yet [Astra]]
 - More homes [Astra]
+
 Priority (in order):
 - Autosell APIs
 - SQL integration
