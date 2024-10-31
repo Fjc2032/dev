@@ -153,6 +153,19 @@
 #      - 'My_World'
 
 # ---- 1.13 or newer only enchantments ----#
+weedwacker:
+  display: '%group-color%Weedwacker'
+  description: Fed's favourite Activity!
+  applies-to: Hoes
+  type: EFFECT_STATIC
+  group: MASTERY
+  applies:
+  - ALL_HOE
+  levels:
+    '1':
+      effects:
+      - POTION:LEVITATION:0
+      - POTION:NAUSEA:0
 glassbreaker:
   display: '%group-color%Glassbreaker'
   description: |-
