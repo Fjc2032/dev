@@ -155,7 +155,7 @@
 # ---- 1.13 or newer only enchantments ----#
 weedwacker:
   display: '%group-color%Weedwacker'
-  description: Feds favorite Activity!
+  description: Fed's favorite Activity!
   applies-to: Hoes
   type: HELD
   group: MASTERY
