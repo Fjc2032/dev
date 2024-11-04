@@ -1,0 +1,29 @@
+tier: "SPECIAL"
+cooldown: 120
+
+item:
+  skin: "382fc3f71b41769376a9e92fe3adbaac3772b999b219c9d6b4680ba9983e527"
+  name: "{TIER-COLOR}&lBat Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&A&lPASSIVE &f& &e&lACTIVATION'
+    - '&7Create a barrier around yourself made entirely'
+    - '&7of bats blinding all enemies around you'
+    - ''
+    - '&7Also gain vision of a bat and be able to see'
+    - '&7clearly in the dark'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+    - 'PASSIVE:true:5'
+
+effects:
+  PASSIVE:
+    - 'POTION:NIGHT_VISION:1:PLAYER'
+  INTERACT:
+    - 'HALLOWEEN_ESCAPE:level+5:true:level+4:level+4'
