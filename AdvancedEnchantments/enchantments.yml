@@ -158,7 +158,7 @@ weedwacker:
   description: Fed's favourite Activity!
   applies-to: Boots
   type: EFFECT_STATIC
-  group: MASTERY
+  group: UNIQUE
   applies:
   - ALL_BOOTS
   levels:
