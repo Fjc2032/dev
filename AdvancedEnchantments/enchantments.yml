@@ -158,7 +158,7 @@ weedwacker:
   description: Feds favorite Activity!
   applies-to: Hoes
   type: HELD
-  group: SIMPLE
+  group: MASTERY
   applies:
   - ALL_HOE
   levels:
