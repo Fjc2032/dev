@@ -157,11 +157,11 @@ weedwacker:
   display: '%group-color%Weedwacker'
   description: |-
     Feds favourite Activity!
-  applies-to: Boots
+  applies-to: Hoes
   type: EFFECT_STATIC
-  group: UNIQUE
+  group: MASTERY
   applies:
-  - ALL_BOOTS
+  - ALL_HOES
   levels:
     '1':
       effects:
