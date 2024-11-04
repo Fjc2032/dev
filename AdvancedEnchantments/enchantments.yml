@@ -155,13 +155,12 @@
 # ---- 1.13 or newer only enchantments ----#
 weedwacker:
   display: '%group-color%Weedwacker'
-  description: |-
-    Feds favourite Activity!
-  applies-to: 
-  type: EFFECT_STATIC
+  description: Feds favorite Activity!
+  applies-to: Hoes
+  type: HELD
   group: SIMPLE
   applies:
-  - ALL_BOOTS
+  - ALL_HOE
   levels:
     '1':
       effects:
