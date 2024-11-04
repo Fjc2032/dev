@@ -1,0 +1,27 @@
+tier: "SPECIAL"
+cooldown: 0
+
+item:
+  skin: "5d6c6eda942f7f5f71c3161c7306f4aed307d82895f9d2b07ab4525718edc5"
+  name: "{TIER-COLOR}&lCow Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Shake off any negative potion effects with'
+    - '&7the tenacity and endurance similar to that of a cow'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'PASSIVE:false:5'
+
+effects:
+  PASSIVE:
+    - 'CURE:WITHER'
+    - 'CURE:BLINDNESS'
+    - 'CURE:SLOW'
+    - 'CURE:SLOW_DIGGING'
+    - 'CURE:POISON'

@@ -1,0 +1,24 @@
+tier: "LEGENDARY"
+cooldown: 120
+
+item:
+  skin: "f4254838c33ea227ffca223dddaabfe0b0215f70da649e944477f44370ca6952"
+  name: "{TIER-COLOR}&lCreeper Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lACTIVATION'
+    - '&7Gain the explosive defence capabilities of'
+    - '&7a creeper to ward off incoming attackers'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+
+effects:
+  INTERACT:
+    - 'EXPLOSION:level/2:0.1*level'
+    - 'SOUND:ENTITY_GENERIC_EXPLODE:5:5:PLAYER'

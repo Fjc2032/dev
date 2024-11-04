@@ -1,0 +1,33 @@
+tier: "SPECIAL"
+cooldown: 300
+
+item:
+  skin: "466b10bf6ee2cd7e3ac96d9749ea616aa9c73030bdcaeffaed249e55c84994ac"
+  name: "{TIER-COLOR}&lCloud Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&A&lPASSIVE &f& &e&lACTIVATION'
+    - '&7Give you the ability to feel like you are'
+    - '&7floating in the &bsky'
+    - '&7&oOh wait.. you are!'
+    - ''
+    - '&7Gain access to flight for {TIER-COLOR}<5+(level/5)>&7s'
+    - '&7&o(( Duration will increase with level ))'
+    - ''
+    - '&7Passively negate all fall damage'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+    - 'PASSIVE:true:5'
+
+effects:
+  PASSIVE:
+    - 'FALL_DAMAGE:100'
+  INTERACT:
+    - 'FLIGHT:5+(level/5)'
+    - 'MESSAGE:&7&l(&6&lEXP Pet&7&l) &eYou have been given access to flight for &6<5+(level/5)>&es!'

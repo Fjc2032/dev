@@ -1,0 +1,24 @@
+tier: "LEGENDARY"
+cooldown: 120
+
+item:
+  skin: "35a9cce3223be1bb927bd2635e18b644601d521b64ca068c541d3bc960908c3a"
+  name: "{TIER-COLOR}&lTrick or Treat Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lACTIVATION'
+    - '&cTrick &7or &aTreat&7?'
+    - '&7Will you get tricked or will you get treated?'
+    - '&7Take your chances and find out'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+
+effects:
+  INTERACT:
+    - 'POTION:RANDOM:premade-equation:PLAYER:2+(level/5)'

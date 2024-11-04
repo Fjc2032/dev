@@ -1,0 +1,24 @@
+tier: "LEGENDARY"
+cooldown: 120
+
+item:
+  skin: "89091d79ea0f59ef7ef94d7bba6e5f17f2f7d4572c44f90f76c4819a714"
+  name: "{TIER-COLOR}&lIron Golem Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lACTIVATION'
+    - '&7Hold your ground and absorb incoming attack damage'
+    - '&7with a temporary shield as strong as iron'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+
+effects:
+  INTERACT:
+    - 'POTION:ABSORPTION:premade-equation:PLAYER:level*5'
+    - 'SOUND:BLOCK_ANVIL_PLACE:5:5:PLAYER'

@@ -1,0 +1,23 @@
+tier: "SPECIAL"
+cooldown: 0
+
+item:
+  skin: "cd541541daaff50896cd258bdbdd4cf80c3ba816735726078bfe393927e57f1"
+  name: "{TIER-COLOR}&lSpider Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Skulk around and pounce on a passer-by'
+    - '&7with your new found jumping abilities'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'PASSIVE:false:5'
+
+effects:
+  PASSIVE:
+    - 'POTION:JUMP:premade-equation:PLAYER'

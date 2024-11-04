@@ -1,0 +1,23 @@
+tier: "COMMON"
+cooldown: 0
+
+item:
+  skin: "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893"
+  name: "{TIER-COLOR}&lChicken Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Grants the ability of speed to quickly flee'
+    - '&7like a chicken.'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'PASSIVE:false:5'
+
+effects:
+  PASSIVE:
+    - 'POTION:SPEED:premade-equation:PLAYER'

@@ -1,0 +1,23 @@
+tier: "COMMON"
+cooldown: 0
+
+item:
+  skin: "f31f9ccc6b3e32ecf13b8a11ac29cd33d18c95fc73db8a66c5d657ccb8be70"
+  name: "{TIER-COLOR}&lSheep Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Reduce the damage of your fall'
+    - '&7with a thick layer of fluffy wool'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'PASSIVE:false:5'
+
+effects:
+  PASSIVE:
+    - 'FALL_DAMAGE:level*2'

@@ -1,0 +1,24 @@
+tier: "LEGENDARY"
+cooldown: 10
+
+item:
+  skin: "d5c6dc2bbf51c36cfc7714585a6a5683ef2b14d47d8ff714654a893f5da622"
+  name: "{TIER-COLOR}&lChest Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7Store and save items into your pet and fetch'
+    - '&7them at any time'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT:false'
+
+effects:
+  INTERACT:
+    - 'CHEST:1+(level/15)'
+    - 'SOUND:BLOCK_CHEST_OPEN:3:10:PLAYER'

@@ -1,0 +1,25 @@
+tier: "LEGENDARY"
+cooldown: 20
+
+item:
+  skin: "19c89a889c4bb421ea9c56cbeae7af1e6d85f4faff34acba72e1a8d5c4116a8"
+  name: "{TIER-COLOR}&lChristmas Grinch Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lACTIVATION'
+    - '&7Creates a streak of presents directed at your'
+    - '&7enemies, if they are hit then they have the chance'
+    - '&7to receive the naughty or nice effect'
+    - '&7Both are bad for the target...'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'INTERACT'
+
+effects:
+  INTERACT:
+    - 'CHRISTMAS_NAUGHTY_OR_NICE:level*5:level*2.5'

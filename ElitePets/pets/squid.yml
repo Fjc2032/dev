@@ -1,0 +1,24 @@
+tier: "SPECIAL"
+cooldown: 0
+
+item:
+  skin: "01433be242366af126da434b8735df1eb5b3cb2cede39145974e9c483607bac"
+  name: "{TIER-COLOR}&lSquid Pet &7[LVL {LEVEL}]"
+  lore:
+    - ''
+    - '&e&lPASSIVE'
+    - '&7 Lurk through the depths of the ocean with'
+    - '&7the eyesight of a squid and no fear of drowning'
+    - ''
+    - '&e&lLevel: &e{LEVEL}'
+    - '&e&lEXP: &e{CURRENT-EXP}/{NEEDED-EXP}'
+    - '{LEVEL-BAR}'
+
+settings:
+  levelup-methods:
+    - 'PASSIVE:false:5'
+
+effects:
+  PASSIVE:
+    - 'POTION:NIGHT_VISION:premade-equation:PLAYER'
+    - 'POTION:WATER_BREATHING:premade-equation:PLAYER'
