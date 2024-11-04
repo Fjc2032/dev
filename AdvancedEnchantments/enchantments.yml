@@ -155,7 +155,8 @@
 # ---- 1.13 or newer only enchantments ----#
 weedwacker:
   display: '%group-color%Weedwacker'
-  description: Fed's favourite Activity!
+  description: |-
+    Feds favourite Activity!
   applies-to: Boots
   type: EFFECT_STATIC
   group: UNIQUE
