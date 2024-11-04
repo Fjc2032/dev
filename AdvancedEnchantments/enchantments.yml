@@ -153,6 +153,18 @@
 #      - 'My_World'
 
 # ---- 1.13 or newer only enchantments ----#
+spooney:
+  display: '%group-color%Spooney'
+  description: Feeds ya'
+  applies-to: Spades
+  type: HELD
+  group: MASTERY
+  applies:
+  - ALL_SPADE
+  levels:
+    '1':
+      effects:
+      - POTION:SATURATION:4
 weedwacker:
   display: '%group-color%Weedwacker'
   description: Feds favorite Activity!
