@@ -1,4 +1,4 @@
-# « Example configuration »
+﻿# « Example configuration »
 # lastchance:    <-- Enchantment name
 #  display: '%group-color%Last Chance'    <-- Display in item lore
 #  description: 'Has a chance to heal when on low hearts'    <-- Enchantment Description
@@ -195,6 +195,52 @@ glassbreaker:
         - '%block type% = GLASS : %allow%'
         effects:
         - SET_BLOCK:<AIR> @Block
+#atomicdetonate: #### Currently awaiting approval and is not yet operational ####  # Added Atomic Detonate, a heroic version of Detonate. – Datsun, 11/11/24.
+#  display: '%group-color%Atomic Detonate'
+#  description: Chance to break in 7x7 area.
+#  applies-to: Pickaxes and shovels
+#  type: MINING
+#  group: HEROIC
+#  applies:
+#  - ALL_PICKAXE
+#  - ALL_SPADE
+#  levels:
+#    '1':
+#      chance: 13
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '2':
+#      chance: 26
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '3':
+#      chance: 36
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '4':
+#      chance: 49
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '5':
+#      chance: 59
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '6':
+#      chance: 72
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '7':
+#      chance: 85
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '8':
+#      chance: 90
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
+#    '9':
+#      chance: 100
+#      effects:
+#      - BREAK_BLOCK @Trench{r=7}
 planter:
   display: '%group-color%Planter'
   description: |-
@@ -284,7 +330,7 @@ impact:
       cooldown: 6
       effects:
       - DOUBLE_DAMAGE @Victim
-twinge:
+twinge: # Made Twinge's stats consistent with Bleed. – Datsun, 11/12/24
   display: '%group-color%Twinge'
   description: |-
     Make your enemy bleed, if
@@ -298,49 +344,49 @@ twinge:
   - TRIDENT
   levels:
     '1':
-      chance: 5
-      cooldown: 3
-      effects:
-      - POTION:SLOW:0:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
-      - MESSAGE:§4You're bleeding! @Victim
-      - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
-      - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
-    '2':
       chance: 8
       cooldown: 3
       effects:
       - POTION:SLOW:0:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
+    '2':
+      chance: 15
+      cooldown: 3
+      effects:
+      - POTION:SLOW:0:100 @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
+      - MESSAGE:§4You're bleeding! @Victim
+      - WAIT:20
+      - DO_HARM:<random number>5-10</random number> @Victim
+      - WAIT:20
+      - DO_HARM:<random number>5-10</random number> @Victim
     '3':
-      chance: 11
+      chance: 30
       cooldown: 5
       effects:
       - POTION:SLOW:0:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
     '4':
-      chance: 14
+      chance: 60
       cooldown: 6
       effects:
       - POTION:SLOW:0:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
 # ---- end of: 1.13 or newer only enchantments ----#
 
 jellylegs:
@@ -2797,7 +2843,7 @@ hijack:
       cooldown: 5
       effects:
       - STEAL_GUARD
-timber:
+timber: # Increased the likelihood of Timber activating, ensuring a 100% activation rate at level 3. – Datsun, 11/11/24
   display: '%group-color%Timber'
   description: Chance to break a tree in one hit
   applies-to: Axes
@@ -2807,17 +2853,17 @@ timber:
   - ALL_AXE
   levels:
     '1':
-      chance: 15
-      cooldown: 5
-      effects:
-      - BREAK_TREE
-    '2':
       chance: 35
       cooldown: 5
       effects:
       - BREAK_TREE
-    '3':
+    '2':
       chance: 55
+      cooldown: 5
+      effects:
+      - BREAK_TREE
+    '3':
+      chance: 100
       cooldown: 6
       effects:
       - BREAK_TREE
@@ -4425,7 +4471,7 @@ spirits:
       - GUARD:BLAZE:@Victim
       - GUARD:BLAZE:@Victim
       - POTION:REGENERATION:0:60  @Aoe{r=5,t=undamageable}
-bleed:
+bleed: # Adjusted Bleed for improved balance with Obsidian Armor in Imperium. – Datsun, 11/12/24
   display: '%group-color%Bleed'
   description: |-
     Applies bleed stacks to enemies
@@ -4440,62 +4486,62 @@ bleed:
       chance: 8
       effects:
       - POTION:SLOW:0:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
     '2':
       chance: 15
       effects:
       - POTION:SLOW:0:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
     '3':
       chance: 23
       effects:
       - POTION:SLOW:1:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
     '4':
       chance: 30
       effects:
       - POTION:SLOW:1:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
     '5':
       chance: 44
       effects:
       - POTION:SLOW:1:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
     '6':
       chance: 60
       effects:
       - POTION:SLOW:2:100 @Victim
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>10-15</random number> @Victim
       - MESSAGE:§4You're bleeding! @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-3</random number> @Victim
+      - DO_HARM:<random number>5-10</random number> @Victim
 lavawalker:
   display: '%group-color%Lava Walker'
   description: Walk on Lava.
@@ -5256,7 +5302,7 @@ overload:
     '3':
       effects:
       - POTION:HEALTH_BOOST:2
-rage:
+rage: # Reduced the combo requirement per level of Rage. – Datsun, 11/12/24
   display: '%group-color%Rage'
   description: |-
     For every combo hit you land,
@@ -5303,7 +5349,7 @@ rage:
       - DO_HARM:%combo% @Victim
       - BLOOD @Victim
     '5':
-      chance: 45
+      chance: 50
       conditions:
       - '%attacker combo% > 5 : %stop%'
       cooldown: 10
@@ -5311,7 +5357,7 @@ rage:
       - DO_HARM:%combo% @Victim
       - BLOOD @Victim
     '6':
-      chance: 50
+      chance: 75
       conditions:
       - '%attacker combo% > 5 : %stop%'
       cooldown: 10
@@ -7111,7 +7157,8 @@ demoniclifesteal:
       effects:
       - ADD_HEALTH:<random number>5-6</random number> @Attacker
       - MESSAGE:§d§l** DEMONIC LIFESTEAL ** §7(§c- %random%HP§7) @Attacker
-deepbleed:
+deepbleed: # Adjusted Deep Bleed for better balance with Obsidian Armor in Imperium. – Datsun, 11/11/24
+           # Added 2 additional levels to Deep Bleed to better balance it for G sets. – Datsun, 11/12/24
   display: '%group-color%Deep Bleed'
   description: |-
     Heroic Enchantment. A chance
@@ -7135,57 +7182,79 @@ deepbleed:
       cooldown: 4
       effects:
       - POTION:SLOW:2:100 @Victim
-      - DO_HARM:<random number>2-6</random number> @Victim
+      - DO_HARM:<random number>10-30</random number> @Victim
       - MESSAGE:§d§l** DEEP BLEED ** @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - DO_HARM:<random number>10-20</random number> @Victim
     '2':
       chance: 15
       cooldown: 4
       effects:
       - POTION:SLOW:2:100 @Victim
-      - DO_HARM:<random number>2-6</random number> @Victim
+      - DO_HARM:<random number>10-30</random number> @Victim
       - MESSAGE:§d§l** DEEP BLEED ** @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - DO_HARM:<random number>10-20</random number> @Victim
     '3':
       chance: 23
       cooldown: 4
       effects:
       - POTION:SLOW:3:100 @Victim
-      - DO_HARM:<random number>2-6</random number> @Victim
+      - DO_HARM:<random number>10-30</random number> @Victim
       - MESSAGE:§d§l** DEEP BLEED ** @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - DO_HARM:<random number>10-20</random number> @Victim
     '4':
       chance: 30
       cooldown: 4
       effects:
       - POTION:SLOW:3:100 @Victim
-      - DO_HARM:<random number>2-6</random number> @Victim
+      - DO_HARM:<random number>10-30</random number> @Victim
       - MESSAGE:§d§l** DEEP BLEED ** @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - DO_HARM:<random number>10-20</random number> @Victim
     '5':
       chance: 44
       cooldown: 4
       effects:
       - POTION:SLOW:3:100 @Victim
-      - DO_HARM:<random number>2-6</random number> @Victim
+      - DO_HARM:<random number>10-30</random number> @Victim
       - MESSAGE:§d§l** DEEP BLEED ** @Victim
       - WAIT:20
-      - DO_HARM:<random number>1-4</random number> @Victim
-    '6':
+      - DO_HARM:<random number>10-20</random number> @Victim
+    '6': # Original max level
       chance: 57
       cooldown: 4
       effects:
       - POTION:SLOW:4:100 @Victim
-      - DO_HARM:<random number>3-8</random number> @Victim
+      - DO_HARM:<random number>20-50</random number> @Victim
       - MESSAGE:§d§l** DEEP BLEED ** @Victim
       - WAIT:20
-      - DO_HARM:<random number>2-4</random number> @Victim
+      - DO_HARM:<random number>15-25</random number> @Victim
       - WAIT:20
-      - DO_HARM:<random number>2-4</random number> @Victim
+      - DO_HARM:<random number>15-25</random number> @Victim
+    '7':
+      chance: 65
+      cooldown: 4
+      effects:
+      - POTION:SLOW:4:100 @Victim
+      - DO_HARM:<random number>30-60</random number> @Victim
+      - MESSAGE:§d§l** DEEP BLEED ** @Victim
+      - WAIT:20
+      - DO_HARM:<random number>15-25</random number> @Victim
+      - WAIT:20
+      - DO_HARM:<random number>15-25</random number> @Victim  
+    '8': # Good against G sets
+      chance: 73
+      cooldown: 4
+      effects:
+      - POTION:SLOW:4:100 @Victim
+      - DO_HARM:<random number>40-70</random number> @Victim
+      - MESSAGE:§d§l** DEEP BLEED ** @Victim
+      - WAIT:20
+      - DO_HARM:<random number>15-25</random number> @Victim
+      - WAIT:20
+      - DO_HARM:<random number>15-25</random number> @Victim      
 shadowassassin:
   display: '%group-color%Shadow Assassin'
   description: |-
