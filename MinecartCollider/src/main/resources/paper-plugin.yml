@@ -1,0 +1,8 @@
+name: MinecartCollider
+version: '1.0'
+main: dev.Fjc.minecartCollider.MinecartCollider
+api-version: '1.21'
+prefix: MCOLLIDER
+load: STARTUP
+authors: [ Fjc ]
+description: Pushes away any mob that comes into contact with your minecart.
