@@ -13,5 +13,18 @@ menu-settings:
 
     tier1:
         slot: 0
-        id:
+        id: gold_ingot
+        name: "&e&lScout"
+        lore:
+        - "&7Click here to purchase &eScout &7rank for &6$25,000.
+        click-requirement:
+            default:
+                check-money:
+                    money:
+                        value: 25000
+                        check: true
+                    success-action:
+                    - "console: lp user {player} permission set group.tier1"
+                    fail-action:
+                    - "tell: &cInsuffient funds. Get back on the grind."
     
