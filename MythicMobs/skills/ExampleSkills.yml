@@ -74,16 +74,16 @@ WitherBeam:
   - particleline{p=large_smoke;a=30;size=4;d=true;db=0.15;fo=true} @target
   - stun{d=60;stopai=true;nokb=true} @self
   - basedamage{m=0.5} @target
-  - hit{a=2;m=0.5;ia=true} @target
-  - message{m="&cHit for &4<skill.var.damage-amount>"} @target
+  - command{c="damage <target.name> 100"} @target
+  - message{m="&cHit for &4100"} @target
   - delay 20
   - basedamage{m=0.3} @target
   - basedamage{m=0.3} @target
-  - hit{a=3;m=0.7} @target
-  - message{m="&cHit for &4<skill.var.damage-amount>"} @target
+  - command{c="damage <target.name> 100"} @target
+  - message{m="&cHit for &4100"} @target
   - delay 20
   - basedamage{m=2.0} @target
-  - hit{a=5;m=0.6} @target
+  - command{c="damage <target.name> 100"} @target
   - message{m="&cHit for &4<skill.var.damage-amount>"} @target
   - potion{t=WITHER;d=35;level=6} @target
 GreedDrain: #Only meant for players
@@ -110,7 +110,8 @@ Incinerate:
   - shootskull{y=300;ps=true} @target
   - shootskull{y=300;ps=true} @target
   - delay 40
-  - basedamage{m=0.6} @target
+  - command{c="damage <target.name> 130"} @target
+  - basedamage{m=1.5} @target
 Bloodbath:
   Cooldown: 20
   Skills:
@@ -120,7 +121,8 @@ Bloodbath:
   - effect:bloodyScreen{d=60} @PIR{r=50}
   - command{c="title <target.name> title "&cStrike incoming!""} @PIR{r=50}
   - delay 60
-  - lightning{d=295} @target
+  - command{c="damage <target.name> 295 minecraft:lightning_bolt"} @PIR
+  - lightning{d=295} @PIR
 ExplosiveBarrage:
   Conditions:
   - dimension{d=NETHER} OrElseCast ExplosiveBarrageWeak
@@ -248,13 +250,21 @@ Strike:
   - explosion{y=15} @PIR{r=50}
 Callback:
   Conditions:
-  - nearclaim{r=256} true
+  - nearclaim{r=512} true
   Skills:
   - remove @self ~onTimer:10
   - message{m="&cDo not spawn this boss near your claims (unless you want to end up like belly)."} @NearestPlayer
   - command{c="mm mobs egg give <target.name> MutatedHybrid"} @NearestPlayer
   - delay 20
   - remove @MIR{r=50;t=ConstructionWorker} ~onTimer:5
+CallbackWaterFairy:
+  Conditions:
+  - nearclaim{r=512} true
+  Skills:
+  - remove @self ~onTimer:10
+  - message{m="&6This boss cannot be spawned near claims &c[500 block radius]. &6Try moving to an unclaimed area."} @NearestPlayer
+  - command{c="mm mobs egg give <target.name> ElementalWaterFairy"} @NearestPlayer
+  - message{m="&bYour boss has been returned."} @NearestPlayer
 SummonWorker:
   Skills:
   - delay 40
