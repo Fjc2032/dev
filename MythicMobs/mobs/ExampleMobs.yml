@@ -430,6 +430,7 @@ VorpalSpiritMaster: #Standard
   - command{c="mi give ARMOR YELLOWBELT <target.name>"} 1 0.33
   - command{c="mi give ARMOR WHITEBELT <target.name>"} 1 0.36
   - command{c="mi give ARMOR SPIRIT_BOOTS"} 1 0.13
+  - command{c="mi give ARMOR SPIRIT_MASK"} 1 0.13
 EvolvedInferno: #Standard
   Type: CREEPER
   Display: '&4&lEvolved Inferno'
@@ -600,6 +601,7 @@ ElementalWaterFairy: #Advanced
   - player
   - attacker
   Skills:
+  - skill{s=CallbackWaterFairy} ~onSpawn
   - command{c="lp user <target.name> permission set worldguard.god false world=world";asOp=true} @PIR{r=50} ~onSpawn
   - message{m="&eFinal warning! &c&lDo not fight this boss in full netherite armor! It &4&lWILL &cbe shattered!!"} @PIR{r=50} ~onSpawn
   - command{c="ungod <target.name>";asOp=true} @PIR{r=50} ~onTimer:100
