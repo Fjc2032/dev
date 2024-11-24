@@ -1,4 +1,4 @@
-﻿# « Example configuration »
+# « Example configuration »
 # lastchance:    <-- Enchantment name
 #  display: '%group-color%Last Chance'    <-- Display in item lore
 #  description: 'Has a chance to heal when on low hearts'    <-- Enchantment Description
@@ -194,7 +194,7 @@ glassbreaker:
         conditions:
         - '%block type% = GLASS : %allow%'
         effects:
-        - SET_BLOCK:<AIR> @Block
+        - SET_BLOCK:AIR @Block
 atomicdetonate: # Added Atomic Detonate, a heroic version of Detonate. – Datsun, 11/11/24.
                 # Has been approved by FJ - Datsun, 11/12/24.
   display: '%group-color%Atomic Detonate'
@@ -439,25 +439,25 @@ restore:
       chance: 40
       effects:
       - REMOVE_ENCHANT:restore
-      - ADD_DURABILITY_ITEM:<round><math>-1 * (%maximum durability%/2)</math></round>
+      - ADD_DURABILITY_CURRENT_ITEM:<round><math>(%maximum durability%/2)</math></round>
       - MESSAGE:§6§l*** §e§lItem Restored §6§l***
     '2':
       chance: 60
       effects:
       - REMOVE_ENCHANT:restore
-      - ADD_DURABILITY_ITEM:<round><math>-1 * (%maximum durability%/2)</math></round>
+      - ADD_DURABILITY_CURRENT_ITEM:<round><math>(%maximum durability%/2)</math></round>
       - MESSAGE:§6§l*** §e§lItem Restored §6§l***
     '3':
       chance: 80
       effects:
       - REMOVE_ENCHANT:restore
-      - ADD_DURABILITY_ITEM:<round><math>-1 * (%maximum durability%/2)</math></round>
+      - ADD_DURABILITY_CURRENT_ITEM:<round><math>(%maximum durability%/2)</math></round>
       - MESSAGE:§6§l*** §e§lItem Restored §6§l***
     '4':
       chance: 100
       effects:
       - REMOVE_ENCHANT:restore
-      - ADD_DURABILITY_ITEM:<round><math>-1 * (%maximum durability%/2)</math></round>
+      - ADD_DURABILITY_CURRENT_ITEM:<round><math>+2 * (%maximum durability%/2)</math></round>
       - MESSAGE:§6§l*** §e§lItem Restored §6§l***
 shuffle:
   display: '%group-color%Shuffle'
@@ -852,27 +852,27 @@ obliterate:
       chance: 30
       cooldown: 12
       effects:
-      - PULL_AWAY:1.0 @Block
+      - PULL_AWAY:1.0 @Victim
     '2':
       chance: 36
       cooldown: 12
       effects:
-      - PULL_AWAY:1.5 @Block
+      - PULL_AWAY:1.5 @Victim
     '3':
       chance: 42
       cooldown: 12
       effects:
-      - PULL_AWAY:2.0 @Block
+      - PULL_AWAY:2.0 @Victim
     '4':
       chance: 48
       cooldown: 13
       effects:
-      - PULL_AWAY:2.5 @Block
+      - PULL_AWAY:2.5 @Victim
     '5':
       chance: 54
-      cooldown: 13
+      cooldown: 0
       effects:
-      - PULL_AWAY:3.0 @Block
+      - PULL_AWAY:3.0 @Victim
 epicness:
   display: '%group-color%Epicness'
   description: Gives particles and sound effects.
@@ -887,19 +887,19 @@ epicness:
       cooldown: 3
       effects:
       - PARTICLE:LARGE_SMOKE:50:1 @Victim
-      - PLAY_SOUND:GHAST_SCREAM
+      - PLAY_SOUND:ENTITY_GHAST_SCREAM
     '2':
       chance: 40
       cooldown: 3
       effects:
       - PARTICLE:LARGE_SMOKE:50:1 @Victim
-      - PLAY_SOUND:GHAST_SCREAM
+      - PLAY_SOUND:ENTITY_GHAST_SCREAM
     '3':
       chance: 60
-      cooldown: 3
+      cooldown: 0
       effects:
       - PARTICLE:LARGE_SMOKE:50:1 @Victim
-      - PLAY_SOUND:GHAST_SCREAM
+      - PLAY_SOUND:ENTITY_GHAST_SCREAM
 lifebloom:
   display: '%group-color%Lifebloom'
   description: |-
@@ -988,7 +988,7 @@ obsidiandestroyer:
       - '%block type% != OBSIDIAN : %stop%'
       - '%can break% = true : %allow%'
       effects:
-      - BREAK_BLOCK
+      - BREAK_BLOCK @Block
     '2':
       chance: 30
       cooldown: 6
@@ -996,7 +996,7 @@ obsidiandestroyer:
       - '%block type% != OBSIDIAN : %stop%'
       - '%can break% = true : %allow%'
       effects:
-      - BREAK_BLOCK
+      - BREAK_BLOCK @Block
     '3':
       chance: 50
       cooldown: 5
@@ -1004,7 +1004,7 @@ obsidiandestroyer:
       - '%block type% != OBSIDIAN : %stop%'
       - '%can break% = true : %allow%'
       effects:
-      - BREAK_BLOCK
+      - BREAK_BLOCK @Block
     '4':
       chance: 65
       cooldown: 4
@@ -1012,15 +1012,15 @@ obsidiandestroyer:
       - '%block type% != OBSIDIAN : %stop%'
       - '%can break% = true : %allow%'
       effects:
-      - BREAK_BLOCK
+      - BREAK_BLOCK @Block
     '5':
       chance: 80
-      cooldown: 3
+      cooldown: 0
       conditions:
       - '%block type% != OBSIDIAN : %stop%'
       - '%can break% = true : %allow%'
       effects:
-      - BREAK_BLOCK
+      - BREAK_BLOCK @Block
 berserk:
   display: '%group-color%Berserk'
   description: |-
@@ -1299,7 +1299,7 @@ ravenous:
       - ADD_FOOD:<random number>1-4</random number> @Attacker
     '3':
       chance: 22
-      cooldown: 2
+      cooldown: 2/
       effects:
       - ADD_FOOD:<random number>1-4</random number> @Attacker
     '4':
@@ -1588,8 +1588,8 @@ virus:
       - POTION:WITHER:2:60 @Victim
       - POTION:POISON:2:60 @Victim
     '4':
-      chance: 24
-      cooldown: 3
+      chance: 25
+      cooldown: 0
       conditions:
       - '%victim has potion effect WITHER% != TRUE : %stop%'
       - '%victim has potion effect POISON% != TRUE : %stop%'
@@ -1792,14 +1792,15 @@ shackle:
     '1':
       chance: 30
       effects:
-      - PULL_CLOSER:0.1 @Block
+      - PULL_CLOSER:0.1 @Victim
     '2':
       chance: 60
       effects:
-      - PULL_CLOSER:0.1 @Block
+      - PULL_CLOSER:0.1 @Victim
     '3':
+      chance: 100
       effects:
-      - PULL_CLOSER:0.1 @Block
+      - PULL_CLOSER:0.1 @Victim
 cactus:
   display: '%group-color%Cactus'
   description: |-
@@ -2044,42 +2045,42 @@ reforged:
     '1':
       chance: 10
       effects:
-      - ADD_DURABILITY_ITEM:-1
+      - ADD_DURABILITY_ITEM:+1
     '2':
       chance: 20
       effects:
-      - ADD_DURABILITY_ITEM:-1
+      - ADD_DURABILITY_ITEM:+1
     '3':
       chance: 30
       effects:
-      - ADD_DURABILITY_ITEM:-2
+      - ADD_DURABILITY_ITEM:+2
     '4':
       chance: 40
       effects:
-      - ADD_DURABILITY_ITEM:-2
+      - ADD_DURABILITY_ITEM:+2
     '5':
       chance: 50
       effects:
-      - ADD_DURABILITY_ITEM:-2
+      - ADD_DURABILITY_ITEM:+2
     '6':
       chance: 60
       effects:
-      - ADD_DURABILITY_ITEM:-3
+      - ADD_DURABILITY_ITEM:+3
     '7':
       chance: 70
       effects:
-      - ADD_DURABILITY_ITEM:-3
+      - ADD_DURABILITY_ITEM:+3
     '8':
       chance: 80
       effects:
-      - ADD_DURABILITY_ITEM:-4
+      - ADD_DURABILITY_ITEM:+4
     '9':
       chance: 90
       effects:
-      - ADD_DURABILITY_ITEM:-4
+      - ADD_DURABILITY_ITEM:+4
     '10':
       effects:
-      - ADD_DURABILITY_ITEM:-5
+      - ADD_DURABILITY_ITEM:+5
 snare:
   display: '%group-color%Snare'
   description: |-
@@ -2182,22 +2183,22 @@ demonforged:
       cooldown: 6
       chance: 8
       effects:
-      - DAMAGE_ARMOR:<random number>1-3</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--3</random number> @Victim
     '2':
       cooldown: 6
       chance: 12
       effects:
-      - DAMAGE_ARMOR:<random number>1-3</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--3</random number> @Victim
     '3':
       cooldown: 6
       chance: 15
       effects:
-      - DAMAGE_ARMOR:<random number>1-3</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--3</random number> @Victim
     '4':
       cooldown: 6
       chance: 17
       effects:
-      - DAMAGE_ARMOR:<random number>1-3</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--3</random number> @Victim
 trap:
   display: '%group-color%Trap'
   description: Chance to give buffed slowness effect.
@@ -2552,35 +2553,35 @@ shockwave:
       conditions:
       - '%victim health% > 5 : %stop%'
       effects:
-      - PULL_AWAY:0.5 @Block
+      - PULL_AWAY:0.5 @Attacker
     '2':
       chance: 20
       cooldown: 4
       conditions:
       - '%victim health% > 5 : %stop%'
       effects:
-      - PULL_AWAY:1.0 @Block
+      - PULL_AWAY:1.0 @Attacker
     '3':
       chance: 30
       cooldown: 4
       conditions:
       - '%victim health% > 5 : %stop%'
       effects:
-      - PULL_AWAY:1.5 @Block
+      - PULL_AWAY:1.5 @Attacker
     '4':
       chance: 40
       cooldown: 4
       conditions:
       - '%victim health% > 5 : %stop%'
       effects:
-      - PULL_AWAY:2.0 @Block
+      - PULL_AWAY:2.0 @Attacker
     '5':
       chance: 50
       cooldown: 4
       conditions:
       - '%victim health% > 5 : %stop%'
       effects:
-      - PULL_AWAY:2.5 @Block
+      - PULL_AWAY:2.5 @Attacker
 vampire:
   display: '%group-color%Vampire'
   description: |-
@@ -2630,7 +2631,7 @@ farcast:
         %allow%'
       - '%victim health% < 6 : %chance%+3'
       effects:
-      - PULL_AWAY:1.0 @Block
+      - PULL_AWAY:1.0 @Victim
     '2':
       chance: 20
       conditions:
@@ -2638,7 +2639,7 @@ farcast:
         %allow%'
       - '%victim health% < 6 : %chance%+4'
       effects:
-      - PULL_AWAY:1.0 @Block
+      - PULL_AWAY:1.0 @Victim
     '3':
       chance: 25
       conditions:
@@ -2646,7 +2647,7 @@ farcast:
         %allow%'
       - '%victim health% < 6 : %chance%+5'
       effects:
-      - PULL_AWAY:2.0 @Block
+      - PULL_AWAY:2.0 @Victim
     '4':
       chance: 30
       conditions:
@@ -2654,15 +2655,15 @@ farcast:
         %allow%'
       - '%victim health% < 6 : %chance%+6'
       effects:
-      - PULL_AWAY:2.0 @Block
+      - PULL_AWAY:2.0 @Victim
     '5':
-      chance: 35
+      chance: 100
       conditions:
       - '%victim is holding% contains SWORD or %victim is holding% contains AXE :
         %allow%'
       - '%victim health% < 6 : %chance%+6'
       effects:
-      - PULL_AWAY:2.0 @Block
+      - PULL_AWAY:2.0 @Victim
 greatsword:
   display: '%group-color%Greatsword'
   description: |-
@@ -2727,17 +2728,17 @@ hardened:
       chance: 25
       cooldown: 7
       effects:
-      - ADD_DURABILITY_ARMOR:-1 @Victim
+      - ADD_DURABILITY_ARMOR:+1 @Victim
     '2':
       chance: 35
       cooldown: 7
       effects:
-      - ADD_DURABILITY_ARMOR:-1 @Victim
+      - ADD_DURABILITY_ARMOR:+1 @Victim
     '3':
       chance: 45
       cooldown: 7
       effects:
-      - ADD_DURABILITY_ARMOR:-2 @Victim
+      - ADD_DURABILITY_ARMOR:+2 @Victim
 rocketescape:
   display: '%group-color%Rocket Escape'
   description: Blast off into the air at low HP.
@@ -3199,7 +3200,7 @@ arrowbreak:
       - CANCEL_EVENT
       - MESSAGE:§e§l** ARROW BREAK ** @Victim
       - PLAY_SOUND:ITEM_BREAK:2 @Victim
-assassin:
+assassin: #Need to fix the effect, There is no effect called "DISTANCE_DAMAGE" 
   display: '%group-color%Assassin'
   description: |-
     The closer you are to your enemy,
@@ -3209,7 +3210,7 @@ assassin:
     damage than normal.
   applies-to: Sword
   type: ATTACK;ATTACK_MOB
-  group: ULTIMATE
+  group: NULL #ULTIMATE
   applies:
   - ALL_SWORD
   levels:
@@ -3237,7 +3238,8 @@ assassin:
       chance: 29
       cooldown: 8
       effects:
-      - MESSAGE:&c(Removed) DISTANCE_DAMAGE:3:1 @Attacker
+      - MESSAGE:&c(Removed) 
+      - DISTANCE_DAMAGE:3:1 @Victim
 blessed:
   display: '%group-color%Blessed'
   description: A chance of removing debuffs.
@@ -3505,12 +3507,12 @@ dodge:
       - CANCEL_EVENT
       - MESSAGE:§e§l*DODGE* @Victim
       - PLAY_SOUND:BAT_TAKEOFF:0.7 @Victim
-enrage:
+enrage: # Can't get it to work, unsure why, Original group ULTIMATE
   display: '%group-color%Enrage'
   description: Deal more damage on low HP.
   applies-to: Swords
   type: ATTACK;ATTACK_MOB
-  group: ULTIMATE
+  group: NULL # ULTIMATE
   applies:
   - ALL_SWORD
   levels:
@@ -3530,7 +3532,7 @@ enrage:
       - DO_HARM:<random number>1-4</random number> @Victim
     '3':
       chance: 33
-      cooldown: 5
+      cooldown: 0
       conditions:
       - '%attacker health% > 6 : %stop%'
       effects:
@@ -3763,7 +3765,7 @@ marksman:
       effects:
       - INCREASE_DAMAGE:<random number>50-150</random number> @Victim
     '4':
-      chance: 32
+      chance: 100
       cooldown: 3
       conditions:
       - '%attacker is holding% = BOW : %allow%'
@@ -3823,22 +3825,22 @@ disintegrate:
       chance: 12
       cooldown: 2
       effects:
-      - DAMAGE_ARMOR:2 @Victim
+      - ADD_DURABILITY_ARMOR:-2 @Victim
     '2':
       chance: 25
       cooldown: 2
       effects:
-      - DAMAGE_ARMOR:2 @Victim
+      - ADD_DURABILITY_ARMOR:-2 @Victim
     '3':
       chance: 39
       cooldown: 2
       effects:
-      - DAMAGE_ARMOR:2 @Victim
+      - ADD_DURABILITY_ARMOR:-2 @Victim
     '4':
       chance: 46
       cooldown: 2
       effects:
-      - DAMAGE_ARMOR:2 @Victim
+      - ADD_DURABILITY_ARMOR:-2 @Victim
 dominate:
   display: '%group-color%Dominate'
   description: |-
@@ -3901,7 +3903,7 @@ arsonist:
       conditions:
       - '%attacker is on fire% = true : %allow%'
       effects:
-      - DO_HARM:3 @Victim
+      - DO_HARM:9 @Victim
 enderwalker:
   display: '%group-color%Ender Walker'
   description: |-
@@ -3961,27 +3963,27 @@ eagleeye:
       chance: 15
       cooldown: 4
       effects:
-      - DAMAGE_ARMOR:<random number>1-4</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--4</random number> @Victim
     '2':
       chance: 26
       cooldown: 4
       effects:
-      - DAMAGE_ARMOR:<random number>1-4</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--4</random number> @Victim
     '3':
       chance: 37
       cooldown: 4
       effects:
-      - DAMAGE_ARMOR:<random number>1-4</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--4</random number> @Victim
     '4':
       chance: 44
       cooldown: 4
       effects:
-      - DAMAGE_ARMOR:<random number>1-4</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--4</random number> @Victim
     '5':
       chance: 56
       cooldown: 4
       effects:
-      - DAMAGE_ARMOR:<random number>1-4</random number> @Victim
+      - ADD_DURABILITY_ARMOR:<random number>-1--4</random number> @Victim
 annihilate:
   display: '%group-color%Annihilate'
   description: Demolish your opponent's armour quicker!
@@ -3995,32 +3997,32 @@ annihilate:
       chance: 10
       cooldown: 10
       effects:
-      - DAMAGE_ARMOR:1 @Victim
+      - ADD_DURABILITY_ARMOR:-1 @Victim
     '2':
       chance: 20
       cooldown: 12
       effects:
-      - DAMAGE_ARMOR:1 @Victim
+      - ADD_DURABILITY_ARMOR:-1 @Victim
     '3':
       chance: 30
       cooldown: 15
       effects:
-      - DAMAGE_ARMOR:2 @Victim
+      - ADD_DURABILITY_ARMOR:-2 @Victim
     '4':
       chance: 40
       cooldown: 18
       effects:
-      - DAMAGE_ARMOR:2 @Victim
+      - ADD_DURABILITY_ARMOR:-2 @Victim
     '5':
       chance: 50
       cooldown: 20
       effects:
-      - DAMAGE_ARMOR:3 @Victim
+      - ADD_DURABILITY_ARMOR:-3 @Victim
     '6':
       chance: 55
-      cooldown: 28
+      cooldown: 20
       effects:
-      - DAMAGE_ARMOR:4 @Victim
+      - ADD_DURABILITY_ARMOR:-4 @Victim
 heavy:
   display: '%group-color%Heavy'
   description: |-
@@ -4036,35 +4038,35 @@ heavy:
       chance: 4
       cooldown: 4
       conditions:
-      - '%attacker is holding% = BOW : %continue%'
+      - '%attacker is holding% contains BOW : %allow%'
       effects:
       - DECREASE_DAMAGE:2 @Victim
     '2':
       chance: 9
       cooldown: 4
       conditions:
-      - '%attacker is holding% = BOW : %continue%'
+      - '%attacker is holding% contains BOW : %allow%'
       effects:
       - DECREASE_DAMAGE:4 @Victim
     '3':
       chance: 12
       cooldown: 4
       conditions:
-      - '%attacker is holding% = BOW : %continue%'
+      - '%attacker is holding% contains BOW : %allow%'
       effects:
       - DECREASE_DAMAGE:6 @Victim
     '4':
       chance: 16
       cooldown: 4
       conditions:
-      - '%attacker is holding% = BOW : %continue%'
+      - '%attacker is holding% contains BOW : %allow%'
       effects:
       - DECREASE_DAMAGE:8 @Victim
     '5':
       chance: 21
       cooldown: 4
       conditions:
-      - '%attacker is holding% = BOW : %continue%'
+      - '%attacker is holding% contains BOW : %allow%'
       effects:
       - DECREASE_DAMAGE:10 @Victim
 hellfire:
@@ -4974,25 +4976,25 @@ hex:
       chance: 8
       cooldown: 4
       effects:
-      - DECREASE_DAMAGE:<random number>10-50</random number> @Attacker
+      - DECREASE_DAMAGE:<random number>10-50</random number> @Victim
       - DO_HARM:<random number>3-7</random number> @Victim
     '2':
       chance: 15
       cooldown: 4
       effects:
-      - DECREASE_DAMAGE:<random number>10-50</random number> @Attacker
+      - DECREASE_DAMAGE:<random number>10-50</random number> @Victim
       - DO_HARM:<random number>3-7</random number> @Victim
     '3':
       chance: 19
       cooldown: 4
       effects:
-      - DECREASE_DAMAGE:<random number>10-50</random number> @Attacker
+      - DECREASE_DAMAGE:<random number>10-50</random number> @Victim
       - DO_HARM:<random number>3-7</random number> @Victim
     '4':
       chance: 25
       cooldown: 4
       effects:
-      - DECREASE_DAMAGE:<random number>10-50</random number> @Attacker
+      - DECREASE_DAMAGE:<random number>10-50</random number> @Victim
       - DO_HARM:<random number>3-7</random number> @Victim
 barbarian:
   display: '%group-color%Barbarian'
@@ -5055,7 +5057,7 @@ clarity:
       - CURE:BLINDNESS @Victim
 deathbringer:
   display: '%group-color%Deathbringer'
-  description: Chance to deal double damage.
+  description: Chance to deal 1.25x damage.
   applies-to: Armor
   type: ATTACK
   group: LEGENDARY
@@ -5066,17 +5068,17 @@ deathbringer:
       chance: 15.8
       cooldown: 45
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:25 @Attacker
     '2':
       chance: 22.1
       cooldown: 45
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:25 @Attacker
     '3':
       chance: 28
       cooldown: 45
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:25 @Attacker
 doublestrike:
   display: '%group-color%Double Strike'
   description: A chance to strike twice.
@@ -5651,9 +5653,9 @@ exterminator:
       chance: 18
       cooldown: 13
       effects:
-      - DISABLE_ACTIVATION:undeadruse:8 @Attacker
-      - DISABLE_ACTIVATION:guardians:8 @Attacker
-      - DISABLE_ACTIVATION:spirits:8 @Attacker
+      - DISABLE_ACTIVATION:undeadruse:10 @Attacker
+      - DISABLE_ACTIVATION:guardians:10 @Attacker
+      - DISABLE_ACTIVATION:spirits:10 @Attacker
 blacksmith:
   display: '%group-color%Blacksmith'
   description: |-
@@ -5672,35 +5674,35 @@ blacksmith:
       chance: 9
       cooldown: 3
       effects:
-      - ADD_DURABILITY_ARMOR:-1
+      - ADD_DURABILITY_ARMOR:+1
       - HALF_DAMAGE
       - MESSAGE:§6§l** BLACKSMITH ** @Attacker
     '2':
       chance: 15
       cooldown: 3
       effects:
-      - ADD_DURABILITY_ARMOR:-1
+      - ADD_DURABILITY_ARMOR:+1
       - HALF_DAMAGE
       - MESSAGE:§6§l** BLACKSMITH ** @Attacker
     '3':
       chance: 23
       cooldown: 3
       effects:
-      - ADD_DURABILITY_ARMOR:-1
+      - ADD_DURABILITY_ARMOR:+1
       - HALF_DAMAGE
       - MESSAGE:§6§l** BLACKSMITH ** @Attacker
     '4':
       chance: 31
       cooldown: 3
       effects:
-      - ADD_DURABILITY_ARMOR:-2
+      - ADD_DURABILITY_ARMOR:+2
       - HALF_DAMAGE
       - MESSAGE:§6§l** BLACKSMITH ** @Attacker
     '5':
       chance: 39
       cooldown: 3
       effects:
-      - ADD_DURABILITY_ARMOR:-2
+      - ADD_DURABILITY_ARMOR:+2
       - HALF_DAMAGE
       - MESSAGE:§6§l** BLACKSMITH ** @Attacker
 abiding:
@@ -6152,8 +6154,8 @@ extremeinsanity:
       effects:
       - DOUBLE_DAMAGE
     '8':
-      chance: 25
-      cooldown: 8
+      chance: 100
+      cooldown: 0
       conditions:
       - '%victim is holding% contains SWORD : %allow%'
       effects:
@@ -6206,7 +6208,7 @@ megaheavy:
       - DECREASE_DAMAGE:18
     '5':
       chance: 12
-      cooldown: 9
+      cooldown: 7
       conditions:
       - '%attacker is holding% contains BOW : %allow%'
       effects:
@@ -6249,8 +6251,8 @@ bewitchedhex:
       - DECREASE_DAMAGE:<random number>20-75</random number> @Victim
       - DO_HARM:<random number>5-10</random number> @Victim
     '4':
-      chance: 16
-      cooldown: 4
+      chance: 100
+      cooldown: 0
       effects:
       - DECREASE_DAMAGE:<random number>20-75</random number> @Victim
       - DO_HARM:<random number>5-10</random number> @Victim
@@ -6296,8 +6298,8 @@ mightycleave:
       - DO_HARM:<random number>8-20</random number> @Aoe{r=4,t=damageable}
       - MESSAGE:§d§l** MIGHTY CLEAVE §7(%attacker name%)§d§l ** @Aoe{r=4,t=damageable}
     '5':
-      chance: 9
-      cooldown: 10
+      chance: 100
+      cooldown: 0
       effects:
       - DO_HARM:<random number>10-30</random number> @Aoe{r=5,t=damageable}
       - MESSAGE:§d§l** MIGHTY CLEAVE §7(%attacker name%)§d§l ** @Aoe{r=5,t=damageable}
@@ -6327,8 +6329,8 @@ mightycactus:
       - DO_HARM:<random number>2-5</random number> @Attacker
       - MESSAGE:§d§l** MIGHTY CACTUS ** §7(%victim name%)
     '2':
-      chance: 12
-      cooldown: 3
+      chance: 100
+      cooldown: 0
       effects:
       - CANCEL_EVENT
       - DO_HARM:<random number>2-5</random number> @Attacker
@@ -6360,7 +6362,7 @@ guidedrocketescape:
       - BOOST:20 @Victim
       - MESSAGE:§d§l** GUIDED ROCKET ESCAPE **@Victim
     '2':
-      chance: 50
+      chance: 34
       cooldown: 5
       conditions:
       - '%victim health% > 6 : %stop%'
@@ -6368,7 +6370,7 @@ guidedrocketescape:
       - BOOST:40 @Victim
       - MESSAGE:§d§l** GUIDED ROCKET ESCAPE **@Victim
     '3':
-      chance: 70
+      chance: 40
       cooldown: 5
       conditions:
       - '%victim health% > 6 : %stop%'
@@ -6379,7 +6381,7 @@ soulhardened:
   display: '%group-color%Soul Hardened'
   description: |-
     Up to 50% chance to block enemy soul trap, armor takes less durability damage.
-    Requires Hardened III to apply.
+    Requires Hardened III to apply. Re-equip Armor for it to work
   applies-to: Armor
   type: EFFECT_STATIC;DEFENSE_MOB
   group: HEROIC
@@ -6397,19 +6399,19 @@ soulhardened:
       cooldown: 7
       effects:
       - DISABLE_ACTIVATION:soultrap:5 @Attacker
-      - ADD_DURABILITY_ARMOR:-5 @Victim
+      - ADD_DURABILITY_ARMOR:+5 @Self
     '2':
       chance: 19
       cooldown: 7
       effects:
       - DISABLE_ACTIVATION:soultrap:5 @Attacker
-      - ADD_DURABILITY_ARMOR:-5 @Victim
+      - ADD_DURABILITY_ARMOR:+5 @Self
     '3':
       chance: 24
       cooldown: 7
       effects:
       - DISABLE_ACTIVATION:soultrap:5 @Attacker
-      - ADD_DURABILITY_ARMOR:-5 @Victim
+      - ADD_DURABILITY_ARMOR:+5 @Self
 polymorphicmetaphysical:
   display: '%group-color%Polymorphic Metaphysical'
   description: |-
@@ -6442,15 +6444,15 @@ polymorphicmetaphysical:
       effects:
       - CURE:SLOW @Victim
     '4':
-      chance: 90
+      chance: 100
       effects:
       - CURE:SLOW @Victim
-soulbound:
+soulbound: # Keep inventory is on No need for it
   display: '%group-color%Soulbound'
-  description: A chance to keep item on death.
+  description: A chance to keep item on death. # Keep inventory is on No need for it
   applies-to: Weapons + Tools + Bows
   type: DEATH;PASSIVE_DEATH
-  group: HEROIC
+  group: NULL #HEROIC
   applies:
   - ALL_SWORD
   - ALL_AXE
@@ -6470,8 +6472,8 @@ soulbound:
       effects:
       - KEEP_ON_DEATH
     '3':
-      chance: 8
-      cooldown: 300
+      chance: 100
+      cooldown: 0
       effects:
       - KEEP_ON_DEATH
 reinforcedtank:
@@ -6515,7 +6517,7 @@ reinforcedtank:
       - DECREASE_DAMAGE:12 @Victim
     '4':
       chance: 16
-      cooldown: 8
+      cooldown: 7
       conditions:
       - '%attacker is holding% contains AXE : %allow%'
       effects:
@@ -6680,7 +6682,7 @@ reflectiveblock:
       - DO_HARM:%damage% @Attacker
     '3':
       chance: 30
-      cooldown: 7
+      cooldown: 0
       effects:
       - CANCEL_EVENT
       - DO_HARM:%damage% @Attacker
@@ -6719,8 +6721,8 @@ masterinquisitive:
       effects:
       - EXP:<math>(%exp% * (1.0 + 0.25 * %level%))*2.0</math> @Victim
     '4':
-      chance: 90
-      cooldown: 2
+      chance: 100
+      cooldown: 0
       effects:
       - EXP:<math>(%exp% * (1.0 + 0.25 * %level%))*2.0</math> @Victim
 planetarydeathbringer:
@@ -6786,7 +6788,7 @@ divineenlighted:
       - ADD_HEALTH:<random number>1-4</random number> @Victim
     '3':
       chance: 15
-      cooldown: 9
+      cooldown: 0
       effects:
       - ADD_HEALTH:<random number>1-4</random number> @Victim
 lethalsniper:
@@ -6899,22 +6901,22 @@ bidirectionalteleportation:
       chance: 12
       cooldown: 4
       effects:
-      - PULL_CLOSER:2.0 @Block
+      - PULL_CLOSER:2.0 @Victim
     '2':
       chance: 23
       cooldown: 5
       effects:
-      - PULL_CLOSER:2.0 @Block
+      - PULL_CLOSER:2.0 @Victim
     '3':
       chance: 32
       cooldown: 5
       effects:
-      - PULL_CLOSER:3.0 @Block
+      - PULL_CLOSER:3.0 @Victim
     '4':
       chance: 44
       cooldown: 5
       effects:
-      - PULL_CLOSER:3.0 @Block
+      - PULL_CLOSER:3 @Victim
 masterblacksmith:
   display: '%group-color%Master Blacksmith'
   description: |-
@@ -6964,10 +6966,10 @@ masterblacksmith:
       - DECREASE_DAMAGE:<random number>1-25</random number>
       - MESSAGE:§d§l** MASTER BLACKSMITH ** @Attacker
     '5':
-      chance: 35
-      cooldown: 3
+      chance: 100
+      cooldown: 0
       effects:
-      - ADD_DURABILITY_ARMOR:-3
+      - ADD_DURABILITY_ARMOR:+3
       - DECREASE_DAMAGE:<random number>1-25</random number>
       - MESSAGE:§d§l** MASTER BLACKSMITH ** @Attacker
 vengefuldiminish:
@@ -7134,7 +7136,7 @@ paladinarmored:
       - NEGATE_DAMAGE:25 @Attacker
     '4':
       chance: 14
-      cooldown: 8
+      cooldown: 9
       conditions:
       - '%attacker is holding% contains SWORD : %allow%'
       effects:
@@ -7182,7 +7184,7 @@ demoniclifesteal:
       - ADD_HEALTH:<random number>3-4</random number> @Attacker
       - MESSAGE:§d§l** DEMONIC LIFESTEAL ** §7(§c- %random%HP§7) @Attacker
     '5':
-      chance: 15
+      chance: 100
       cooldown: 25
       effects:
       - ADD_HEALTH:<random number>5-6</random number> @Attacker
@@ -7286,7 +7288,7 @@ deepbleed: # Adjusted Deep Bleed for better balance with Obsidian Armor in Imper
       - DO_HARM:<random number>10-15</random number> @Victim
       - WAIT:20
       - DO_HARM:<random number>10-15</random number> @Victim      
-shadowassassin:
+shadowassassin: #Need to fix the effect, There is no effect called "DISTANCE_DAMAGE" 
   display: '%group-color%Shadow Assassin'
   description: |-
     Heroic Enchantment. The
@@ -7298,7 +7300,7 @@ shadowassassin:
     Requires Assassin V.
   applies-to: Swords
   type: ATTACK
-  group: HEROIC
+  group: NULL #HEROIC
   settings:
     required-enchants:
     - assassin:5
