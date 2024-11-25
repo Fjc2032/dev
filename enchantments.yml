@@ -870,7 +870,7 @@ obliterate:
       - PULL_AWAY:2.5 @Victim
     '5':
       chance: 54
-      cooldown: 0
+      cooldown: 13
       effects:
       - PULL_AWAY:3.0 @Victim
 epicness:
@@ -896,7 +896,7 @@ epicness:
       - PLAY_SOUND:ENTITY_GHAST_SCREAM
     '3':
       chance: 60
-      cooldown: 0
+      cooldown: 3
       effects:
       - PARTICLE:LARGE_SMOKE:50:1 @Victim
       - PLAY_SOUND:ENTITY_GHAST_SCREAM
@@ -1015,7 +1015,7 @@ obsidiandestroyer:
       - BREAK_BLOCK @Block
     '5':
       chance: 80
-      cooldown: 0
+      cooldown: 4
       conditions:
       - '%block type% != OBSIDIAN : %stop%'
       - '%can break% = true : %allow%'
@@ -1299,7 +1299,7 @@ ravenous:
       - ADD_FOOD:<random number>1-4</random number> @Attacker
     '3':
       chance: 22
-      cooldown: 2/
+      cooldown: 2
       effects:
       - ADD_FOOD:<random number>1-4</random number> @Attacker
     '4':
@@ -1589,7 +1589,7 @@ virus:
       - POTION:POISON:2:60 @Victim
     '4':
       chance: 25
-      cooldown: 0
+      cooldown: 3
       conditions:
       - '%victim has potion effect WITHER% != TRUE : %stop%'
       - '%victim has potion effect POISON% != TRUE : %stop%'
@@ -2172,7 +2172,7 @@ demonforged:
   display: '%group-color%Demonforged'
   description: |-
     Increases durability loss on
-    your enemy''s armor.
+    your enemy's armor.
   applies-to: Swords
   type: ATTACK
   group: ELITE
@@ -2657,7 +2657,7 @@ farcast:
       effects:
       - PULL_AWAY:2.0 @Victim
     '5':
-      chance: 100
+      chance: 35
       conditions:
       - '%victim is holding% contains SWORD or %victim is holding% contains AXE :
         %allow%'
@@ -3512,7 +3512,7 @@ enrage: # Can't get it to work, unsure why, Original group ULTIMATE
   description: Deal more damage on low HP.
   applies-to: Swords
   type: ATTACK;ATTACK_MOB
-  group: NULL # ULTIMATE
+  group: ULTIMATE # NULL # ULTIMATE
   applies:
   - ALL_SWORD
   levels:
@@ -3520,23 +3520,23 @@ enrage: # Can't get it to work, unsure why, Original group ULTIMATE
       chance: 21
       cooldown: 5
       conditions:
-      - '%attacker health% > 6 : %stop%'
+       - '%attacker health% > 6 : %stop%'
       effects:
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - INCREASE_DAMAGE:<random number>50-75</random number> @Victim
     '2':
       chance: 27
       cooldown: 5
       conditions:
-      - '%attacker health% > 6 : %stop%'
+       - '%attacker health% > 6 : %stop%'
       effects:
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - INCREASE_DAMAGE:<random number>50-75</random number> @Victim
     '3':
       chance: 33
-      cooldown: 0
+      cooldown: 5
       conditions:
-      - '%attacker health% > 6 : %stop%'
+       - '%attacker health% > 6 : %stop%'
       effects:
-      - DO_HARM:<random number>1-4</random number> @Victim
+      - INCREASE_DAMAGE:<random number>50-75</random number> @Victim
 guardians:
   display: '%group-color%Guardians'
   description: |-
@@ -3765,7 +3765,7 @@ marksman:
       effects:
       - INCREASE_DAMAGE:<random number>50-150</random number> @Victim
     '4':
-      chance: 100
+      chance: 32
       cooldown: 3
       conditions:
       - '%attacker is holding% = BOW : %allow%'
@@ -3889,21 +3889,21 @@ arsonist:
       conditions:
       - '%attacker is on fire% = true : %allow%'
       effects:
-      - DO_HARM:<random number>1-2</random number> @Victim
+      - INCREASE_DAMAGE:<random number>25-50</random number> @Victim
     '2':
       chance: 12
       cooldown: 5
       conditions:
       - '%attacker is on fire% = true : %allow%'
       effects:
-      - DO_HARM:<random number>2-3</random number> @Victim
+      - INCREASE_DAMAGE:<random number>50-75</random number> @Victim
     '3':
       chance: 16
-      cooldown: 8
+      cooldown: 5
       conditions:
       - '%attacker is on fire% = true : %allow%'
       effects:
-      - DO_HARM:9 @Victim
+      - INCREASE_DAMAGE:75 @Victim
 enderwalker:
   display: '%group-color%Ender Walker'
   description: |-
@@ -4555,7 +4555,7 @@ bleed: # Adjusted Bleed for improved balance with Obsidian Armor in Imperium. �
       - WAIT:20
       - DO_HARM:<random number>5-10</random number> @Victim
     '7':
-      chance: 65
+      chance: 63
       effects:
       - POTION:SLOW:2:100 @Victim
       - DO_HARM:<random number>10-15</random number> @Victim
@@ -4565,7 +4565,7 @@ bleed: # Adjusted Bleed for improved balance with Obsidian Armor in Imperium. �
       - WAIT:20
       - DO_HARM:<random number>5-10</random number> @Victim
     '8':
-      chance: 70
+      chance: 68
       effects:
       - POTION:SLOW:2:100 @Victim
       - DO_HARM:<random number>10-15</random number> @Victim
@@ -4692,30 +4692,30 @@ torrent:
       chance: 8
       cooldown: 3
       conditions:
-      - '%is under water% = TRUE : %allow%'
+      - '%attacker is under water% = TRUE : %allow%'
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:100 @Victim
     '2':
       chance: 13
       cooldown: 3
       conditions:
-      - '%is under water% = TRUE : %allow%'
+      - '%attacker is under water% = TRUE : %allow%'
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:100 @Victim
     '3':
       chance: 19
       cooldown: 5
       conditions:
-      - '%is under water% = TRUE : %allow%'
+      - '%attacker is under water% = TRUE : %allow%'
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:100 @Victim
     '4':
       chance: 23
       cooldown: 5
       conditions:
-      - '%is under water% = TRUE : %allow%'
+      - '%attacker is under water% = TRUE : %allow%'
       effects:
-      - DOUBLE_DAMAGE
+      - INCREASE_DAMAGE:100 @Victim
 judgement:
   display: '%group-color%Judgement'
   description: |-
@@ -5009,34 +5009,30 @@ barbarian:
       chance: 8
       cooldown: 2
       conditions:
-      - '%attacker is holding% contains AXE : %allow%'
-      - "%attacker is holding% contains SWORD : %allow%"
+      - '%attacker is holding% contains AXE OR SWORD : %allow%'
       effects:
       - INCREASE_DAMAGE:<random number>10-20</random number> @Victim
     '2':
       chance: 15
       cooldown: 2
       conditions:
-      - '%attacker is holding% contains AXE : %allow%'
-      - "%attacker is holding% contains SWORD : %allow%"
+      - '%attacker is holding% contains AXE OR SWORD : %allow%'
       effects:
       - INCREASE_DAMAGE:<random number>10-30</random number> @Victim
     '3':
       chance: 19
       cooldown: 2
       conditions:
-      - '%attacker is holding% contains AXE : %allow%'
-      - "%attacker is holding% contains SWORD : %allow%"
+      - '%attacker is holding% contains AXE OR SWORD : %allow%'
       effects:
       - INCREASE_DAMAGE:<random number>10-40</random number> @Victim
     '4':
       chance: 25
       cooldown: 2
       conditions:
-      - '%attacker is holding% contains AXE : %allow%'
-      - "%attacker is holding% contains SWORD : %allow%"
+      - '%attacker is holding% contains AXE OR SWORD : %allow%'
       effects:
-      - INCREASE_DAMAGE:<random number>10-50</random number> @Victim
+      - INCREASE_DAMAGE:<random number>-50</random number> @Victim
 clarity:
   display: '%group-color%Clarity'
   description: Cure blindness when attacked.
@@ -5700,7 +5696,7 @@ blacksmith:
       - MESSAGE:§6§l** BLACKSMITH ** @Attacker
     '5':
       chance: 39
-      cooldown: 0
+      cooldown: 3
       effects:
       - ADD_DURABILITY_ARMOR:+2
       - HALF_DAMAGE
@@ -6154,8 +6150,8 @@ extremeinsanity:
       effects:
       - DOUBLE_DAMAGE
     '8':
-      chance: 100
-      cooldown: 0
+      chance: 25
+      cooldown: 7
       conditions:
       - '%victim is holding% contains SWORD : %allow%'
       effects:
@@ -6251,8 +6247,8 @@ bewitchedhex:
       - DECREASE_DAMAGE:<random number>20-75</random number> @Victim
       - DO_HARM:<random number>5-10</random number> @Victim
     '4':
-      chance: 100
-      cooldown: 0
+      chance: 16
+      cooldown: 4
       effects:
       - DECREASE_DAMAGE:<random number>20-75</random number> @Victim
       - DO_HARM:<random number>5-10</random number> @Victim
@@ -6298,8 +6294,8 @@ mightycleave:
       - DO_HARM:<random number>8-20</random number> @Aoe{r=4,t=damageable}
       - MESSAGE:§d§l** MIGHTY CLEAVE §7(%attacker name%)§d§l ** @Aoe{r=4,t=damageable}
     '5':
-      chance: 100
-      cooldown: 0
+      chance: 9
+      cooldown: 10
       effects:
       - DO_HARM:<random number>10-30</random number> @Aoe{r=5,t=damageable}
       - MESSAGE:§d§l** MIGHTY CLEAVE §7(%attacker name%)§d§l ** @Aoe{r=5,t=damageable}
@@ -6329,8 +6325,8 @@ mightycactus:
       - DO_HARM:<random number>2-5</random number> @Attacker
       - MESSAGE:§d§l** MIGHTY CACTUS ** §7(%victim name%)
     '2':
-      chance: 100
-      cooldown: 0
+      chance: 12
+      cooldown: 3
       effects:
       - CANCEL_EVENT
       - DO_HARM:<random number>2-5</random number> @Attacker
@@ -6370,8 +6366,8 @@ guidedrocketescape:
       - BOOST:40 @Victim
       - MESSAGE:§d§l** GUIDED ROCKET ESCAPE **@Victim
     '3':
-      chance: 100
-      cooldown: 0
+      chance: 70
+      cooldown: 5
       conditions:
       - '%victim health% > 6 : %stop%'
       effects:
@@ -6444,7 +6440,7 @@ polymorphicmetaphysical:
       effects:
       - CURE:SLOW @Victim
     '4':
-      chance: 100
+      chance: 90
       effects:
       - CURE:SLOW @Victim
 soulbound: # Keep inventory is on No need for it
@@ -6472,8 +6468,8 @@ soulbound: # Keep inventory is on No need for it
       effects:
       - KEEP_ON_DEATH
     '3':
-      chance: 100
-      cooldown: 0
+      chance: 8
+      cooldown: 300
       effects:
       - KEEP_ON_DEATH
 reinforcedtank:
@@ -6682,7 +6678,7 @@ reflectiveblock:
       - DO_HARM:%damage% @Attacker
     '3':
       chance: 30
-      cooldown: 0
+      cooldown: 7
       effects:
       - CANCEL_EVENT
       - DO_HARM:%damage% @Attacker
@@ -6721,8 +6717,8 @@ masterinquisitive:
       effects:
       - EXP:<math>(%exp% * (1.0 + 0.25 * %level%))*2.0</math> @Victim
     '4':
-      chance: 100
-      cooldown: 0
+      chance: 90
+      cooldown: 2
       effects:
       - EXP:<math>(%exp% * (1.0 + 0.25 * %level%))*2.0</math> @Victim
 planetarydeathbringer:
@@ -6788,7 +6784,7 @@ divineenlighted:
       - ADD_HEALTH:<random number>1-4</random number> @Victim
     '3':
       chance: 15
-      cooldown: 0
+      cooldown: 7
       effects:
       - ADD_HEALTH:<random number>1-4</random number> @Victim
 lethalsniper:
@@ -6966,8 +6962,8 @@ masterblacksmith:
       - DECREASE_DAMAGE:<random number>1-25</random number>
       - MESSAGE:§d§l** MASTER BLACKSMITH ** @Attacker
     '5':
-      chance: 100
-      cooldown: 0
+      chance: 35
+      cooldown: 3
       effects:
       - ADD_DURABILITY_ARMOR:+3
       - DECREASE_DAMAGE:<random number>1-25</random number>
@@ -7184,7 +7180,7 @@ demoniclifesteal:
       - ADD_HEALTH:<random number>3-4</random number> @Attacker
       - MESSAGE:§d§l** DEMONIC LIFESTEAL ** §7(§c- %random%HP§7) @Attacker
     '5':
-      chance: 100
+      chance: 15
       cooldown: 25
       effects:
       - ADD_HEALTH:<random number>5-6</random number> @Attacker
@@ -7267,7 +7263,7 @@ deepbleed: # Adjusted Deep Bleed for better balance with Obsidian Armor in Imper
       - WAIT:20
       - DO_HARM:<random number>5-10</random number> @Victim
     '7':
-      chance: 65
+      chance: 63
       cooldown: 4
       effects:
       - POTION:SLOW:4:100 @Victim
@@ -7278,7 +7274,7 @@ deepbleed: # Adjusted Deep Bleed for better balance with Obsidian Armor in Imper
       - WAIT:20
       - DO_HARM:<random number>5-10</random number> @Victim  
     '8': # Good against G sets
-      chance: 70
+      chance: 68
       cooldown: 4
       effects:
       - POTION:SLOW:4:100 @Victim
