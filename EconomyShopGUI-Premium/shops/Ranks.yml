@@ -1,0 +1,168 @@
+#Test ranks
+
+pages:
+  pages1:
+    items:
+      1:
+        material: "YELLOW_STAINED_GLASS_PANE"
+        displayname: "&e&lScout"
+        buy: 25000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user FjcX permission set group.tier1"
+        requireItem: false
+        permission-requirement: false
+        permission: group.default
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier1%==no'
+
+      2:
+        material: "YELLOW_STAINED_GLASS_PANE"
+        displayname: "&e&lSquire"
+        buy: 50000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier2"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier1
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier2%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier1%==yes'
+
+      3:
+        material: "YELLOW_STAINED_GLASS_PANE"
+        displayname: "&e&lKnight"
+        buy: 100000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier3"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier2
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier3%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier2%==yes'
+
+      4:
+        material: "LIME_STAINED_GLASS_PANE"
+        displayname: "&a&lPaladin"
+        buy: 150000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier4"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier3
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier4%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier3%==yes'
+
+      5:
+        material: "LIME_STAINED_GLASS_PANE"
+        displayname: "&a&lEarl"
+        buy: 200000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier5"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier4
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier5%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier4%==yes'
+
+      6:
+        material: "LIME_STAINED_GLASS_PANE"
+        displayname: "&a&lMagnate"
+        buy: 300000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier6"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier5
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier6%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier5%==yes'
+
+      7:
+        material: "LIGHT_BLUE_STAINED_GLASS_PANE"
+        displayname: "&b&lPrince"
+        buy: 400000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier7"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier6
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier7%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier6%==yes'
+
+      8:
+        material: "LIGHT_BLUE_STAINED_GLASS_PANE"
+        displayname: "&b&lLord"
+        buy: 500000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier8"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier7
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier8%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier7%==yes'
+
+      9:
+        material: "LIGHT_BLUE_STAINED_GLASS_PANE"
+        displayname: "&b&lKing"
+        buy: 800000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission set group.tier9"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier8
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier9%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier8%==yes'
+
+      10:
+        material: "PURPLE_STAINED_GLASS_PANE"
+        displayname: "&5&lEmperor&5&kI &d&o30 days"
+        buy: 450000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission settemp group.tier10 true 30d deny"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier9
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier10%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier9%==yes'
+
+      11:
+        material: "PURPLE_STAINED_GLASS_PANE"
+        displayname: "&5&lEmperor&5&kII &d&o60 days"
+        buy: 900000
+        sell: -1
+        giveItem: false
+        buy-commands:
+          - "lp user %player% permission settemp group.tier10 true 60d deny"
+        requireItem: false
+        permission-requirement: false
+        permission: group.tier9
+        requirements:
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier10%==no'
+          - 'PLACEHOLDER::%luckperms_has_permission_group.tier9%==yes'

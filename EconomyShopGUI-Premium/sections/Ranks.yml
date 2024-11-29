@@ -1,0 +1,16 @@
+item:
+  material: "TRIAL_KEY"
+  name: "&f&lImperium Ranks"
+  lore:
+    - "&7A revamped version of the Imperium Ranks GUI."
+    - "&7Still a work in progress."
+  enchantments:
+    - "MENDING"
+  enchantment-glint: true
+
+slot: 40
+enable: true
+fill-item:
+  material: "LIGHT_GRAY_STAINED_GLASS_PANE"
+  name: ''
+  lore: ''

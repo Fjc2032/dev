@@ -131,3 +131,25 @@ Priority (in order):
 - Claim flags
 - More quest options
 - everything else
+
+
+Things that are currently happening:
+
+- Implement new /ranks method for 1.21
+  - Since the TabuuCore API (we use this backend for managing permissions and perks) most likely isn't getting an update anytime soon, I have decided to take an alternate
+  approach to fill the looming gap that is /ranks. Hopefully this method works out.
+- New train models and train systems
+  - Me and Rat (mostly Rat) are planning to add brand new models to minecarts, as well as the possibility of aircraft.
+- Push to 1.21.1
+  - I really _reallllly_ would love to push Imperium to Minecraft 1.21.1 (1.21.3 is already out but it's whatever).
+  Unfortunately compatibility is another problem that's been killing us for a while. Some things just don't port over that easily.
+  Thanks Mojang. From our testing, features most likely to stop working on a 1.21.1 update are
+    - Scoreboard
+    - /ranks (fix being implemented)
+    - BetterAlias plugin (this was already pretty old anyway)
+    - FInvsee (might cause problems for moderation)
+    - WorldGuard (areas usually protected, like spawn, may become vulnerable to block griefing)
+    - Other interfaces/APIs that I probably forgot about
+    - Pets (ElitePets)
+
+Can't wait for all the bugs!
