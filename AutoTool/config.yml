@@ -1,0 +1,18 @@
+KeepPlayerDataDays: 30
+UseJoinMessage: true
+OnlyCheckToolBar: true
+OnlySwitchWithToolInHand: false
+DontUseItemWithOneDurability: false
+SwitchSoundEnabled: true
+Messages:
+  Prefix: ""
+  JoinMessage:
+    Enabled: "§a§lᴀᴜᴛᴏ ᴛᴏᴏʟ§a ᴏɴ"
+    Disabled: "§c§lᴀᴜᴛᴏ ᴛᴏᴏʟ§c ᴏꜰꜰ"
+  SwitchMessage:
+    Enabled: "§a§lᴀᴜᴛᴏ ᴛᴏᴏʟ§a ᴏɴ"
+    Disabled: "§c§lᴀᴜᴛᴏ ᴛᴏᴏʟ§c ᴏꜰꜰ"
+  Common:
+    Yes: "Yes"
+    No: "No"
+    Enabled: "enabled"
