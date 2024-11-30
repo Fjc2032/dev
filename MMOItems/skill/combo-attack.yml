@@ -1,0 +1,23 @@
+name: Combo Attack
+modifier:
+  timer:
+    name: Timer
+    default-value: 0
+  damage:
+    name: Damage
+    default-value: 0
+  delay:
+    name: Delay
+    default-value: 0
+  mana:
+    name: Mana
+    default-value: 0
+  stamina:
+    name: Stamina
+    default-value: 0
+  cooldown:
+    name: Cooldown
+    default-value: 0
+  count:
+    name: Count
+    default-value: 0

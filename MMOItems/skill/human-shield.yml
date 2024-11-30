@@ -1,0 +1,29 @@
+name: Human Shield
+modifier:
+  redirect:
+    name: Redirect
+    default-value: 0
+  duration:
+    name: Duration
+    default-value: 0
+  timer:
+    name: Timer
+    default-value: 0
+  delay:
+    name: Delay
+    default-value: 0
+  mana:
+    name: Mana
+    default-value: 0
+  low:
+    name: Low
+    default-value: 0
+  stamina:
+    name: Stamina
+    default-value: 0
+  cooldown:
+    name: Cooldown
+    default-value: 0
+  reduction:
+    name: Reduction
+    default-value: 0

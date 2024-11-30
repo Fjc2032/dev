@@ -1,0 +1,23 @@
+name: Telekinesy
+modifier:
+  duration:
+    name: Duration
+    default-value: 0
+  timer:
+    name: Timer
+    default-value: 0
+  delay:
+    name: Delay
+    default-value: 0
+  mana:
+    name: Mana
+    default-value: 0
+  stamina:
+    name: Stamina
+    default-value: 0
+  cooldown:
+    name: Cooldown
+    default-value: 0
+  knockback:
+    name: Knockback
+    default-value: 0

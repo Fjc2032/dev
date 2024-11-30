@@ -146,7 +146,7 @@ BLACKBELT:
     disable-advanced-enchants: true
     disable-droping: true
     pve-damage: 21.0
-    revision-id: 9
+    revision-id: 10
     permission:
     - custom.mark6
     perm-effects:
