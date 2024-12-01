@@ -1,4 +1,4 @@
-﻿# « Example configuration »
+# « Example configuration »
 # lastchance:    <-- Enchantment name
 #  display: '%group-color%Last Chance'    <-- Display in item lore
 #  description: 'Has a chance to heal when on low hearts'    <-- Enchantment Description
@@ -184,7 +184,7 @@ glassbreaker:
     Allows the user to instantly break glass.
   applies-to: Pickaxe
   type: SWING
-  group: LEGENDARY
+  group: MASTERY # LEGENDARY
   settings:
     newVersionsOnly: true
   applies:
@@ -429,7 +429,7 @@ restore:
     half of its durability
   applies-to: Tools
   type: ITEM_BREAK
-  group: ULTIMATE
+  group: NULL # ULTIMATE
   applies:
   - ALL_PICKAXE
   - ALL_SPADE
@@ -456,8 +456,13 @@ restore:
     '4':
       chance: 100
       effects:
+      - ADD_DURABILITY_CURRENT_ITEM:<round><math>(%maximum durability%/2)</math></round>
       - REMOVE_ENCHANT:restore
-      - ADD_DURABILITY_CURRENT_ITEM:<round><math>+2 * (%maximum durability%/2)</math></round>
+      - MESSAGE:§6§l*** §e§lItem Restored §6§l***
+    '5':
+      chance: 100
+      effects:
+      - ADD_DURABILITY_CURRENT_ITEM:<round><math>(%maximum durability%/2)</math></round>
       - MESSAGE:§6§l*** §e§lItem Restored §6§l***
 shuffle:
   display: '%group-color%Shuffle'
@@ -2828,7 +2833,7 @@ hijack:
     are shot with an arrow.
   applies-to: Bow
   type: ATTACK_MOB
-  group: ELITE
+  group: NULL # ELITE
   applies:
   - BOW
   - CROSSBOW
@@ -8135,7 +8140,7 @@ feather:
       - DO_HARM:<random number>1-9</random number> @Victim
       - INCREASE_DAMAGE:<random number>50-100</random number> @Attacker
 featherscurse:
-  display: '%group-color%featherscurse'
+  display: '%group-color%Feathers Curse'
   description: A Gift From Feather.
   applies-to: Swords
   type: ATTACK
@@ -8188,7 +8193,22 @@ featherscurse:
       - DO_HARM:%damage% @Victim
       - LIGHTNING @Victim
       - STEAL_HEALTH:<random number>1-5</random number> @Victim
-
+christmasstar2024:
+  display: '%group-color%Christmas Star 2024'
+  description: A Christmas Gift.
+  applies-to: Helmet
+  type: EFFECT_STATIC
+  group: LEGENDARY
+  applies:
+  - ALL_HELMET
+  levels:
+    '1':
+      effects:
+      - POTION:WATER_BREATHING:0
+      - POTION:STRENGTH:9
+      - POTION:NIGHT_VISION:0
+      - POTION:GLOWING:0
+      - POTION:REGENERATION:1
      
       
       
