@@ -71,21 +71,21 @@ scoreboard:
   delay-on-join-milliseconds: 0
   scoreboards:
     scoreboard-1.20.3+:
-      title: <#E0B11E>Imperium</#FF0000>
+      title: <#E0B11E>&lAURORA</#FF0000>
       display-condition: '%player-version-id%>=765'
       lines:
-        - '&7%date%'
-        - '%animation:MyAnimation1%'
-        - '&6Online:'
-        - '* &eOnline&7:||%online%'
-        - '* &eCurrent World&7:||%worldonline%'
+        - '&7%date% ||%ping%&7ms'
+        - '   %animation:MyAnimation1%'
         - ''
-        - '&6Personal Info:'
-        - '* &b&lRank&7:||%luckperms_prefix%'
-        - '* &b&lPing&7:||%ping%&8ms'
-        - '* &b&lMark&7:||%headsplus_level%'
-        - '* &b&lBal&7: ||&6%lighteconomy_money%'
-        - '%animation:MyAnimation1%'
+        - '&f&lRank  &7||%luckperms_prefix%'
+        - ''
+        - '&f&lMark  &7||%headsplus_level%'
+        - ''
+        - '&f&lCash  &7||&6%lighteconomy_money%'
+        - ''
+        - '&f&lClaim &7||&oplaceholder'
+        - ''
+        - '   %animation:MyAnimation1%'
     scoreboard:
       title: <#E0B11E>MyServer</#FF0000>
       lines:
