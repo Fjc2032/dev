@@ -1,0 +1,9 @@
+name: OffhandSlotBlocker
+main: me.fjc.offhandslotblocker.OffhandSlotBlocker
+api-version: 1.21
+version: 1.1
+author: Fjc
+description: Blocks MythicMob eggs from the offhand slot. Uses MythicMobs API as a dependency.
+
+softdepend:
+  - MythicMobs
