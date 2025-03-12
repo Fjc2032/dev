@@ -153,3 +153,33 @@ Things that are currently happening:
     - Pets (ElitePets)
 
 Can't wait for all the bugs!
+
+
+Well, we're now in the big '25, and a lot of things have happened, both good and kinda bad?
+- We're on 1.21 now. We somehow managed to make it work. Thanks Datsun, Astra, Rat.
+- New train models are here, courtesy to Rat. He is working on more models as well as managing all the train logic. Big ups.
+- Claim flags are here. Thanks Datsun.
+- New backend for the Quest API. Thanks ME.
+- /bosspreview is actually deployed, and it looks great. Thanks Datsun.
+- We can trade claimblocks through /trade once again. Thanks Datsun.
+- Rat fixed the issue with damage indicators getting stuck. Great job.
+- The suggestions system (discord) was rewritten by me. (Great job me)
+- The tickets system (discord) was rewritten by me, although it's not done yet.
+
+About autosell:
+I decided to completely axe the autosell feature. I didn't implement it well, and I don't want the server to turn into an AFK simulator. I want the players to actually be engaged in what they're doing. Overall the autosell project was a failure, but failure is necessary for growth (right?).
+
+Things that still need to happen:
+- Boss rebalancing:
+  - I have actually started a refresh of some bosses. I plan to rewrite them all eventually.
+  - Rat and I want to eventually move most boss related activies to a separate combat-dedicated world. This will allow us to better define what is "boss" and what isn't.
+  - I want to lock some bosses behind tier/mark requirements. With the way it's setup now, any player can spawn any boss, even if it's the highest tier boss and the player has absolutely no gear. Hoping to change that soon.
+  - Other stuff that I forgot to write here.
+- I fixed that issue with the boss egg glitching out with the offhand (by blocking boss eggs from the offhand entirely! Why fix when you can just deny?).
+- Persistent invis frames. Lowkey don't know who's gonna do that one yet.
+- Telepathy is still broken. Fed said he's working on it but haven't heard from him.
+- Apparently there's some boss that can just teleport to your location after you've died and blow it up? That's a problem that I gotta fix probably.
+- Quite a few bosses are still despawning. Working on it.
+- Water Fairy boss is based on an allay model, which means it'll yoink your item if you right click the allay. Still figuring out how to block that. It's probably obvious.
+
+And that's it I guess. I don't even know if people read this file anymore, but it helps me keep track of things so I'm gonna keep pushing updates to it.
