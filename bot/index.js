@@ -143,7 +143,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setEmoji('📝');
                 const otherSupportButton = new ButtonBuilder()
                     .setCustomId('othersupportbutton')
-                    .setLabel('Other Support')
+                    .setLabel('Other')
                     .setStyle(ButtonStyle.Secondary)
                     .setEmoji('🎟️');
 
@@ -496,7 +496,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     
                     const otherSupportEmbed = new EmbedBuilder()
                             .setColor('ffffff')
-                            .setTitle('Other Support')
+                            .setTitle('Other')
                             .setDescription(`Thank you for submitting a ticket. A staff member will be with you shortly.`)
                             .addFields(
                                 {name: `Type of Support`, value: `${otherSupportTitle}`},
@@ -504,6 +504,17 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             )
                             .setTimestamp()
                             .setFooter({text: 'Imperium Tickets, built by Fjc'});
+                    const closeButton = new ButtonBuilder()
+                            .setCustomId('close-other')
+                            .setLabel('Close')
+                            .setStyle(ButtonStyle.Danger)
+                            .setEmoji('🔒');
+                    const closeButtonReason = new ButtonBuilder()
+                            .setCustomId('closeWithReason-other')
+                            .setLabel('Close With Reason')
+                            .setStyle(ButtonStyle.Danger)
+                            .setEmoji('🔏');
+                    const closeSetOther = new ActionRowBuilder().addComponents(closeButton, closeButtonReason);
     
                     const newChannel = await category.guild.channels.create({
                         name: channelName,
@@ -539,7 +550,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     })
                     .then(console.log(`Created channel ${channelName} in ${category.name}`))
                     
-                    newChannel.send({embeds: [otherSupportEmbed]});
+                    newChannel.send({embeds: [otherSupportEmbed], components: [closeSetOther]});
     
                     await interaction.reply({content: 'You have successfully created a ticket. Someone will be with you shortly.', ephemeral: true});
                                         
@@ -570,8 +581,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     console.log('Channel deleted.');
                 }
             }
-        
-            
+            if (interaction.customId === 'closeReasonOther') {
+                const channelTarget = interaction.channel;
+                if (channelTarget) {
+                    console.log(`Selected channel ${channelTarget} for deletion.`)
+                    channelTarget.delete();
+                    console.log('Channel deleted.');
+                }
+            }
 
         if (interaction.isButton()) {
             if (interaction.customId === 'bugreportbutton') {
@@ -593,7 +610,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setStyle(TextInputStyle.Short)
                     .setPlaceholder("Title of your bug report")
                     .setMinLength(0)
-                    .setMaxLength(40)
+                    .setMaxLength(50)
                     .setRequired(true);
     
                 const textBody = new TextInputBuilder()
@@ -602,7 +619,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setStyle(TextInputStyle.Paragraph)
                     .setPlaceholder("Describe the issue in detail")
                     .setMinLength(0)
-                    .setMaxLength(200)
+                    .setMaxLength(600)
                     .setRequired(true);
     
                 const usernameComponent = new ActionRowBuilder().addComponents(username);
@@ -815,6 +832,23 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 .setTitle('Close WIth Reason');
                 const textTitle = new TextInputBuilder()
                 .setCustomId('closeReason-appeal-title')
+                .setLabel('Reason')
+                .setStyle(TextInputStyle.Short)
+                .setPlaceholder('Enter your reason for closing this ticket (e.g. resolved).')
+                .setMinLength(0)
+                .setMaxLength(50);
+
+                const row = new ActionRowBuilder().addComponents(textTitle);
+                closeReasonModal.addComponents(row);
+
+                await interaction.showModal(closeReasonModal);
+            }
+            if (interaction.customId === 'closeWithReason-other') {
+                const closeReasonModal = new ModalBuilder()
+                .setCustomId('closeReasonOther')
+                .setTitle('Close WIth Reason');
+                const textTitle = new TextInputBuilder()
+                .setCustomId('closeReason-other-title')
                 .setLabel('Reason')
                 .setStyle(TextInputStyle.Short)
                 .setPlaceholder('Enter your reason for closing this ticket (e.g. resolved).')
