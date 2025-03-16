@@ -153,15 +153,16 @@ client.on(Events.InteractionCreate, async (interaction) => {
             if (interaction.commandName === 'exportrules') {
                 const rulesEmbed = new EmbedBuilder()
                     .setColor('ffffff')
+                    .setTitle('Rules')
                     .addFields(
-                        {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'},
                         {name: 'Be Respectful', value: 'Address everyone in a friendly and respectful manner. Don\'t be rude, discriminate,\nor engage in any damaging or hurtful behavior.'},
                         {name: 'Be Appropriate', value: 'Interact in ways that do not damage the experience of others. Avoid bad language,\nspam, or any inappropriate behavior or topic, regardless if its towards another\nuser or not.'},
                         {name: 'Keep It English', value: 'Only communicate in English so that our staff members can\n moderate the chat and help guarantee a fun and safe environment for everyone.'},
                         {name: 'No Advertisement', value: 'Advertisement or promoting of any kind is not allowed.'},
                         {name: 'Listen to Staff', value: 'Staff have full discretion in the interpretation and enforcement of the rules.\nPlease do not argue with staff and be considerate of their time.\nStaff will assist you as soon as they\'re ready.'},
                         {name: 'Imperium Server Policies & Guidelines', value: 'https://docs.google.com/document/d/1CPtWU65pkfYJYfTv-_8ZzrA6AmUWh4xyvYXWJLcSXaA/edit?usp=sharing'},
-                        {name: 'For further inquiries, contact the owners', value: '@willom02 & @featherthebladeofthefallenl'}
+                        {name: 'For further inquiries, contact the owners', value: '@willom02 & @featherthebladeofthefallenl'},
+                        {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'}
                     );
                 await interaction.channel.send({embeds: [rulesEmbed]});
             }
@@ -183,6 +184,20 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 .setEmoji('💡');
                 const generateBox = new ActionRowBuilder().addComponents(suggestionButton);
                 await interaction.channel.send({embeds: [suggestionEmbed], components: [generateBox]});
+            }
+            if (interaction.commandName === 'exporthandbook') {
+                const handbookEmbed = new EmbedBuilder()
+                .setColor('ffffff')
+                .setTitle('Guidelines')
+                .setDescription('Guidelines that staff should adhere by.')
+                .addFields(
+                    {name: 'Staff Guidelines', value: 'https://docs.google.com/document/d/1CBuYg0yEd-EOhNej3_iqbUrl6zSpJOV2lDC34bwOQEM/edit'},
+                    {name: 'Punishment Guidelines', value: 'https://docs.google.com/document/d/1-kE1IEUPkuOlUmaTmN0_u4JDVVz9bmuLHZHKkOitjfc/edit'}
+                );
+                await interaction.channel.send({embeds: [handbookEmbed]});
+            }
+            if (interaction.commandName === 'ip') {
+                await interaction.reply({content: '185.249.196.226'});
             }
         }
 
