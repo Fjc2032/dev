@@ -161,8 +161,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
                         {name: 'No Advertisement', value: 'Advertisement or promoting of any kind is not allowed.'},
                         {name: 'Listen to Staff', value: 'Staff have full discretion in the interpretation and enforcement of the rules.\nPlease do not argue with staff and be considerate of their time.\nStaff will assist you as soon as they\'re ready.'},
                         {name: 'Imperium Server Policies & Guidelines', value: 'https://docs.google.com/document/d/1CPtWU65pkfYJYfTv-_8ZzrA6AmUWh4xyvYXWJLcSXaA/edit?usp=sharing'},
-                        {name: 'For further inquiries, contact the owners', value: '@willom02 & @featherthebladeofthefallenl'},
-                        {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'}
+                        {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'},
+                        {name: 'For further inquiries, contact the owners', value: '@willom02 & @featherthebladeofthefallenl'}
                     );
                 await interaction.channel.send({embeds: [rulesEmbed]});
             }
@@ -507,6 +507,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     
                     const otherSupportTitle = interaction.fields.getTextInputValue('othersupporttitle');
                     const otherSupportBody = interaction.fields.getTextInputValue('othersupportbody');
+                    const otherSupprtPlayer = interaction.fields.getTextInputValue('othersupportplayer');
                     //const playerOfInterest = interaction.fields.getTextInputValue('player');
     
                     const otherSupportEmbed = new EmbedBuilder()
@@ -514,6 +515,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             .setTitle('Other')
                             .setDescription(`Thank you for submitting a ticket. A staff member will be with you shortly.`)
                             .addFields(
+                                {name: 'IGN', value: `${otherSupprtPlayer}`},
                                 {name: `Type of Support`, value: `${otherSupportTitle}`},
                                 {name: `Details`, value: `${otherSupportBody}`}
                             )
@@ -632,7 +634,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setCustomId("bugreportbody")
                     .setLabel("Description")
                     .setStyle(TextInputStyle.Paragraph)
-                    .setPlaceholder("Describe the issue in detail")
+                    .setPlaceholder("Describe the issue in detail.")
                     .setMinLength(0)
                     .setMaxLength(600)
                     .setRequired(true);
@@ -682,7 +684,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setStyle(TextInputStyle.Paragraph)
                     .setPlaceholder('Describe what the player is doing. Falsely reporting a player can result in a punishment!')
                     .setMinLength(0)
-                    .setMaxLength(200)
+                    .setMaxLength(600)
                     .setRequired(true);
     
                 const usernameComponent = new ActionRowBuilder().addComponents(username);
@@ -733,6 +735,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 const otherSupportModal = new ModalBuilder()
                     .setCustomId('othersupport')
                     .setTitle('Ticket - Other');
+                const player = new TextInputBuilder()
+                    .setCustomId('othersupportplayer')
+                    .setLabel('Your IGN')
+                    .setStyle(TextInputStyle.Short)
+                    .setPlaceholder('Enter your in-game name.')
+                    .setMinLength(0)
+                    .setMaxLength(30)
+                    .setRequired(true);
                 const textTitle = new TextInputBuilder()
                     .setCustomId('othersupporttitle')
                     .setLabel('Title')
@@ -745,14 +755,15 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setCustomId('othersupportbody')
                     .setLabel('Description')
                     .setStyle(TextInputStyle.Paragraph)
-                    .setPlaceholder('Describe what you need. Be precise!')
+                    .setPlaceholder('Be precise, and only use this if the other three ticket options don\'t fit what you need.')
                     .setMinLength(0)
-                    .setMaxLength(400)
+                    .setMaxLength(600)
                     .setRequired(true);
                 
                 const component1 = new ActionRowBuilder().addComponents(textTitle);
                 const component2 = new ActionRowBuilder().addComponents(textBody);
-                otherSupportModal.addComponents(component1, component2);
+                const playerComponent = new ActionRowBuilder().addComponents(player)
+                otherSupportModal.addComponents(playerComponent, component1, component2);
 
                 await interaction.showModal(otherSupportModal);
             }
