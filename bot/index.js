@@ -497,6 +497,12 @@ client.on(Events.InteractionCreate, async (interaction) => {
     
                     await interaction.reply({content: 'You have successfully requested a ban appeal. A moderator will be with you shortly.', ephemeral: true});
                                         
+                    ticketdb.run(`INSERT INTO tickets (user, bugtype, title, description) VALUES (?, ?, ?, ?)`,
+                        [interaction.user.username, `banappeal`, banAppealtTitle, banappealBody],
+                        function(err) {
+                            if (err) return console.error(err.message);
+                        }
+                    )
                 }
                 if (interaction.customId === 'othersupport') {
                     const categoryId = '1193580226266013738';
@@ -507,7 +513,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     
                     const otherSupportTitle = interaction.fields.getTextInputValue('othersupporttitle');
                     const otherSupportBody = interaction.fields.getTextInputValue('othersupportbody');
-                    const otherSupprtPlayer = interaction.fields.getTextInputValue('othersupportplayer');
+                    const otherSupportPlayer = interaction.fields.getTextInputValue('othersupportplayer');
                     //const playerOfInterest = interaction.fields.getTextInputValue('player');
     
                     const otherSupportEmbed = new EmbedBuilder()
@@ -515,7 +521,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             .setTitle('Other')
                             .setDescription(`Thank you for submitting a ticket. A staff member will be with you shortly.`)
                             .addFields(
-                                {name: 'IGN', value: `${otherSupprtPlayer}`},
+                                {name: 'IGN', value: `${otherSupportPlayer}`},
                                 {name: `Type of Support`, value: `${otherSupportTitle}`},
                                 {name: `Details`, value: `${otherSupportBody}`}
                             )
@@ -570,7 +576,13 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     newChannel.send({embeds: [otherSupportEmbed], components: [closeSetOther]});
     
                     await interaction.reply({content: 'You have successfully created a ticket. Someone will be with you shortly.', ephemeral: true});
-                                        
+                                     
+                    ticketdb.run(`INSERT INTO tickets (user, bugtype, title, description) VALUES (?, ?, ?, ?)`,
+                        [interaction.user.username, `other`, otherSupportTitle, otherSupportBody],
+                        function(err) {
+                            if (err) return console.error(err.message);
+                        }
+                    )
                 }
 
             }
