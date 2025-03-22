@@ -1,10 +1,13 @@
-const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message } = require("discord.js");
+const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message, Partials, AuditLogEvent } = require("discord.js");
 const { token } = require("./config.json");
 const cmd = require("./commands/utility/cmd.js");
 const ticketcmd = require("./commands/utility/ticketcmd.js");
 const rules = require("./commands/utility/rules.js");
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ 
+    intents: 
+    [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers]
+ });
 
 client.commands = new Collection();
 
@@ -991,6 +994,44 @@ client.on(Events.InteractionCreate, async (interaction) => {
         console.error('Error handling interaction:', error.message);
     }
 });
+
+
+client.on(Events.GuildAuditLogEntryCreate, async (audit) => {
+
+    const {action, executor, target, targetId} = audit;
+
+    if (action !== AuditLogEvent.MessageDelete) return;
+
+
+    client.on(Events.MessageDelete, async (message) => {
+        let messageDeleted = message.content;
+
+        if (target) {
+            const targetChannel = client.channels.cache.get('1193934914832310272');
+            const logDeletionEmbed = new EmbedBuilder()
+            .setColor('ea2e48')
+            .setAuthor({
+                iconURL: target.displayAvatarURL(),
+                name: target
+            })
+            .addFields(
+                {name: `Message sent by ${target} deleted by ${executor}`, value: `${messageDeleted}`}
+            )
+            .setTimestamp()
+            .setFooter(
+                {iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'},
+                {text: 'Imperium'}
+            );
+
+            targetChannel.send({
+                embeds: [logDeletionEmbed]
+            });
+        }
+    })
+
+
+});
+
 
 client.on('exit', () => {
     db.close();
