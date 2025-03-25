@@ -1032,6 +1032,34 @@ client.on(Events.GuildAuditLogEntryCreate, async (audit) => {
 
 });
 
+client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
+    if (!oldMessage || !newMessage) return;
+    
+    if (oldMessage.content === newMessage.content) return;
+
+
+    const targetChannel = client.channels.cache.get('1193934914832310272');
+    const logEditEmbed = new EmbedBuilder()
+    .setColor('edeb0d')
+    .setAuthor(
+        {iconURL: client.user.displayAvatarURL(),
+        name: client.user.username}
+    )
+    .addFields(
+        {name: `Message sent by ${newMessage.author.username} edited in ${newMessage.channel.name}`,
+        value: `Before:\n${oldMessage.content}\n\nAfter:\n${newMessage.content}`}
+    )
+    .setTimestamp()
+    .setFooter(
+        {iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'},
+        {text: 'Imperium'}
+    );
+
+    targetChannel.send({
+        embeds: [logEditEmbed]
+    });
+}); 
+
 
 client.on('exit', () => {
     db.close();
