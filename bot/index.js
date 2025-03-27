@@ -1,8 +1,5 @@
 const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message, Partials, AuditLogEvent } = require("discord.js");
 const { token } = require("./config.json");
-const cmd = require("./commands/utility/cmd.js");
-const ticketcmd = require("./commands/utility/ticketcmd.js");
-const rules = require("./commands/utility/rules.js");
 
 const client = new Client({ 
     intents: 
@@ -15,7 +12,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { error } = require("node:console");
 const { channel } = require("node:diagnostics_channel");
+
+const cmd = require("./commands/utility/cmd.js");
+const ticketcmd = require("./commands/utility/ticketcmd.js");
+const rules = require("./commands/utility/rules.js");
 const suggestionbox = require("./commands/utility/suggestionbox.js");
+const allowrename = require("./commands/utility/allowrename.js");
+const handbook = require("./commands/utility/handbook.js");
 
 client.login(token);
 
@@ -47,10 +50,13 @@ ticketdb.serialize(() => {
 
 client.once('ready', async () => {
     console.log('Online!');
+    await allowrename.register();
     await cmd.register();
     await ticketcmd.register();
+    await handbook.register();
     await rules.register();
     await suggestionbox.register();
+    await ticketcmd.register();
 });
 
 const foldersPath = path.join(__dirname, 'commands');
@@ -200,7 +206,44 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 await interaction.channel.send({embeds: [handbookEmbed]});
             }
             if (interaction.commandName === 'ip') {
-                await interaction.reply({content: '185.249.196.226'});
+                await interaction.reply({content: '185.249.196.226', ephemeral: true});
+            }
+            if (interaction.commandName === 'rename') {
+                //let value = allowrename.data.addStringOption(option => option.setName('rename_value'));
+                let scope = await interaction.options.getString('rename_value');
+                let target = interaction.channel;
+                let categoryID = '1193580226266013738';
+                let category = interaction.guild.channels.cache.get(categoryID);
+
+                if (!category) {
+                    category = await interaction.guild.channels.fetch(categoryID);
+                }
+
+                if (!category) {
+                    await interaction.reply({content: 'Category not found, or does not exist.', ephemeral: true});
+                    return;
+                }
+
+                if (target.parentId !== category.id) {
+                    await interaction.reply({content: 'This command can only be used for tickets.', ephemeral: true});
+                    return;
+                }
+
+                if (scope === '') {
+                    await interaction.reply({content: 'The scope cannot be empty, silly.', ephemeral: true});
+                    return;
+                }
+
+                console.log(`Value: ${scope}`);
+
+                try {
+                await target.setName(scope);
+                await interaction.reply({content: `Successfully renamed the channel to ${scope}`, ephemeral: true});
+                } catch (error) {
+                    console.log(error);
+                    await interaction.reply({content: 'It appears something has went wrong! Contact a developer.', ephemeral: true});
+                }
+
             }
         }
 
@@ -1018,10 +1061,7 @@ client.on(Events.GuildAuditLogEntryCreate, async (audit) => {
                 {name: `Message sent by ${target} deleted by ${executor}`, value: `${messageDeleted}`}
             )
             .setTimestamp()
-            .setFooter(
-                {iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'},
-                {text: 'Imperium'}
-            );
+            .setFooter('Imperium', 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512');
 
             targetChannel.send({
                 embeds: [logDeletionEmbed]
@@ -1050,10 +1090,7 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
         value: `Before:\n${oldMessage.content}\n\nAfter:\n${newMessage.content}`}
     )
     .setTimestamp()
-    .setFooter(
-        {iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'},
-        {text: 'Imperium'}
-    );
+    .setFooter('Imperium', 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512');
 
     targetChannel.send({
         embeds: [logEditEmbed]
