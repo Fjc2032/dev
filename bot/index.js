@@ -342,7 +342,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             {name: `Details`, value: `${bugReportBody}`}
                         )
                         .setTimestamp()
-                        .setFooter({text: 'Imperium Tickets, built by Fjc'});
+                        .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
                 const closeButton = new ButtonBuilder()
                         .setCustomId('close-bug')
                         .setLabel('Close')
@@ -419,7 +419,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                                 {name: `Reason`, value: `${playerReportBody}`}
                             )
                             .setTimestamp()
-                            .setFooter({text: 'Imperium Tickets, built by Fjc'});
+                            .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
                     const closeButton = new ButtonBuilder()
                             .setCustomId('close-report')
                             .setLabel('Close')
@@ -500,7 +500,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                                 {name: `Reason(s) for wanting an unban`, value: `${banappealBody}`}
                             )
                             .setTimestamp()
-                            .setFooter({text: 'Imperium Tickets, built by Fjc'});
+                            .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
                     const closeButton = new ButtonBuilder()
                             .setCustomId('close-appeal')
                             .setLabel('Close')
@@ -572,7 +572,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                                 {name: `Details`, value: `${otherSupportBody}`}
                             )
                             .setTimestamp()
-                            .setFooter({text: 'Imperium Tickets, built by Fjc'});
+                            .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
                     const closeButton = new ButtonBuilder()
                             .setCustomId('close-other')
                             .setLabel('Close')
@@ -879,7 +879,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             if (interaction.customId === 'closeWithReason-bug') {
                 const closeReasonModal = new ModalBuilder()
                     .setCustomId('closeReasonBug')
-                    .setTitle('Close WIth Reason');
+                    .setTitle('Close With Reason');
                 const textTitle = new TextInputBuilder()
                     .setCustomId('closeReason-bug-title')
                     .setLabel('Reason')
@@ -896,7 +896,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             if (interaction.customId === 'closeWithReason-report') {
                 const closeReasonModal = new ModalBuilder()
                 .setCustomId('closeReasonReport')
-                .setTitle('Close WIth Reason');
+                .setTitle('Close With Reason');
                 const textTitle = new TextInputBuilder()
                 .setCustomId('closeReason-report-title')
                 .setLabel('Reason')
@@ -913,7 +913,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             if (interaction.customId === 'closeWithReason-appeal') {
                 const closeReasonModal = new ModalBuilder()
                 .setCustomId('closeReasonAppeal')
-                .setTitle('Close WIth Reason');
+                .setTitle('Close With Reason');
                 const textTitle = new TextInputBuilder()
                 .setCustomId('closeReason-appeal-title')
                 .setLabel('Reason')
@@ -930,7 +930,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             if (interaction.customId === 'closeWithReason-other') {
                 const closeReasonModal = new ModalBuilder()
                 .setCustomId('closeReasonOther')
-                .setTitle('Close WIth Reason');
+                .setTitle('Close With Reason');
                 const textTitle = new TextInputBuilder()
                 .setCustomId('closeReason-other-title')
                 .setLabel('Reason')
@@ -1055,13 +1055,13 @@ client.on(Events.GuildAuditLogEntryCreate, async (audit) => {
             .setColor('ea2e48')
             .setAuthor({
                 iconURL: target.displayAvatarURL(),
-                name: target
+                name: target.username
             })
             .addFields(
                 {name: `Message sent by ${target} deleted by ${executor}`, value: `${messageDeleted}`}
             )
             .setTimestamp()
-            .setFooter('Imperium', 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512');
+            .setFooter({text: 'Imperium', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
 
             targetChannel.send({
                 embeds: [logDeletionEmbed]
@@ -1078,6 +1078,7 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
     if (oldMessage.content === newMessage.content) return;
 
 
+    try {
     const targetChannel = client.channels.cache.get('1193934914832310272');
     const logEditEmbed = new EmbedBuilder()
     .setColor('edeb0d')
@@ -1090,11 +1091,14 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
         value: `Before:\n${oldMessage.content}\n\nAfter:\n${newMessage.content}`}
     )
     .setTimestamp()
-    .setFooter('Imperium', 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512');
+    .setFooter({text: 'Imperium', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
 
     targetChannel.send({
         embeds: [logEditEmbed]
     });
+} catch (error) {
+    console.log(error);
+}
 }); 
 
 
