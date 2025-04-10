@@ -1,4 +1,4 @@
-const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message, Partials, AuditLogEvent } = require("discord.js");
+const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message, Partials, AuditLogEvent, messageLink, hyperlink } = require("discord.js");
 const { token } = require("./config.json");
 
 const client = new Client({ 
@@ -169,7 +169,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                         {name: 'Keep It English', value: 'Only communicate in English so that our staff members can\n moderate the chat and help guarantee a fun and safe environment for everyone.'},
                         {name: 'No Advertisement', value: 'Advertisement or promoting of any kind is not allowed.'},
                         {name: 'Listen to Staff', value: 'Staff have full discretion in the interpretation and enforcement of the rules.\nPlease do not argue with staff and be considerate of their time.\nStaff will assist you as soon as they\'re ready.'},
-                        {name: 'Imperium Server Policies & Guidelines', value: 'https://docs.google.com/document/d/1CPtWU65pkfYJYfTv-_8ZzrA6AmUWh4xyvYXWJLcSXaA/edit?usp=sharing'},
+                        {name: 'Imperium Server Policies & Guidelines', value: 'https://docs.google.com/document/d/1RrVFlsro43ga00CsyqZFp3yLt7TQawAHbpsy0cVpGTI/edit?usp=sharing'},
                         {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'},
                         {name: 'For further inquiries, contact the owners', value: '@willom02 & @featherthebladeofthefallenl'}
                     );
@@ -979,7 +979,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             const suggestion = suggestions.find(s => s.messageId === suggestionId);
 
             if (!suggestion) {
-                console.error('Suggestion not found!');
+                console.error('An interaction occurred.');
                 return;
             }
 
@@ -1038,27 +1038,28 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
 });
 
-
-client.on(Events.GuildAuditLogEntryCreate, async (audit) => {
-
-    const {action, executor, target, targetId} = audit;
-
-    if (action !== AuditLogEvent.MessageDelete) return;
-
-
-    client.on(Events.MessageDelete, async (message) => {
+client.on(Events.MessageDelete, async (message) => {
+    try {
         let messageDeleted = message.content;
+        let targetMessageId = message.id;
+        let targetChannelId = message.channel.id;
+        let messagehyperlink = messageLink(targetChannelId, targetMessageId);
 
-        if (target) {
-            const targetChannel = client.channels.cache.get('1193934914832310272');
+        //Aurora bot whitelist
+        if (message.author.id === '1246079113777647677') return;
+
+        const targetChannel = client.channels.cache.get('1193934914832310272');
             const logDeletionEmbed = new EmbedBuilder()
             .setColor('ea2e48')
             .setAuthor({
-                iconURL: target.displayAvatarURL(),
-                name: target.username
+                iconURL: message.author.displayAvatarURL(),
+                name: message.author.username
             })
+            .setDescription(`**Message sent by <@${message.author.id}> deleted in ${`<#${targetChannelId}>`}**`)
             .addFields(
-                {name: `Message sent by ${target} deleted by ${executor}`, value: `${messageDeleted}`}
+                {name: ``, value: `${messageDeleted}`},
+                {name: '', value: `${messagehyperlink}`},
+                {name: '', value: `Author ID: ${message.author.id}\nMessage ID: ${targetMessageId}`}
             )
             .setTimestamp()
             .setFooter({text: 'Imperium', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
@@ -1066,10 +1067,9 @@ client.on(Events.GuildAuditLogEntryCreate, async (audit) => {
             targetChannel.send({
                 embeds: [logDeletionEmbed]
             });
+        } catch (error) {
+            console.log(error);
         }
-    })
-
-
 });
 
 client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
@@ -1080,15 +1080,20 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
 
     try {
     const targetChannel = client.channels.cache.get('1193934914832310272');
+    const author = newMessage.author;
+    const messagehyperlink = messageLink(newMessage.channelId, newMessage.id);
+    const jump = hyperlink("Jump to message", messagehyperlink);
     const logEditEmbed = new EmbedBuilder()
     .setColor('edeb0d')
     .setAuthor(
-        {iconURL: client.user.displayAvatarURL(),
-        name: client.user.username}
+        {iconURL: author.displayAvatarURL(),
+        name: author.username}
     )
+    .setDescription(`**Message sent by <@${newMessage.author.id}> edited in <#${newMessage.channel.id}>**`)
     .addFields(
-        {name: `Message sent by ${newMessage.author.username} edited in ${newMessage.channel.name}`,
-        value: `Before:\n${oldMessage.content}\n\nAfter:\n${newMessage.content}`}
+        {name: ``,value: `Before:\n${oldMessage.content}\n\nAfter:\n${newMessage.content}`},
+        {name: '', value: `${jump}`},
+        {name: '', value: `Author ID: ${newMessage.author.id}`}
     )
     .setTimestamp()
     .setFooter({text: 'Imperium', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
