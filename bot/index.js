@@ -3,7 +3,9 @@ const { token } = require("./config.json");
 
 const client = new Client({ 
     intents: 
-    [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers]
+    [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers],
+    partials:
+    [Partials.Channel, Partials.GuildMember, Partials.Message],
  });
 
 client.commands = new Collection();
@@ -342,7 +344,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             {name: `Details`, value: `${bugReportBody}`}
                         )
                         .setTimestamp()
-                        .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
+                        .setFooter({text: 'Imperium Tickets, built by Fjc'});
                 const closeButton = new ButtonBuilder()
                         .setCustomId('close-bug')
                         .setLabel('Close')
@@ -419,7 +421,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                                 {name: `Reason`, value: `${playerReportBody}`}
                             )
                             .setTimestamp()
-                            .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
+                            .setFooter({text: 'Imperium Tickets, built by Fjc'});
                     const closeButton = new ButtonBuilder()
                             .setCustomId('close-report')
                             .setLabel('Close')
@@ -500,7 +502,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                                 {name: `Reason(s) for wanting an unban`, value: `${banappealBody}`}
                             )
                             .setTimestamp()
-                            .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
+                            .setFooter({text: 'Imperium Tickets, built by Fjc'});
                     const closeButton = new ButtonBuilder()
                             .setCustomId('close-appeal')
                             .setLabel('Close')
@@ -572,7 +574,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                                 {name: `Details`, value: `${otherSupportBody}`}
                             )
                             .setTimestamp()
-                            .setFooter({text: 'Imperium Tickets, built by Fjc', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
+                            .setFooter({text: 'Imperium Tickets, built by Fjc'});
                     const closeButton = new ButtonBuilder()
                             .setCustomId('close-other')
                             .setLabel('Close')
@@ -1048,6 +1050,8 @@ client.on(Events.MessageDelete, async (message) => {
         //Aurora bot whitelist
         if (message.author.id === '1246079113777647677') return;
 
+        if (message.attachments.size > 0) return;
+
         const targetChannel = client.channels.cache.get('1193934914832310272');
             const logDeletionEmbed = new EmbedBuilder()
             .setColor('ea2e48')
@@ -1062,14 +1066,88 @@ client.on(Events.MessageDelete, async (message) => {
                 {name: '', value: `Author ID: ${message.author.id}\nMessage ID: ${targetMessageId}`}
             )
             .setTimestamp()
-            .setFooter({text: 'Imperium', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
+            .setFooter({text: 'Imperium'});
 
             targetChannel.send({
                 embeds: [logDeletionEmbed]
             });
+
+            /*
+            if (message.author.id === '548916320956317698') {
+                try {
+                    console.log('Person in question tried to hide the following message: ', message.content);
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                console.log(`DEBUG: Message sent by ${message.author.username} deleted in ${targetChannel.name}: ${messageDeleted}`)
+            }
+            */
         } catch (error) {
             console.log(error);
         }
+
+        /*Elusive snipe
+        try {
+            if (message.author.id === '548916320956317698') {
+                console.log('Anonymous tried hiding the following message: ');
+                console.log(`${message.content}`);
+            }
+        } catch (error) {
+            console.log('Something went wrong!', error);
+        }
+        */
+});
+client.on(Events.MessageDelete, async (message) => {
+    if (message.attachments.size <= 0) return;
+    const newAttachment = message.attachments.first();
+    let messagehyperlink = messageLink(message.channel.id, message.id);
+    const target = client.channels.cache.get('1193934914832310272');
+
+    try {
+        if (newAttachment.contentType?.startsWith('image/')) {
+            const imageURL = newAttachment.url;
+    
+            const imageEmbedLog = new EmbedBuilder()
+            .setColor('ea2e48')
+            .setAuthor({iconURL: message.author.displayAvatarURL(), name: message.author.username})
+            .setDescription(`**Image sent by <@${message.author.id} deleted in <#${message.channel.id}>**`)
+            .setImage(imageURL)
+            .addFields(
+                {name: '', value: `${imageURL}`},
+                {name: '', value: `${message.content}`},
+                {name: '', value: `${messagehyperlink}`},
+                {name: '', value: `Author ID: ${message.author.id}\nImage ID: ${newAttachment.id}\nMessage ID: ${message.id}`}
+            )
+            .setTimestamp()
+            .setFooter({text: 'Imperium'});
+    
+            target.send(
+                {embeds: [imageEmbedLog] }
+            );
+    
+        }
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+client.on(Events.MessageDelete, async (message) => {
+    const logs = await message.guild.fetchAuditLogs({
+        type: AuditLogEvent.MessageDelete,
+        limit: 1,
+    });
+
+    const entry = logs.entries.first();
+    const {executorId, target, targetId} = entry;
+
+    const user = await client.users.fetch(executorId);
+
+    if (target) {
+        console.log(`A message sent by ${target.tag} was deleted by ${user.tag}`);
+    } else {
+        console.log(`Someone with id ${targetId} deleted a message sent by ${user.tag}`);
+    }
 });
 
 client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
@@ -1096,7 +1174,7 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
         {name: '', value: `Author ID: ${newMessage.author.id}`}
     )
     .setTimestamp()
-    .setFooter({text: 'Imperium', iconURL: 'https://cdn.discordapp.com/app-icons/1339623231954620528/d921e4568414c032e3ecd58298dc66bb.png?size=512'});
+    .setFooter({text: 'Imperium'});
 
     targetChannel.send({
         embeds: [logEditEmbed]
@@ -1104,7 +1182,17 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
 } catch (error) {
     console.log(error);
 }
-}); 
+});
+
+client.on(Events.GuildAuditLogEntryCreate, async (event) => {
+    const {action, executor, target, targetId} = event;
+
+    try {
+        console.log(`${executor.username} performed ${action.toString()}, affecting ${target.username} (${targetId})`);
+    } catch (error) {
+        console.log('Something went wrong while attempting to parse the audit log: ', error)
+    }
+})
 
 
 client.on('exit', () => {
