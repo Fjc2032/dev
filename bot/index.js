@@ -1,4 +1,4 @@
-const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message, Partials, AuditLogEvent, messageLink, hyperlink } = require("discord.js");
+const { Client, Collection, Events, GatewayIntentBits, ButtonComponent, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, EmbedBuilder, PermissionOverwrites, ChannelType, PermissionsBitField, TextChannel, GuildChannel, TimestampStyles, Message, Partials, AuditLogEvent, messageLink, hyperlink, Guild } = require("discord.js");
 const { token } = require("./config.json");
 
 const client = new Client({ 
@@ -131,6 +131,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
             }
 
             if (interaction.commandName === 'generateticketembed') {
+                if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.Administrator)) return;
                 const ticketEmbedHelp = new EmbedBuilder()
                     .setColor('ffffff')
                     .setTitle('**Tickets**')
@@ -162,6 +163,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 await interaction.channel.send({ embeds: [ticketEmbedHelp], components: [generateEmbed] });
             }
             if (interaction.commandName === 'exportrules') {
+                if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.Administrator)) return;
                 const rulesEmbed = new EmbedBuilder()
                     .setColor('ffffff')
                     .setTitle('Rules')
@@ -172,12 +174,12 @@ client.on(Events.InteractionCreate, async (interaction) => {
                         {name: 'No Advertisement', value: 'Advertisement or promoting of any kind is not allowed.'},
                         {name: 'Listen to Staff', value: 'Staff have full discretion in the interpretation and enforcement of the rules.\nPlease do not argue with staff and be considerate of their time.\nStaff will assist you as soon as they\'re ready.'},
                         {name: 'Imperium Server Policies & Guidelines', value: 'https://docs.google.com/document/d/1RrVFlsro43ga00CsyqZFp3yLt7TQawAHbpsy0cVpGTI/edit?usp=sharing'},
-                        {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'},
-                        {name: 'For further inquiries, contact the owners', value: '@willom02 & @featherthebladeofthefallenl'}
+                        {name: 'Discord\'s Terms of Service', value: 'https://discord.com/terms'}
                     );
                 await interaction.channel.send({embeds: [rulesEmbed]});
             }
             if (interaction.commandName === 'generatesuggestionbox') {
+                if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.Administrator)) return;
                 const suggestionEmbed = new EmbedBuilder()
                 .setColor('ffffff')
                 .setTitle('Suggestions')
@@ -197,6 +199,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
                 await interaction.channel.send({embeds: [suggestionEmbed], components: [generateBox]});
             }
             if (interaction.commandName === 'exporthandbook') {
+                if (!interaction.guild.members.me.permissions.has(PermissionsBitField.Flags.Administrator)) return;
                 const handbookEmbed = new EmbedBuilder()
                 .setColor('ffffff')
                 .setTitle('Guidelines')
@@ -357,6 +360,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
                         .setEmoji('🔏');
                 const closeSetBug = new ActionRowBuilder().addComponents(closeButton, closeReasonButton);
 
+                let reason = interaction.fields.getTextInputValue("closeWithReason-bug");
+                console.log(`Bug report closed with reason: ${reason}`)
                 const newChannel = await category.guild.channels.create({
                     name: channelName,
                     type: ChannelType.GuildText,
@@ -433,6 +438,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             .setStyle(ButtonStyle.Danger)
                             .setEmoji('🔏');
                     const closeSetReport = new ActionRowBuilder().addComponents(closeButton, closeButtonReason);
+
+                    let reason = interaction.fields.getTextInputValue("closeWtihReason-report");
+                    console.log(`Player report closed with reason: ${reason}`);
     
                     const newChannel = await category.guild.channels.create({
                         name: channelName,
@@ -514,6 +522,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             .setStyle(ButtonStyle.Danger)
                             .setEmoji('🔏');
                     const closeSetAppeal = new ActionRowBuilder().addComponents(closeButton, closeButtonReason);
+
+                    let reason = interaction.fields.getTextInputValue("closeWtihReason-appeal");
+                    console.log(`Player appeal closed with reason: ${reason}`);
     
                     const newChannel = await category.guild.channels.create({
                         name: channelName,
@@ -587,6 +598,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
                             .setEmoji('🔏');
                     const closeSetOther = new ActionRowBuilder().addComponents(closeButton, closeButtonReason);
     
+                    let reason = interaction.fields.getTextInputValue("closeWithReason-other");
+                    console.log(`Ticket closed with reason: ${reason}`);
+
                     const newChannel = await category.guild.channels.create({
                         name: channelName,
                         type: ChannelType.GuildText,
@@ -889,11 +903,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
                     .setPlaceholder('Enter your reason for closing this ticket (e.g. resolved).')
                     .setMinLength(0)
                     .setMaxLength(50);
+
                 
                 const row = new ActionRowBuilder().addComponents(textTitle);
                 closeReasonModal.addComponents(row);
 
                 await interaction.showModal(closeReasonModal);
+
+            
             }
             if (interaction.customId === 'closeWithReason-report') {
                 const closeReasonModal = new ModalBuilder()
