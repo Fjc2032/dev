@@ -650,15 +650,45 @@ client.on(Events.InteractionCreate, async (interaction) => {
             }
             if (interaction.customId === 'closeReasonBug') {
                 const channelTarget = interaction.channel;
+                let messages = [];
+                let lastMsgId;
+                const messageArray = await channelTarget.messages.fetch({limit: 100});
+                if (messageArray.size === 0) return;
+                messages.push(...messageArray.map(msg => `[${msg.createdAt.toISOString()}] ${msg.author.tag}: ${msg.content}`));
+                lastMsgId = messageArray.last().id;
+
                 if (channelTarget) {
-                    console.log(`Selected channel ${channelTarget}`);
-                    await interaction.reply(`DEBUG: ${channelTarget}`);
+                    try {
+                        let output = path.join(__dirname, 'ticket-archive', channelTarget.name + '.txt');
+                        fs.mkdirSync(path.dirname(output), {recursive: true});
+                        fs.writeFileSync(output, messages.reverse().join('\n'), 'utf-8');
+                    } catch (error) {
+                        console.warn('Something went wrong while attemping to write to the file!');
+                        console.error(error);
+                    }
+                    console.log(`Selected channel ${channelTarget} for deletion.`);
                     channelTarget.delete();
+                    console.log('Channel deleted.');
                 }
             }
             if (interaction.customId === 'closeReasonReport') {
                 const channelTarget = interaction.channel;
+                let messages = [];
+                let lastMsgId;
+                const messageArray = await channelTarget.messages.fetch({limit: 100});
+                if (messageArray.size === 0) return;
+                messages.push(...messageArray.map(msg => `[${msg.createdAt.toISOString()}] ${msg.author.tag}: ${msg.content}`));
+                lastMsgId = messageArray.last().id;
+
                 if (channelTarget) {
+                    try {
+                        let output = path.join(__dirname, 'ticket-archive', channelTarget.name + '.txt');
+                        fs.mkdirSync(path.dirname(output), {recursive: true});
+                        fs.writeFileSync(output, messages.reverse().join('\n'), 'utf-8');
+                    } catch (error) {
+                        console.warn('Something went wrong while attemping to write to the file!');
+                        console.error(error);
+                    }
                     console.log(`Selected channel ${channelTarget} for deletion.`)
                     channelTarget.delete();
                     console.log('Channel deleted.');
@@ -666,7 +696,22 @@ client.on(Events.InteractionCreate, async (interaction) => {
             }
             if (interaction.customId === 'closeReasonAppeal') {
                 const channelTarget = interaction.channel;
+                let messages = [];
+                let lastMsgId;
+                const messageArray = await channelTarget.messages.fetch({limit: 100});
+                if (messageArray.size === 0) return;
+                messages.push(...messageArray.map(msg => `[${msg.createdAt.toISOString()}] ${msg.author.tag}: ${msg.content}`));
+                lastMsgId = messageArray.last().id;
+
                 if (channelTarget) {
+                    try {
+                        let output = path.join(__dirname, 'ticket-archive', channelTarget.name + '.txt');
+                        fs.mkdirSync(path.dirname(output), {recursive: true});
+                        fs.writeFileSync(output, messages.reverse().join('\n'), 'utf-8');
+                    } catch (error) {
+                        console.warn('Something went wrong while attemping to write to the file!');
+                        console.error(error);
+                    }
                     console.log(`Selected channel ${channelTarget} for deletion.`)
                     channelTarget.delete();
                     console.log('Channel deleted.');
@@ -674,7 +719,22 @@ client.on(Events.InteractionCreate, async (interaction) => {
             }
             if (interaction.customId === 'closeReasonOther') {
                 const channelTarget = interaction.channel;
+                let messages = [];
+                let lastMsgId;
+                const messageArray = await channelTarget.messages.fetch({limit: 100});
+                if (messageArray.size === 0) return;
+                messages.push(...messageArray.map(msg => `[${msg.createdAt.toISOString()}] ${msg.author.tag}: ${msg.content}`));
+                lastMsgId = messageArray.last().id;
+
                 if (channelTarget) {
+                    try {
+                        let output = path.join(__dirname, 'ticket-archive', channelTarget.name + '.txt');
+                        fs.mkdirSync(path.dirname(output), {recursive: true});
+                        fs.writeFileSync(output, messages.reverse().join('\n'), 'utf-8');
+                    } catch (error) {
+                        console.warn('Something went wrong while attemping to write to the file!');
+                        console.error(error);
+                    }
                     console.log(`Selected channel ${channelTarget} for deletion.`)
                     channelTarget.delete();
                     console.log('Channel deleted.');
@@ -1101,7 +1161,7 @@ client.on(Events.MessageDelete, async (message) => {
             }
             */
         } catch (error) {
-            console.log(error);
+            console.log("Something went wrong while attemping to parse a MessageDeleteEvent", error);
         }
 
         /*Elusive snipe
@@ -1145,10 +1205,10 @@ client.on(Events.MessageDelete, async (message) => {
     
         }
     } catch (error) {
-        console.log(error);
+        console.log("Something went wrong while attemping to parse a MessageDeleteEvent (IMAGE)", error);
     }
 });
-
+/*
 client.on(Events.MessageDelete, async (message) => {
     const logs = await message.guild.fetchAuditLogs({
         type: AuditLogEvent.MessageDelete,
@@ -1160,12 +1220,15 @@ client.on(Events.MessageDelete, async (message) => {
 
     const user = await client.users.fetch(executorId);
 
+    if (targetId === executorId) return;
+
     if (target) {
         console.log(`A message sent by ${target.tag} was deleted by ${user.tag}`);
     } else {
         console.log(`Someone with id ${targetId} deleted a message sent by ${user.tag}`);
     }
 });
+*/
 
 client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
     if (!oldMessage || !newMessage) return;
@@ -1197,24 +1260,69 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
         embeds: [logEditEmbed]
     });
 } catch (error) {
-    console.log(error);
+    console.log("Something went wrong while attemping to send a MessageUpdateEvent error", error);
 }
 });
 
-client.on(Events.GuildAuditLogEntryCreate, async (event) => {
-    const {action, executor, target, targetId} = event;
-
-    try {
-        console.log(`${executor.username} performed ${action.toString()}, affecting ${target.username} (${targetId})`);
-    } catch (error) {
-        console.log('Something went wrong while attempting to parse the audit log: ', error)
+client.on(Events.GuildAuditLogEntryCreate, async (entry, guild) => {
+    if (!guild.members.me.permissions.has(PermissionsBitField.Flags.Administrator)) {
+        console.log('Missing permissions: Administrator');
+        return;
     }
-})
+    console.log('**BEGIN LOG**');
+    console.log(`An action was executed by ${entry.executor?.tag} affecting ${entry.target}.`);
+    console.log(`Action in question: ${entry.action}, performed in guild ${guild.name}`);
+    console.log(`Additional information: \nCreated on ${entry.createdAt}\nReason: ${entry.reason}`);
+    console.log('**END LOG**');
+});
+
+client.on(Events.GuildMemberAdd, async (member) => {
+    const target = client.channels.cache.get('1193934914832310272');
+    const joinEventEmbed = new EmbedBuilder()
+    .setColor('0a31a0')
+    .setAuthor(
+        {iconURL: member.displayAvatarURL(),
+        name: member.user.username
+        }
+    )
+    .setDescription(`**New member <@${member.id}> has joined.`)
+    .addFields(
+        {name: 'ID', value: member.id},
+        {name: 'Join Date', value: member.joinedTimestamp.toLocaleString()}
+    )
+    .setFooter({text: 'Imperium'});
+
+    target.send({
+        embeds: [joinEventEmbed]
+    });
+});
+
+client.on(Events.GuildMemberRemove, async (member) => {
+    const target = client.channels.cache.get('1193934914832310272');
+    const leaveEventEmbed = new EmbedBuilder()
+    .setColor('ea2e48')
+    .setAuthor(
+        {iconURL: member.user.displayAvatarURL(),
+        name: member.user.username
+        }
+    )
+    .setDescription(`**Member <@${member.id}> has left.`)
+    .addFields(
+        {name: 'ID', value: member.id}
+    )
+    .setTimestamp()
+    .setFooter({text: 'Imperium'});
+
+    target.send({
+        embeds: [leaveEventEmbed]
+    });
+});
 
 
 client.on('exit', () => {
     db.close();
     ticketdb.close();
 });
+
 
 
